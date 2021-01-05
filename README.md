@@ -1,6 +1,6 @@
 # Sailbnb
 
-Airbnb for boats
+Airbnb inspired Boat Renting Site
 
 ### MVP
 
