@@ -6,7 +6,7 @@ from flask_login import current_user, login_user, logout_user
 auth_routes = Blueprint('auth', __name__)
 
 
-@auth.routes.route('/')
+@auth_routes.route('/')
 def authenticate():
     if current_user.is_authenticated:
         return current_user.to_dict()
@@ -21,7 +21,7 @@ def login():
     if form.validate_on_submit():
         user = User.query.filter(User.email == form.data['email']).first()
         login_user(user)
-        return user.to_dict
+        return user.to_dict()
     else:
         return {'errors': form.errors}, 401
 
@@ -30,3 +30,8 @@ def login():
 def logout():
     logout_user()
     return {'message': 'User logged out'}
+
+
+@auth_routes.route('signup')
+def signup():
+    pass

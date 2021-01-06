@@ -1,10 +1,10 @@
 from .db import db
 from datetime import datetime
-from flask_login import UserMixIn
+from flask_login import UserMixin
 from werkzeug.security import generate_password_hash, check_password_hash
 
 
-class User(db.Model, UserMixIn):
+class User(db.Model, UserMixin):
     __tablename__ = "users"
 
     id = db.Column(db.Integer, primary_key=True)
@@ -21,7 +21,7 @@ class User(db.Model, UserMixIn):
     def password(self):
         return self.hashedPassword
 
-    @password_setter
+    @password.setter
     def password(self, password):
         self.hashedPassword = generate_password_hash(password)
 
@@ -30,5 +30,6 @@ class User(db.Model, UserMixIn):
 
     def to_dict(self):
         return {
+            "id": self.id,
             "email": self.email,
         }

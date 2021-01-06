@@ -27,7 +27,7 @@ def load_user(id):
     return User.query.get(int(id))
 
 
-# Application Securitys
+# Application Security
 CORS(app)
 
 
@@ -43,6 +43,7 @@ def inject_csrf_token(response):
     return response
 
 
+# Add React Support for Static Files
 @app.route("/", defaults={'path': ''})
 @app.route('/<path:path>')
 def react_root(path):
