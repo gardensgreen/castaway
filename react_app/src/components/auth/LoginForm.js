@@ -3,14 +3,17 @@ import { Redirect } from "react-router-dom";
 import { login } from "../../services/auth";
 
 const LoginForm = ({ authenticated, setAuthenticated }) => {
+    const [errors, setErrors] = useState([]);
     const [email, setEmail] = useState("");
     const [password, setPassword] = useState("");
 
     const onLogin = async (e) => {
         e.preventDefault();
         const user = await login(email, password);
-        if (!user.error) {
+        if (!user.errors) {
             setAuthenticated(true);
+        } else {
+            setErrors(user.errors);
         }
     };
 
@@ -28,6 +31,11 @@ const LoginForm = ({ authenticated, setAuthenticated }) => {
 
     return (
         <form onSubmit={onLogin}>
+            <div>
+                {errors.map((error, idx) => (
+                    <div>{error}</div>
+                ))}
+            </div>
             <div>
                 <label htmlFor="email">Email</label>
                 <input
