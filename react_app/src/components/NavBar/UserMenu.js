@@ -1,6 +1,5 @@
 import { useState } from "react";
 import styled from "styled-components";
-import Button from "@material-ui/core/Button";
 import Menu from "@material-ui/core/Menu";
 import MenuItem from "@material-ui/core/MenuItem";
 import Fade from "@material-ui/core/Fade";
@@ -32,7 +31,7 @@ const UserMenuPopUp = styled(Menu)`
 `;
 
 const UserMenuPopUpItem = styled(MenuItem)`
-    width: 300px;
+    margin-right: 300px;
 `;
 
 export default function UserMenu() {
