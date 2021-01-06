@@ -20,8 +20,7 @@ Werkzeug = "==1.0.1"
 WTForms = "==2.3.3"
 Flask-JWT-Extended = "==3.24.1"
 flask-migrate = "*"
-email-validator = "*"
-flask-login = "*"
+alembic = "*"
 
 [dev-packages]
 psycopg2-binary = "==2.8.6"
@@ -29,4 +28,4 @@ autopep8 = "*"
 pylint = "*"
 
 [requires]
-python_version = "3.8.3"
+python_version = "3.8"

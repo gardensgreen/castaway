@@ -10,7 +10,7 @@ class User(db.Model):
 
     id = db.Column(db.Integer, primary_key=True)
     email = db.Column(db.String, nullable=False, unique=True)
-    hashedPassword = db.Column(db.String(32), nullable=False)
+    hashedPassword = db.Column(db.String(255), nullable=False)
     firstName = db.Column(db.String(40), nullable=False)
     lastName = db.Column(db.String(40), nullable=False)
     isHost = db.Column(db.Boolean, nullable=False)
