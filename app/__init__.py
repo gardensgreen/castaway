@@ -1,8 +1,7 @@
 import os
 from flask import Flask, render_template, request, session
-from flask_app.models import db, User
-from flask_app.config import Config
-
+from app.models import db, User
+from app.config import Config
 
 app = Flask(__name__)
 
@@ -12,4 +11,4 @@ db.init_app(app)
 
 @app.route("/")
 def index():
-    return render_template('Index Works')
+    return ('Index Works')
