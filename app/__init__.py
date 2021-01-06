@@ -8,16 +8,26 @@ from flask_migrate import Migrate
 from .models import db, User
 from .config import Config
 from .seeds import seed_commands
+from .api.auth_routes import auth_routes
 
 app = Flask(__name__)
 
 app.config.from_object(Config)
+app.register_blueprint(auth_routes, url_prefix='/api/auth')
 db.init_app(app)
 Migrate(app, db)
 app.cli.add_command(seed_commands)
 
-# Application Securitys
+# Setup login manager
+login = LoginManager(app)
 
+
+@login.user_loader
+def load_user(id):
+    return User.query.get(int(id))
+
+
+# Application Securitys
 CORS(app)
 
 
@@ -25,9 +35,10 @@ CORS(app)
 def inject_csrf_token(response):
     response.set_cookie('csrf_token',
                         generate_csrf(),
-                        secure=True if os.environ.get('FLASK_ENV') else False,
+                        secure=True if os.environ.get(
+                            'FLASK_ENV') == 'production' else False,
                         samesite='Strict' if os.environ.get(
-                            'FLASK_ENV') else None,
+                            'FLASK_ENV') == 'production' else None,
                         httponly=True)
     return response
 
