@@ -17,7 +17,7 @@ Airbnb for boats
 
 ### Database Schema
 
-<img src="./database_schema.png"/>
+<img src="./readme_images/database_schema.png"/>
 
 ### Technologies being used
 
