@@ -34,7 +34,10 @@ function App() {
                 ></LoginForm>
             </Route>
             <Route path="/signup" exact={true}>
-                <SignUpForm setAuthenticated={setAuthenticated} />
+                <SignUpForm
+                    authenticated={authenticated}
+                    setAuthenticated={setAuthenticated}
+                />
             </Route>
             <ProtectedRoute path="/" exact={true} authenticated={authenticated}>
                 <h1>My home Page</h1>

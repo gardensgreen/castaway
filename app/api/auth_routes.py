@@ -1,6 +1,6 @@
 from flask import Blueprint, jsonify, session, request
-from app.models import User
-from app.forms import LoginForm
+from app.models import User, db
+from app.forms import LoginForm, SignUpForm
 from flask_login import current_user, login_user, logout_user
 
 auth_routes = Blueprint('auth', __name__)
@@ -32,6 +32,18 @@ def logout():
     return {'message': 'User logged out'}
 
 
-@auth_routes.route('signup')
+@auth_routes.route('/signup', methods=["POST"])
 def signup():
-    pass
+    print("hi")
+    form = SignUpForm()
+    form['csrf_token'].data = request.cookies['csrf_token']
+    if form.validate_on_submit():
+        user = User(
+            email=form.data['email'],
+            password=form.data['password']
+        )
+        db.session.add(user)
+        db.session.commit()
+        return user.to_dict()
+    else:
+        return {'errors': form.errors}

@@ -1,19 +1,24 @@
 import React, { useState } from "react";
+import { Redirect } from "react-router-dom";
 import { signup } from "../../services/auth";
 
-const SignUpForm = () => {
+const SignUpForm = ({ authenticated, setAuthenticated }) => {
     const [email, setEmail] = useState("");
     const [password, setPassword] = useState("");
     const [repeatPassword, setRepeatPassword] = useState("");
     const [errorMessage, setErrorMessage] = useState("");
 
-    const onSignUp = (e) => {
+    const onSignUp = async (e) => {
         e.preventDefault();
         if (password === repeatPassword) {
-            setErrorMessage("");
-            signup(email, password);
+            const user = await signup(email, password);
+            if (!user.errors) {
+                setAuthenticated(true);
+            } else {
+                setErrorMessage(user.errors[0]);
+            }
         } else {
-            setErrorMessage("Passwords must match.");
+            setErrorMessage("Passwords must match");
         }
     };
 
@@ -28,6 +33,8 @@ const SignUpForm = () => {
     const updateRepeatPassword = (e) => {
         setRepeatPassword(e.target.value);
     };
+
+    if (authenticated) return <Redirect to="/" />;
 
     return (
         <form onSubmit={onSignUp}>
