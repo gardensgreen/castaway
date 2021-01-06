@@ -9,10 +9,10 @@ import AccountCircleIcon from "@material-ui/icons/AccountCircle";
 
 const UserMenuContainer = styled.div`
     display: flex;
-    border: 1px solid #e8e8e8;
+    border: 2px solid #e8e8e8;
     border-radius: 30px;
-    padding: 15px 10px;
-
+    padding: 10px;
+    align-items: center;
     &:hover {
         box-shadow: 0px 1px 1px 0px rgba(0, 0, 0, 0.14),
             0px 1px 1px -2px rgba(0, 0, 0, 0.12),
@@ -58,7 +58,10 @@ export default function UserMenu() {
                     color="primary"
                     style={{ marginRight: "5px" }}
                 ></MenuIcon>
-                <AccountCircleIcon color="primary"></AccountCircleIcon>
+                <AccountCircleIcon
+                    fontSize="large"
+                    color="primary"
+                ></AccountCircleIcon>
             </UserMenuContainer>
             <UserMenuPopUp
                 id="fade-menu"
