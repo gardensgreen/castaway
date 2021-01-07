@@ -1,6 +1,7 @@
 from .db import db
 from datetime import datetime
 from flask_login import UserMixin
+from sqlalchemy.orm import relationship
 from werkzeug.security import generate_password_hash, check_password_hash
 
 
@@ -16,6 +17,7 @@ class User(db.Model, UserMixin):
     avatarUrl = db.Column(db.String(100), nullable=True)
     bio = db.Column(db.String(255), nullable=True)
     createdAt = db.Column(db.DateTime, default=datetime.now())
+    boats = relationship("Boat", backref="boats")
 
     @property
     def password(self):
