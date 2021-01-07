@@ -5,6 +5,8 @@ import SignUpForm from "./components/auth/SignUpForm";
 import NavBar from "./components/NavBar/NavBar";
 import ProtectedRoute from "./components/auth/ProtectedRoute";
 import { authenticate } from "./services/auth";
+import Hero from "./components/LandingPage/Hero";
+import LandingPage from "./components/LandingPage/LandingPage";
 
 function App() {
     const [authenticated, setAuthenticated] = useState(false);
@@ -40,13 +42,9 @@ function App() {
                         setAuthenticated={setAuthenticated}
                     />
                 </Route>
-                <ProtectedRoute
-                    path="/"
-                    exact={true}
-                    authenticated={authenticated}
-                >
-                    <h1>My home Page</h1>
-                </ProtectedRoute>
+                <Route path="/" exact={true} authenticated={authenticated}>
+                    <LandingPage></LandingPage>
+                </Route>
             </Switch>
         </BrowserRouter>
     );
