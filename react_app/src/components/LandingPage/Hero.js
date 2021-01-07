@@ -19,7 +19,7 @@ const BackgroundImage = styled.div`
     right: 0;
     min-width: 100%;
     min-height: 80%;
-    background-image: url("https://external-content.duckduckgo.com/iu/?u=http%3A%2F%2Fwww.charterworld.com%2Fimages%2Fcwnews%2F2016%2F08%2FLuxury-yacht-Hana1.jpg&f=1&nofb=1");
+    background-image: url("https://external-content.duckduckgo.com/iu/?u=https%3A%2F%2Fsandpeoplecommunication.files.wordpress.com%2F2012%2F10%2F2-1-model-inside.jpg&f=1&nofb=1");
     background-position: center;
     background-size: cover;
     z-index: -2;
