@@ -239,13 +239,6 @@ export default function LoginModal({
                         >
                             Sign In
                         </Button>
-                        <Grid container>
-                            <Grid item>
-                                <Link href="#" variant="body2">
-                                    {"Don't have an account? Sign Up"}
-                                </Link>
-                            </Grid>
-                        </Grid>
                     </ModalForm>
                 </ModalContainer>
             </Container>
