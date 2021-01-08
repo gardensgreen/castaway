@@ -7,7 +7,12 @@ import Checkbox from "@material-ui/core/Checkbox";
 import Link from "@material-ui/core/Link";
 import Grid from "@material-ui/core/Grid";
 import Container from "@material-ui/core/Container";
+import IconButton from "@material-ui/core/IconButton";
 import InfoIcon from "@material-ui/icons/Info";
+import Visibility from "@material-ui/icons/Visibility";
+import VisibilityOff from "@material-ui/icons/VisibilityOff";
+import InputAdornment from "@material-ui/core/InputAdornment";
+
 import {
     ModalBody,
     useStyles,
@@ -19,6 +24,7 @@ import {
     ErrorMessage,
 } from "./AuthStyles";
 import { login } from "../../services/auth";
+import { FormControl, InputLabel, OutlinedInput } from "@material-ui/core";
 
 export default function LoginModal({
     setAuthenticated,
@@ -71,6 +77,14 @@ export default function LoginModal({
         setPassword(e.target.value);
     };
 
+    const handleClickShowPassword = () => {
+        setShowPassword(!showPassword);
+    };
+
+    const handleMouseDownPassword = (event) => {
+        event.preventDefault();
+    };
+
     const classes = useStyles();
 
     const body = (
@@ -112,36 +126,88 @@ export default function LoginModal({
                             />
                         )}
                         {!passwordValidationError ? (
-                            <TextField
-                                variant="outlined"
-                                margin="normal"
-                                required
+                            <FormControl
                                 fullWidth
-                                name="password"
-                                label="Password"
-                                type="password"
-                                id="password"
-                                color="primary"
-                                autoComplete="current-password"
-                                value={password}
-                                onChange={updatePassword}
-                            />
+                                margin="normal"
+                                variant="outlined"
+                            >
+                                <InputLabel htmlFor="outlined-adornment-password">
+                                    Password
+                                </InputLabel>
+                                <OutlinedInput
+                                    id="outlined-adornment-password"
+                                    required
+                                    name="password"
+                                    label="Password"
+                                    type={showPassword ? "text" : "password"}
+                                    color="primary"
+                                    autoComplete="current-password"
+                                    value={password}
+                                    onChange={updatePassword}
+                                    endAdornment={
+                                        <InputAdornment position="end">
+                                            <IconButton
+                                                aria-label="toggle password visibility"
+                                                onClick={
+                                                    handleClickShowPassword
+                                                }
+                                                onMouseDown={
+                                                    handleMouseDownPassword
+                                                }
+                                                edge="end"
+                                            >
+                                                {showPassword ? (
+                                                    <Visibility />
+                                                ) : (
+                                                    <VisibilityOff />
+                                                )}
+                                            </IconButton>
+                                        </InputAdornment>
+                                    }
+                                />
+                            </FormControl>
                         ) : (
-                            <TextField
-                                variant="outlined"
-                                margin="normal"
-                                required
+                            <FormControl
                                 fullWidth
-                                name="password"
-                                label="Password"
-                                type="password"
-                                id="password"
-                                color="primary"
-                                autoComplete="current-password"
-                                value={password}
-                                onChange={updatePassword}
+                                margin="normal"
+                                variant="outlined"
                                 error
-                            />
+                            >
+                                <InputLabel htmlFor="outlined-adornment-password">
+                                    Password
+                                </InputLabel>
+                                <OutlinedInput
+                                    id="outlined-adornment-password"
+                                    required
+                                    name="password"
+                                    label="Password"
+                                    type={showPassword ? "text" : "password"}
+                                    color="primary"
+                                    autoComplete="current-password"
+                                    value={password}
+                                    onChange={updatePassword}
+                                    endAdornment={
+                                        <InputAdornment position="end">
+                                            <IconButton
+                                                aria-label="toggle password visibility"
+                                                onClick={
+                                                    handleClickShowPassword
+                                                }
+                                                onMouseDown={
+                                                    handleMouseDownPassword
+                                                }
+                                                edge="end"
+                                            >
+                                                {showPassword ? (
+                                                    <Visibility />
+                                                ) : (
+                                                    <VisibilityOff />
+                                                )}
+                                            </IconButton>
+                                        </InputAdornment>
+                                    }
+                                />
+                            </FormControl>
                         )}
 
                         {errors.messages && errors.messages.length !== 0 ? (
