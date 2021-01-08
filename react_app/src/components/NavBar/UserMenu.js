@@ -63,6 +63,7 @@ export default function UserMenu({ authenticated, setAuthenticated }) {
 
     const onLogout = async (e) => {
         await logout();
+        window.location.reload();
         setAuthenticated(false);
     };
 

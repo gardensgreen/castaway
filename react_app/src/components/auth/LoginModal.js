@@ -1,4 +1,4 @@
-import { useState } from "react";
+import { useState, useEffect } from "react";
 import Modal from "@material-ui/core/Modal";
 import Button from "@material-ui/core/Button";
 import TextField from "@material-ui/core/TextField";
@@ -7,12 +7,16 @@ import Checkbox from "@material-ui/core/Checkbox";
 import Link from "@material-ui/core/Link";
 import Grid from "@material-ui/core/Grid";
 import Container from "@material-ui/core/Container";
+import InfoIcon from "@material-ui/icons/Info";
 import {
     ModalBody,
     useStyles,
     ModalContainer,
     ModalForm,
     ModalHeader,
+    ErrorContainer,
+    Error,
+    ErrorMessage,
 } from "./AuthStyles";
 import { login } from "../../services/auth";
 
@@ -21,9 +25,23 @@ export default function LoginModal({
     openModal,
     handleClose,
 }) {
-    const [errors, setErrors] = useState([]);
+    const [errors, setErrors] = useState({});
     const [email, setEmail] = useState("");
     const [password, setPassword] = useState("");
+    const [showPassword, setShowPassword] = useState(false);
+    const [emailValidationError, setEmailValidationError] = useState(false);
+    const [passwordValidationError, setPasswordValidationError] = useState(
+        false
+    );
+
+    useEffect(() => {
+        setEmail("");
+        setPassword("");
+        setShowPassword(false);
+        setEmailValidationError(false);
+        setPasswordValidationError(false);
+        setErrors({});
+    }, [openModal]);
 
     const onLogin = async (e) => {
         e.preventDefault();
@@ -32,6 +50,16 @@ export default function LoginModal({
             setAuthenticated(true);
         } else {
             setErrors(user.errors);
+            if (user.errors.fields && user.errors.fields.includes("email")) {
+                setEmailValidationError(true);
+            } else {
+                setEmailValidationError(false);
+            }
+            if (user.errors.fields && user.errors.fields.includes("password")) {
+                setPasswordValidationError(true);
+            } else {
+                setPasswordValidationError(false);
+            }
         }
     };
 
@@ -51,40 +79,91 @@ export default function LoginModal({
                 <ModalContainer>
                     <ModalHeader>Sign in</ModalHeader>
                     <ModalForm onSubmit={onLogin}>
-                        <TextField
-                            variant="outlined"
-                            margin="normal"
-                            required
-                            fullWidth
-                            id="email"
-                            label="Email Address"
-                            name="email"
-                            autoComplete="email"
-                            color="primary"
-                            autoFocus
-                            value={email}
-                            onChange={updateEmail}
-                        />
-                        <TextField
-                            variant="outlined"
-                            margin="normal"
-                            required
-                            fullWidth
-                            name="password"
-                            label="Password"
-                            type="password"
-                            id="password"
-                            color="primary"
-                            autoComplete="current-password"
-                            value={password}
-                            onChange={updatePassword}
-                        />
+                        {!emailValidationError ? (
+                            <TextField
+                                variant="outlined"
+                                margin="normal"
+                                required
+                                fullWidth
+                                id="email"
+                                label="Email Address"
+                                name="email"
+                                autoComplete="email"
+                                color="primary"
+                                autoFocus
+                                value={email}
+                                onChange={updateEmail}
+                            />
+                        ) : (
+                            <TextField
+                                variant="outlined"
+                                margin="normal"
+                                required
+                                fullWidth
+                                id="email"
+                                label="Email Address"
+                                name="email"
+                                autoComplete="email"
+                                color="primary"
+                                autoFocus
+                                value={email}
+                                onChange={updateEmail}
+                                error
+                            />
+                        )}
+                        {!passwordValidationError ? (
+                            <TextField
+                                variant="outlined"
+                                margin="normal"
+                                required
+                                fullWidth
+                                name="password"
+                                label="Password"
+                                type="password"
+                                id="password"
+                                color="primary"
+                                autoComplete="current-password"
+                                value={password}
+                                onChange={updatePassword}
+                            />
+                        ) : (
+                            <TextField
+                                variant="outlined"
+                                margin="normal"
+                                required
+                                fullWidth
+                                name="password"
+                                label="Password"
+                                type="password"
+                                id="password"
+                                color="primary"
+                                autoComplete="current-password"
+                                value={password}
+                                onChange={updatePassword}
+                                error
+                            />
+                        )}
+
+                        {errors.messages && errors.messages.length !== 0 ? (
+                            <ErrorContainer>
+                                {errors.messages.map((err, idx) => (
+                                    <Error key={idx}>
+                                        <InfoIcon
+                                            fontSize="small"
+                                            color="secondary"
+                                        />
+                                        <ErrorMessage>{err}</ErrorMessage>
+                                    </Error>
+                                ))}
+                            </ErrorContainer>
+                        ) : null}
                         <FormControlLabel
                             control={
                                 <Checkbox value="remember" color="primary" />
                             }
                             label="Remember me"
                         />
+
                         <Button
                             type="submit"
                             fullWidth

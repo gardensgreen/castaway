@@ -1,7 +1,5 @@
 import React, { useState, useEffect } from "react";
 import { BrowserRouter, Route, Switch } from "react-router-dom";
-
-import SignUpForm from "./components/auth/SignUpForm";
 import NavBar from "./components/NavBar/NavBar";
 import ProtectedRoute from "./components/auth/ProtectedRoute";
 import { authenticate } from "./services/auth";
@@ -41,12 +39,6 @@ function App() {
                     setAuthenticated={setAuthenticated}
                 />
                 <Switch>
-                    <Route path="/signup" exact={true}>
-                        <SignUpForm
-                            authenticated={authenticated}
-                            setAuthenticated={setAuthenticated}
-                        />
-                    </Route>
                     <Route path="/" exact={true} authenticated={authenticated}>
                         <LandingPage></LandingPage>
                     </Route>

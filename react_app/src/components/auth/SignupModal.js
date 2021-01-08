@@ -117,10 +117,11 @@ export default function SignupModal({
                         >
                             Sign Up
                         </Button>
+
                         <Grid container>
                             <Grid item>
                                 <Link href="#" variant="body2">
-                                    {"Don't have an account? Sign Up"}
+                                    {"Already have an account? Log in"}
                                 </Link>
                             </Grid>
                         </Grid>

@@ -8,7 +8,7 @@ const BackgroundOverlay = styled.div`
     right: 0;
     min-width: 100%;
     min-height: 80%;
-    background-color: rgba(0, 0, 0, 0.4);
+    background-color: rgba(0, 0, 0, 0.1);
     z-index: -1;
 `;
 
@@ -19,7 +19,7 @@ const BackgroundImage = styled.image`
     right: 0;
     min-width: 100%;
     min-height: 80%;
-    background-image: url("https://external-content.duckduckgo.com/iu/?u=http%3A%2F%2Fscsyachting.com%2Fwp-content%2Fuploads%2F2019%2F03%2Fyacht-people.jpg&f=1&nofb=1");
+    background-image: url("https://wallup.net/wp-content/uploads/2016/01/260688-landscape-boat-water-sea-sunset.jpg");
     background-position: center;
     background-size: cover;
     z-index: -2;

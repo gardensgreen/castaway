@@ -17,6 +17,23 @@ export const ModalBody = styled.div`
     }
 `;
 
+export const ErrorContainer = styled.div`
+    display: flex;
+    flex-direction: column;
+    margin: 10px 0px;
+`;
+
+export const Error = styled.div`
+    display: flex;
+    margin: 5px 0px;
+    align-items: center;
+`;
+
+export const ErrorMessage = styled.span`
+    margin-left: 10px;
+    color: #f50057;
+    font-size: 0.85rem;
+`;
 export const ModalHeader = styled.span`
     font-weight: 600;
     font-size: 1em;
