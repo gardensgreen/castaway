@@ -19,14 +19,17 @@ const NavLink = styled(NL)`
     color: inherit;
 `;
 
-const NavBar = ({ setAuthenticated }) => {
+const NavBar = ({ authenticated, setAuthenticated }) => {
     return (
         <Nav>
             <NavLink to="/" exact={true} activeClassName="active">
                 <Logo></Logo>
             </NavLink>
             <SearchBar />
-            <UserMenu />
+            <UserMenu
+                authenticated={authenticated}
+                setAuthenticated={setAuthenticated}
+            />
         </Nav>
     );
 };

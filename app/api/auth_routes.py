@@ -19,6 +19,7 @@ def validation_errors_to_error_messages(validation_errors):
 
 @auth_routes.route('/')
 def authenticate():
+    # This keeps returning false
     if current_user.is_authenticated:
         return current_user.to_dict()
     else:

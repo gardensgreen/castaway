@@ -1,10 +1,13 @@
-import { useState } from "react";
+import { useState, useRef } from "react";
 import styled from "styled-components";
 import Menu from "@material-ui/core/Menu";
 import MenuItem from "@material-ui/core/MenuItem";
 import Fade from "@material-ui/core/Fade";
 import MenuIcon from "@material-ui/icons/Menu";
 import AccountCircleIcon from "@material-ui/icons/AccountCircle";
+import LoginModal from "../auth/LoginModal";
+import SignupModal from "../auth/SignupModal";
+import { logout } from "../../services/auth";
 
 const UserMenuContainer = styled.div`
     display: flex;
@@ -36,8 +39,10 @@ const UserMenuPopUpItem = styled(MenuItem)`
     margin-right: 300px;
 `;
 
-export default function UserMenu() {
+export default function UserMenu({ authenticated, setAuthenticated }) {
     const [anchorEl, setAnchorEl] = useState(null);
+    const [openLoginModal, setOpenLoginModal] = useState(false);
+    const [openSignupModal, setOpenSignupModal] = useState(false);
     const open = Boolean(anchorEl);
 
     const handleClick = (e) => {
@@ -46,6 +51,19 @@ export default function UserMenu() {
 
     const handleClose = () => {
         setAnchorEl(null);
+    };
+
+    const handleCloseLoginModal = () => {
+        setOpenLoginModal(false);
+    };
+
+    const handleCloseSignupModal = () => {
+        setOpenSignupModal(false);
+    };
+
+    const onLogout = async (e) => {
+        await logout();
+        setAuthenticated(false);
     };
 
     return (
@@ -72,12 +90,34 @@ export default function UserMenu() {
                 onClose={handleClose}
                 TransitionComponent={Fade}
             >
-                <UserMenuPopUpItem onClick={handleClose}>
-                    Login
-                </UserMenuPopUpItem>
-                <UserMenuPopUpItem onClick={handleClose}>
-                    Signup
-                </UserMenuPopUpItem>
+                {!authenticated ? (
+                    <>
+                        <UserMenuPopUpItem
+                            onClick={(e) => setOpenLoginModal(true)}
+                        >
+                            Login
+                        </UserMenuPopUpItem>
+                        <LoginModal
+                            setAuthenticated={setAuthenticated}
+                            openModal={openLoginModal}
+                            handleClose={handleCloseLoginModal}
+                        />
+                        <UserMenuPopUpItem
+                            onClick={(e) => setOpenSignupModal(true)}
+                        >
+                            Sign Up
+                        </UserMenuPopUpItem>{" "}
+                        <SignupModal
+                            setAuthenticated={setAuthenticated}
+                            openModal={openSignupModal}
+                            handleClose={handleCloseSignupModal}
+                        />
+                    </>
+                ) : (
+                    <UserMenuPopUpItem onClick={onLogout}>
+                        Logout
+                    </UserMenuPopUpItem>
+                )}
             </UserMenuPopUp>
         </div>
     );
