@@ -1,6 +1,5 @@
 import React from "react";
 import styled from "styled-components";
-import Animation from "./Animation";
 import Particle from "react-particles-js";
 
 const Particles = styled(Particle)`
@@ -23,8 +22,8 @@ const HeroBackground = styled.div`
     background-image: linear-gradient(315deg, #3eadcf 0%, #abe9cd 74%);
 `;
 const HeroImage = styled.img`
-    width: 60%;
-    height: 60%;
+    width: 55%;
+    height: 55%;
     margin-left: -5%;
     margin-right: 10%;
 `;
@@ -32,9 +31,9 @@ const HeroImage = styled.img`
 const HeroContainer = styled.div`
     display: flex;
     flex-direction: row;
-    margin-left: 10%;
-    margin-right: 10%;
-
+    padding-left: 10%;
+    padding-right: 10%;
+    max-width: 100%;
     z-index: -2;
 `;
 
@@ -113,10 +112,12 @@ export default function Hero() {
         <>
             <HeroContainer>
                 <HeroContentContainer>
-                    <Description>A boat rental serivice</Description>
+                    <Description>
+                        A simple-yet powerful boat rental platform .
+                    </Description>
                     <HeroHeader>Embark on your next journey.</HeroHeader>
                     <HeroSubHeader>
-                        Find your adventure at the nearest marina near you.
+                        Find your adventure on a coast near you.
                     </HeroSubHeader>
                     <ActionButton>Get Started</ActionButton>
                 </HeroContentContainer>

@@ -12,8 +12,8 @@ body {
     display: flex;
     align-items: center;
     justify-content: center;
-    width: 100%;
-    margin-top: 20px;
+    margin-top: 90px;
+    padding: 10px 40px;
 }
 
 .footer-link {

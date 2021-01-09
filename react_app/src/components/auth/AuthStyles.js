@@ -3,12 +3,12 @@ import styled from "styled-components";
 
 export const ModalBody = styled.div`
     position: absolute;
-    width: 600px;
+    width: 400px;
     background-color: #fafafa;
     padding: 15px;
-    top: 30%;
+    top: 40%;
     left: 50%;
-    transform: translate(-50%, -50%);
+    transform: translate(-50%, -40%);
 
     border-radius: 12px;
 

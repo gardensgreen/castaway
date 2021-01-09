@@ -3,7 +3,7 @@ import Hero from "./Hero";
 
 export default function LandingPage() {
     return (
-        <div>
+        <div style={{ overflowY: "hidden", overflowX: "hidden" }}>
             <Hero />
             <div className="footer__container">
                 <a
