@@ -11,7 +11,7 @@ const Nav = styled.nav`
     display: flex;
     align-items: center;
     justify-content: space-between;
-    padding: 20px 30px;
+    padding: 40px 50px;
 `;
 
 const NavLink = styled(NL)`

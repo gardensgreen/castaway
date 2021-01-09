@@ -3,3 +3,7 @@ body {
     font-family: "Montserrat", sans-serif;
     background-color: #fafafa;
 }
+
+.animate__animated.animate__tada {
+    --animate-duration: 30s;
+}

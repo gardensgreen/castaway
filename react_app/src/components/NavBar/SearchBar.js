@@ -6,8 +6,8 @@ import SearchIcon from "@material-ui/icons/Search";
 const SearchBarContainer = styled.div`
     display: flex;
     justify-content: space-between;
-    border: 2px solid #e8e8e8;
-    border-radius: 30px;
+    border: 1px solid transparent;
+    border-radius: 10px;
     padding: 5px;
     padding-left: 10px;
     width: 300px;
@@ -24,7 +24,7 @@ const SearchInput = styled.input`
     border: 1px solid transparent;
     cursor: pointer;
     display: flex;
-
+    border-radius: 10px;
     &:focus {
         outline: none;
     }
@@ -38,7 +38,7 @@ const SearchInput = styled.input`
 
 const SearchButton = styled.button`
     border: 1px solid transparent;
-    border-radius: 100%;
+    border-radius: 10px;
     padding: 5px;
     margin: 5px;
     background-color: #3f51b5;

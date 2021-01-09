@@ -11,8 +11,8 @@ import { logout } from "../../services/auth";
 
 const UserMenuContainer = styled.div`
     display: flex;
-    border: 2px solid #e8e8e8;
-    border-radius: 30px;
+    border: 2px solid transparent;
+    border-radius: 10px;
     padding: 10px;
     align-items: center;
     background-color: #fff;
@@ -63,8 +63,9 @@ export default function UserMenu({ authenticated, setAuthenticated }) {
 
     const onLogout = async (e) => {
         await logout();
-        window.location.reload();
         setAuthenticated(false);
+        setOpenLoginModal(false);
+        setOpenSignupModal(false);
     };
 
     return (
@@ -107,7 +108,7 @@ export default function UserMenu({ authenticated, setAuthenticated }) {
                             onClick={(e) => setOpenSignupModal(true)}
                         >
                             Sign Up
-                        </UserMenuPopUpItem>{" "}
+                        </UserMenuPopUpItem>
                         <SignupModal
                             setAuthenticated={setAuthenticated}
                             openModal={openSignupModal}

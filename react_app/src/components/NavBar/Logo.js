@@ -5,7 +5,7 @@ export default function Logo() {
         <svg
             height="45px"
             width="45px"
-            fill="#fff"
+            fill="#3f51b5"
             xmlns="http://www.w3.org/2000/svg"
             version="1.1"
             x="0px"
