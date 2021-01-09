@@ -114,7 +114,7 @@ export default function Hero() {
             <HeroContainer>
                 <HeroContentContainer>
                     <Description className="animate__animated animate__slideInLeft">
-                        A simple yet powerful boat rental platform .
+                        A simple yet powerful boat rental platform.
                     </Description>
                     <HeroHeader className="animate__animated animate__fadeIn main__header">
                         Embark on your next journey.
