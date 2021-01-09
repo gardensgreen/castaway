@@ -113,7 +113,7 @@ export default function Hero() {
             <HeroContainer>
                 <HeroContentContainer>
                     <Description>
-                        A simple-yet powerful boat rental platform .
+                        A simple yet powerful boat rental platform .
                     </Description>
                     <HeroHeader>Embark on your next journey.</HeroHeader>
                     <HeroSubHeader>

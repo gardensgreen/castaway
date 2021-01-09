@@ -51,6 +51,14 @@ const useStyles = makeStyles({
 //     margin-right: 300px;
 // `;
 
+const UserMenuPopUp = styled(Menu)`
+    margin-top: 65px;
+    padding: 10px;
+`;
+
+const UserMenuPopUpItem = styled(MenuItem)`
+    margin-right: 300px;
+`;
 const UserMenuContainer = styled.div`
     display: flex;
 `;
@@ -61,6 +69,21 @@ const NavLink = styled.span`
     font-weight: 400;
     margin-right: 30px;
     cursor: pointer;
+`;
+
+const UserMenuContainerAuth = styled.div`
+    display: flex;
+    border: 2px solid transparent;
+    border-radius: 10px;
+    padding: 10px;
+    align-items: center;
+    background-color: #fff;
+    cursor: pointer;
+    &:hover {
+        box-shadow: 0px 1px 1px 0px rgba(0, 0, 0, 0.14),
+            0px 1px 1px -2px rgba(0, 0, 0, 0.12),
+            0px 1px 3px 0px rgba(0, 0, 0, 0.2);
+    }
 `;
 
 export default function UserMenu({ authenticated, setAuthenticated }) {
@@ -91,22 +114,48 @@ export default function UserMenu({ authenticated, setAuthenticated }) {
         setAuthenticated(false);
         setOpenLoginModal(false);
         setOpenSignupModal(false);
+        setAnchorEl(null);
     };
 
     return (
-        <UserMenuContainer>
-            <NavLink onClick={(e) => setOpenLoginModal(true)}>Login</NavLink>
-            <LoginModal
-                setAuthenticated={setAuthenticated}
-                openModal={openLoginModal}
-                handleClose={handleCloseLoginModal}
-            />
-            <NavLink onClick={(e) => setOpenSignupModal(true)}>Signup</NavLink>
-            <SignupModal
-                setAuthenticated={setAuthenticated}
-                openModal={openSignupModal}
-                handleClose={handleCloseSignupModal}
-            />
+        <>
+            {!authenticated ? (
+                <UserMenuContainer>
+                    {" "}
+                    <NavLink onClick={(e) => setOpenLoginModal(true)}>
+                        Login
+                    </NavLink>
+                    <LoginModal
+                        setAuthenticated={setAuthenticated}
+                        openModal={openLoginModal}
+                        handleClose={handleCloseLoginModal}
+                    />
+                    <NavLink onClick={(e) => setOpenSignupModal(true)}>
+                        Signup
+                    </NavLink>
+                    <SignupModal
+                        setAuthenticated={setAuthenticated}
+                        openModal={openSignupModal}
+                        handleClose={handleCloseSignupModal}
+                    />{" "}
+                </UserMenuContainer>
+            ) : (
+                <UserMenuContainerAuth
+                    aria-controls="fade-menu"
+                    aria-haspopup="true"
+                    onClick={handleClick}
+                >
+                    <MenuIcon
+                        color="primary"
+                        style={{ marginRight: "5px" }}
+                    ></MenuIcon>
+                    <AccountCircleIcon
+                        fontSize="large"
+                        color="primary"
+                    ></AccountCircleIcon>{" "}
+                </UserMenuContainerAuth>
+            )}
+
             {/* <UserMenuContainer
                 aria-controls="fade-menu"
                 aria-haspopup="true"
@@ -159,6 +208,18 @@ export default function UserMenu({ authenticated, setAuthenticated }) {
                     </UserMenuPopUpItem>
                 )}
             </UserMenuPopUp> */}
-        </UserMenuContainer>
+
+            <UserMenuPopUp
+                classes={{ root: classes.root }}
+                id="fade-menu"
+                anchorEl={anchorEl}
+                keepMounted
+                open={open}
+                onClose={handleClose}
+                TransitionComponent={Fade}
+            >
+                <UserMenuPopUpItem onClick={onLogout}>Logout</UserMenuPopUpItem>
+            </UserMenuPopUp>
+        </>
     );
 }

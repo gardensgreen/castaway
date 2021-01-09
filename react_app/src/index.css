@@ -9,10 +9,14 @@ body {
 }
 
 .footer__container {
+    position: fixed;
     display: flex;
     align-items: center;
     justify-content: center;
-    margin-top: 30px;
+    margin-top: 15px;
+    left: 50%;
+    transform: translateX(-50%);
+    bottom: 3%;
     padding: 10px 40px;
 }
 
