@@ -10,12 +10,8 @@ const SearchBarContainer = styled.div`
     border-radius: 10px;
     padding: 5px;
     padding-left: 10px;
-    width: 300px;
-    &:hover {
-        box-shadow: 0px 1px 1px 0px rgba(0, 0, 0, 0.14),
-            0px 1px 1px -2px rgba(0, 0, 0, 0.12),
-            0px 1px 3px 0px rgba(0, 0, 0, 0.2);
-    }
+    width: 500px;
+    box-shadow: 0px 0px 0px 3px rgba(63, 81, 181, 0.5);
     background-color: #fff;
 `;
 const SearchInput = styled.input`

@@ -7,36 +7,60 @@ import MenuIcon from "@material-ui/icons/Menu";
 import AccountCircleIcon from "@material-ui/icons/AccountCircle";
 import LoginModal from "../auth/LoginModal";
 import SignupModal from "../auth/SignupModal";
+import { makeStyles } from "@material-ui/core/styles";
 import { logout } from "../../services/auth";
+
+const useStyles = makeStyles({
+    root: {
+        width: 300,
+    },
+    label: {
+        textTransform: "capitalize",
+    },
+});
+
+// const UserMenuContainer = styled.div`
+//     display: flex;
+//     border: 2px solid transparent;
+//     border-radius: 10px;
+//     padding: 10px;
+//     align-items: center;
+//     background-color: #fff;
+//     cursor: pointer;
+//     width: 100px;
+//     justify-content: space-around;
+//     &:hover {
+//         box-shadow: 0px 1px 1px 0px rgba(0, 0, 0, 0.14),
+//             0px 1px 1px -2px rgba(0, 0, 0, 0.12),
+//             0px 1px 3px 0px rgba(0, 0, 0, 0.2);
+//     }
+
+//     &:focus {
+//         box-shadow: 0px 1px 1px 0px rgba(0, 0, 0, 0.14),
+//             0px 1px 1px -2px rgba(0, 0, 0, 0.12),
+//             0px 1px 3px 0px rgba(0, 0, 0, 0.2);
+//     }
+// `;
+
+// const UserMenuPopUp = styled(Menu)`
+//     margin-top: 65px;
+//     padding: 10px;
+// `;
+
+// const UserMenuPopUpItem = styled(MenuItem)`
+//     margin-right: 300px;
+// `;
 
 const UserMenuContainer = styled.div`
     display: flex;
-    border: 2px solid transparent;
-    border-radius: 10px;
-    padding: 10px;
-    align-items: center;
-    background-color: #fff;
+`;
+
+const NavLink = styled.span`
+    color #3f51b5;
+    font-size: 1.2rem;
+    font-weight: 400;
+    margin-right: 30px;
     cursor: pointer;
-    &:hover {
-        box-shadow: 0px 1px 1px 0px rgba(0, 0, 0, 0.14),
-            0px 1px 1px -2px rgba(0, 0, 0, 0.12),
-            0px 1px 3px 0px rgba(0, 0, 0, 0.2);
-    }
-
-    &:focus {
-        box-shadow: 0px 1px 1px 0px rgba(0, 0, 0, 0.14),
-            0px 1px 1px -2px rgba(0, 0, 0, 0.12),
-            0px 1px 3px 0px rgba(0, 0, 0, 0.2);
-    }
-`;
-
-const UserMenuPopUp = styled(Menu)`
-    margin-top: 65px;
-    padding: 10px;
-`;
-
-const UserMenuPopUpItem = styled(MenuItem)`
-    margin-right: 300px;
 `;
 
 export default function UserMenu({ authenticated, setAuthenticated }) {
@@ -44,6 +68,7 @@ export default function UserMenu({ authenticated, setAuthenticated }) {
     const [openLoginModal, setOpenLoginModal] = useState(false);
     const [openSignupModal, setOpenSignupModal] = useState(false);
     const open = Boolean(anchorEl);
+    const classes = useStyles();
 
     const handleClick = (e) => {
         setAnchorEl(e.currentTarget);
@@ -69,8 +94,20 @@ export default function UserMenu({ authenticated, setAuthenticated }) {
     };
 
     return (
-        <div>
-            <UserMenuContainer
+        <UserMenuContainer>
+            <NavLink onClick={(e) => setOpenLoginModal(true)}>Login</NavLink>
+            <LoginModal
+                setAuthenticated={setAuthenticated}
+                openModal={openLoginModal}
+                handleClose={handleCloseLoginModal}
+            />
+            <NavLink onClick={(e) => setOpenSignupModal(true)}>Signup</NavLink>
+            <SignupModal
+                setAuthenticated={setAuthenticated}
+                openModal={openSignupModal}
+                handleClose={handleCloseSignupModal}
+            />
+            {/* <UserMenuContainer
                 aria-controls="fade-menu"
                 aria-haspopup="true"
                 onClick={handleClick}
@@ -85,6 +122,7 @@ export default function UserMenu({ authenticated, setAuthenticated }) {
                 ></AccountCircleIcon>
             </UserMenuContainer>
             <UserMenuPopUp
+                classes={{ root: classes.root }}
                 id="fade-menu"
                 anchorEl={anchorEl}
                 keepMounted
@@ -120,7 +158,7 @@ export default function UserMenu({ authenticated, setAuthenticated }) {
                         Logout
                     </UserMenuPopUpItem>
                 )}
-            </UserMenuPopUp>
-        </div>
+            </UserMenuPopUp> */}
+        </UserMenuContainer>
     );
 }

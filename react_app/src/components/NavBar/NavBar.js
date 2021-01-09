@@ -11,7 +11,8 @@ const Nav = styled.nav`
     display: flex;
     align-items: center;
     justify-content: space-between;
-    padding: 40px 50px;
+    padding: 40px 40px;
+    margin-bottom: 20px;
 `;
 
 const NavLink = styled(NL)`
@@ -19,17 +20,26 @@ const NavLink = styled(NL)`
     color: inherit;
 `;
 
+const Div = styled.div`
+    display: flex;
+    align-items: center;
+    justify-content: space-around;
+    width: 100%;
+`;
+
 const NavBar = ({ authenticated, setAuthenticated }) => {
     return (
         <Nav>
-            <NavLink to="/" exact={true} activeClassName="active">
-                <Logo></Logo>
-            </NavLink>
-            <SearchBar />
-            <UserMenu
-                authenticated={authenticated}
-                setAuthenticated={setAuthenticated}
-            />
+            <Div>
+                <NavLink to="/" exact={true} activeClassName="active">
+                    <Logo></Logo>
+                </NavLink>
+                <SearchBar />
+                <UserMenu
+                    authenticated={authenticated}
+                    setAuthenticated={setAuthenticated}
+                />
+            </Div>
         </Nav>
     );
 };

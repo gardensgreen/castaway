@@ -7,3 +7,18 @@ body {
 .animate__animated.animate__tada {
     --animate-duration: 30s;
 }
+
+.footer__container {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 100%;
+    margin-top: 20px;
+}
+
+.footer-link {
+    text-decoration: None;
+    margin: 15px;
+    color: #3f51b5;
+    font-size: 0.8rem;
+}

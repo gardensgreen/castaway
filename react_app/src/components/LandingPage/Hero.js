@@ -23,11 +23,10 @@ const HeroBackground = styled.div`
     background-image: linear-gradient(315deg, #3eadcf 0%, #abe9cd 74%);
 `;
 const HeroImage = styled.img`
-    width: 50%;
-    height: 50%;
-    margin-left: 25%;
+    width: 60%;
+    height: 60%;
+    margin-left: -5%;
     margin-right: 10%;
-    margin-top: -3%;
 `;
 
 const HeroContainer = styled.div`
@@ -37,16 +36,16 @@ const HeroContainer = styled.div`
     margin-right: 10%;
 
     z-index: -2;
-
-    padding: 100px;
 `;
 
 const HeroHeader = styled.h1`
     font-weight: 600;
-    font-size: 2.5rem;
-    line-height: 2.5rem;
-    width: 400px;
+    font-size: 5rem;
+    line-height: 5rem;
+    width: 750px;
     color: #3f51b5;
+
+    margin-top: 5px;
 `;
 
 const HeroSubHeader = styled.h2`
@@ -54,7 +53,8 @@ const HeroSubHeader = styled.h2`
     font-size: 1.25rem;
     margin-top: 5px;
     width: 400px;
-    color: #555;
+    color: #666;
+    margin-bottom: 2em;
 `;
 
 const ActionButton = styled.button`
@@ -98,6 +98,14 @@ const ActionButton = styled.button`
 const HeroContentContainer = styled.div`
     display: flex;
     flex-direction: column;
+    width: 100%;
+`;
+
+const Description = styled.p`
+    border-left: 6px solid #3f51b5;
+    padding: 5px 10px;
+    margin-left: 5px;
+    color: #666;
 `;
 
 export default function Hero() {
@@ -105,6 +113,7 @@ export default function Hero() {
         <>
             <HeroContainer>
                 <HeroContentContainer>
+                    <Description>A boat rental serivice</Description>
                     <HeroHeader>Embark on your next journey.</HeroHeader>
                     <HeroSubHeader>
                         Find your adventure at the nearest marina near you.
