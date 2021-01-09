@@ -26,6 +26,7 @@ const HeroImage = styled.img`
     height: 55%;
     margin-left: -5%;
     margin-right: 10%;
+    margin-bottom: 20px;
 `;
 
 const HeroContainer = styled.div`
@@ -112,17 +113,21 @@ export default function Hero() {
         <>
             <HeroContainer>
                 <HeroContentContainer>
-                    <Description>
+                    <Description className="animate__animated animate__slideInLeft">
                         A simple yet powerful boat rental platform .
                     </Description>
-                    <HeroHeader>Embark on your next journey.</HeroHeader>
-                    <HeroSubHeader>
+                    <HeroHeader className="animate__animated animate__fadeIn main__header">
+                        Embark on your next journey.
+                    </HeroHeader>
+                    <HeroSubHeader className="animate__animated animate__fadeIn sub__header">
                         Find your adventure on a coast near you.
                     </HeroSubHeader>
-                    <ActionButton>Get Started</ActionButton>
+                    <ActionButton className="animate__animated animate__jackInTheBox">
+                        Get Started
+                    </ActionButton>
                 </HeroContentContainer>
                 <HeroImage
-                    className="animate__animated animate__tada"
+                    className="animate__animated animate__tada animate_infinite"
                     src="./vacation2.png"
                 />
             </HeroContainer>
