@@ -25,3 +25,23 @@ class Boat(db.Model):
     owner_id = db.Column(db.Integer, db.ForeignKey("users.id"))
 
     owner = relationship("User")
+
+    def to_dict(self):
+        return {
+            "id": self.id,
+            "boatType": self.boat_type,
+            "totalOccupancy": self.total_occupancy, "totalBedrooms": self.total_bedrooms,
+            "totalBathrooms": self.total_bathrooms,
+            "length": self.feet,
+            "address": self.address,
+            "summary": self.summary,
+            "hasTv": self.has_tv,
+            "hasKitchen": self.has_kitchen,
+            "hasAirConditioning": self.has_air_con,
+            "hasInternet": self.has_internet,
+            "hasHeating": self.has_heating,
+            "price": self.price,
+            "createdAt": self.created_at,
+            "latitude": self.latitude,
+            "longitude": self.longitude,
+            "ownerId": self.owner_id
