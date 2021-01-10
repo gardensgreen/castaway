@@ -35,3 +35,6 @@ seed_boat6 = Boat(boat_type="Center Console",
 
 seed_boat7 = Boat(boat_type="Center Console",
                   total_occupancy=12, total_bedrooms=1, total_bathrooms=1, length="42", address="801 Brickell Bay Dr", summary="Boston Whaler 420 Outrage 10-12 People", has_tv=True, has_kitchen=True, has_air_con=True, has_internet=True, has_heating=False, price=650, latitude=25.764761, longitude=-80.189011, owner_id=2,)
+
+seed_boat8 = Boat(boat_type="Yacht",
+                  total_occupancy=12, total_bedrooms=4, total_bathrooms=3, length="95", address="801 Brickell Bay Dr", summary="Sundance Yacht 10-15 People with 1 waverunner", has_tv=True, has_kitchen=True, has_air_con=True, has_internet=True, has_heating=True, price=1800, latitude=25.764762, longitude=-80.189001, owner_id=2,)
