@@ -26,3 +26,6 @@ seed_boat3 = Boat(boat_type="Catamaran",
 
 seed_boat4 = Boat(boat_type="Yacht",
                   total_occupancy=8, total_bedrooms=3, total_bathrooms=2, length="48", address="3501 Rickenbacker Cswy", summary="Cruising Yacht 6-8 People", has_tv=True, has_kitchen=True, has_air_con=True, has_internet=True, has_heating=True, price=700, latitude=25.792990, longitude=-80.6170617, owner_id=2,)
+
+seed_boat5 = Boat(boat_type="Yacht",
+                  total_occupancy=12, total_bedrooms=4, total_bathrooms=3, length="95", address="3501 Rickenbacker Cswy", summary=" Yacht 8-12 People", has_tv=True, has_kitchen=True, has_air_con=True, has_internet=True, has_heating=True, price=900, latitude=25.792995, longitude=-80.6170627, owner_id=2,)
