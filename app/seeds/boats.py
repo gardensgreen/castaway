@@ -41,3 +41,6 @@ seed_boat8 = Boat(boat_type="Yacht",
 
 seed_boat9 = Boat(boat_type="Catamaran",
                   total_occupancy=7, total_bedrooms=1, total_bathrooms=1, length="32", address="801 Brickell Bay Dr", summary="Catamaran 6-8 People", has_tv=False, has_kitchen=True, has_air_con=False, has_internet=False, has_heating=False, price=550, latitude=25.764762, longitude=-80.189020, owner_id=2,)
+
+seed_boat10 = Boat(boat_type="Center Console",
+                   total_occupancy=8, total_bedrooms=1, total_bathrooms=1, length="30", address="801 Brickell Bay Dr", summary="Center Console 6 People", has_tv=False, has_kitchen=True, has_air_con=False, has_internet=False, has_heating=False, price=2500, latitude=25.799950, latitude=25.764762, longitude=-80.189000, owner_id=2,)
