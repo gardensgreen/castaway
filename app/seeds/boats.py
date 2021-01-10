@@ -73,4 +73,4 @@ def seed_boats():
                        total_occupancy=8, total_bedrooms=2, total_bathrooms=2, length="38", address="4 Grove Isle Dr Miami", summary="Azimut Atlantis 10-12 People", has_tv=True, has_kitchen=True, has_air_con=True, has_internet=True, has_heating=False, price=1000, latitude=25.734581, longitude=-80.219461, owner_id=2,)
 
     seed_boat20 = Boat(boat_type="Yacht",
-                       total_occupancy=12, total_bedrooms=4, total_bathrooms=3, length="100", address="4 Grove Isle Dr Miami", summary="Azimut  Yacht 20 People", has_tv=True, has_kitchen=True, has_air_con=True, has_internet=True, has_heating=True, price=2200, latitude=25.734582, longitude=-80.219461, owner_id=2,)
+                       total_occupancy=12, total_bedrooms=5, total_bathrooms=6, length="100", address="4 Grove Isle Dr Miami", summary="Azimut  Yacht 20 People", has_tv=True, has_kitchen=True, has_air_con=True, has_internet=True, has_heating=True, price=2200, latitude=25.734582, longitude=-80.219461, owner_id=2,)
