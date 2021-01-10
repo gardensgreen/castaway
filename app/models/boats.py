@@ -45,3 +45,4 @@ class Boat(db.Model):
             "latitude": self.latitude,
             "longitude": self.longitude,
             "ownerId": self.owner_id
+        }
