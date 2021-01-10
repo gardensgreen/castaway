@@ -10,6 +10,7 @@ Sport
 Racing
 Waverunner
 Jetski
+fishing boat
 """
 
 
@@ -58,3 +59,18 @@ def seed_boats():
 
     seed_boat15 = Boat(boat_type="Sailboat",
                        total_occupancy=6, total_bedrooms=1, total_bathrooms=1, length="34", address="3400 Pan American Dr Miami", summary="Sail through the Coast 6 People", has_tv=True, has_kitchen=True, has_air_con=True, has_internet=True, has_heating=False, price=650, latitude=25.727020, longitude=-80.235451, owner_id=2,)
+
+    seed_boat16 = Boat(boat_type="Center Console",
+                       total_occupancy=8, total_bedrooms=0, total_bathrooms=0, length="30", address="4 Grove Isle Dr Miami", summary="Intrepid Center Console 8 People", has_tv=False, has_kitchen=False, has_air_con=False, has_internet=False, has_heating=False, price=450, latitude=25.734580, longitude=-80.219460, owner_id=2,)
+
+    seed_boat17 = Boat(boat_type="Sport",
+                       total_occupancy=8, total_bedrooms=0, total_bathrooms=0, length="26", address="4 Grove Isle Dr Miami", summary=" Seadoo 8 People", has_tv=False, has_kitchen=False, has_air_con=False, has_internet=False, has_heating=False, price=800, latitude=25.734580, longitude=-80.219461, owner_id=2,)
+
+    seed_boat18 = Boat(boat_type="Catamaran",
+                       total_occupancy=20, total_bedrooms=0, total_bathrooms=2, length="42", address="4 Grove Isle Dr Miami", summary="Catamaran SailBoat 20 People", has_tv=False, has_kitchen=True, has_air_con=False, has_internet=False, has_heating=False, price=2000, latitude=25.734581, longitude=-80.219460, owner_id=2,)
+
+    seed_boat19 = Boat(boat_type="Yacht",
+                       total_occupancy=8, total_bedrooms=2, total_bathrooms=2, length="38", address="4 Grove Isle Dr Miami", summary="Azimut Atlantis 10-12 People", has_tv=True, has_kitchen=True, has_air_con=True, has_internet=True, has_heating=False, price=1000, latitude=25.734581, longitude=-80.219461, owner_id=2,)
+
+    seed_boat20 = Boat(boat_type="Yacht",
+                       total_occupancy=12, total_bedrooms=4, total_bathrooms=3, length="100", address="4 Grove Isle Dr Miami", summary="Azimut  Yacht 20 People", has_tv=True, has_kitchen=True, has_air_con=True, has_internet=True, has_heating=True, price=2200, latitude=25.734582, longitude=-80.219461, owner_id=2,)
