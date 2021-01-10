@@ -30,9 +30,10 @@ class Boat(db.Model):
         return {
             "id": self.id,
             "boatType": self.boat_type,
-            "totalOccupancy": self.total_occupancy, "totalBedrooms": self.total_bedrooms,
+            "totalOccupancy": self.total_occupancy,
+            "totalBedrooms": self.total_bedrooms,
             "totalBathrooms": self.total_bathrooms,
-            "length": self.feet,
+            "length": self.length,
             "address": self.address,
             "summary": self.summary,
             "hasTv": self.has_tv,
@@ -42,7 +43,7 @@ class Boat(db.Model):
             "hasHeating": self.has_heating,
             "price": self.price,
             "createdAt": self.created_at,
-            "latitude": self.latitude,
-            "longitude": self.longitude,
+            "latitude": f"{self.latitude}",
+            "longitude": f"{self.longitude}",
             "ownerId": self.owner_id
         }
