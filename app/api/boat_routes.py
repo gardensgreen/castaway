@@ -26,6 +26,15 @@ def get_boats():
     return jsonify([boat.to_dict() for boat in boats])
 
 
+@boat_routes.route("/<int:id>")
+def get_boat(id):
+    boat = Boat.query.get(id)
+    if boat:
+        return jsonify(boat.to_dict())
+    else:
+        return ({"error": "error"})
+
+
 @boat_routes.route("/", methods=["POST"])
 def create_boat():
     form = CreateBoatForm()
