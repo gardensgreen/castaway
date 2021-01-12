@@ -1,11 +1,12 @@
 import React, { useState, useEffect } from "react";
 import { BrowserRouter, Route, Switch } from "react-router-dom";
+import { createMuiTheme, ThemeProvider } from "@material-ui/core/styles";
+
 import NavBar from "./components/NavBar/NavBar";
 import ProtectedRoute from "./components/auth/ProtectedRoute";
 import { authenticate } from "./services/auth";
 import LandingPage from "./components/LandingPage/LandingPage";
-import { createMuiTheme, ThemeProvider } from "@material-ui/core/styles";
-
+import Home from "./components/Home/Home";
 const theme = createMuiTheme({
     typography: {
         fontFamily: "Montserrat, sans-serif",
@@ -41,6 +42,9 @@ function App() {
                 <Switch>
                     <Route path="/" exact={true} authenticated={authenticated}>
                         <LandingPage></LandingPage>
+                    </Route>
+                    <Route path="/home" exact={true}>
+                        <Home />
                     </Route>
                 </Switch>
             </ThemeProvider>

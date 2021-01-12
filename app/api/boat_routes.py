@@ -9,4 +9,4 @@ boat_routes = Blueprint('boats', __name__)
 @boat_routes.route("/")
 def get_boats():
     boats = Boat.query.all()
-    return jsonify({"Boats": [boat.to_dict() for boat in boats]})
+    return jsonify([boat.to_dict() for boat in boats])
