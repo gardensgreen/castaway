@@ -11,17 +11,17 @@ class CreateBoatForm(FlaskForm):
     total_occupancy = IntegerField(
         "Total Occupancy", validators=[DataRequired()])
     total_bedrooms = IntegerField(
-        "Bedrooms", validators=[DataRequired()])
+        "Bedrooms", validators=[])
     total_bathrooms = IntegerField(
-        "Total Occupancy", validators=[DataRequired()])
+        "Bathrooms", validators=[])
     length = IntegerField("Length", validators=[DataRequired()])
     address = StringField("address", validators=[DataRequired()])
-    has_tv = BooleanField("Has TV", validators=[DataRequired()])
-    has_kitchen = BooleanField("Has kitchen", validators=[DataRequired()])
+    has_tv = BooleanField("Has TV", validators=[])
+    has_kitchen = BooleanField("Has kitchen", validators=[])
     has_air_con = BooleanField(
-        "Has air condigitioning", validators=[DataRequired()])
-    has_internet = BooleanField("Has internet", validators=[DataRequired()])
-    has_hearing = BooleanField("Has Heating", validators=[DataRequired()])
+        "Has air condigitioning", validators=[])
+    has_internet = BooleanField("Has internet", validators=[])
+    has_heating = BooleanField("Has Heating", validators=[])
     price = IntegerField("price", validators=[DataRequired()])
     latitude = FloatField("latitude", validators=[DataRequired()])
     longitude = FloatField("longitude", validators=[DataRequired()])
