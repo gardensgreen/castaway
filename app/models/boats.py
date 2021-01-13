@@ -24,6 +24,7 @@ class Boat(db.Model):
     longitude = db.Column(db.Numeric(60, 50), nullable=False)
     owner_id = db.Column(db.Integer, db.ForeignKey("users.id"))
 
+    photos = relationship("Media", backref="media")
     owner = relationship("User")
 
     def to_dict(self):

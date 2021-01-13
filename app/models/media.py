@@ -9,11 +9,12 @@ class Media(db.Model):
     media_name = db.Column(db.String(255), nullable=False)
     boat_id = db.Column(db.Integer, db.ForeignKey("boats.id"))
 
+    boat = relationship("Boat")
+
     def to_dict(self):
         return {
             "id": self.id,
             "mediaUrl": self.media_url,
             "mediaName": self.media_name,
             "boatId": self.boat_id
-
         }
