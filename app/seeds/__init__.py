@@ -16,8 +16,8 @@ def seed():
 
 @seed_commands.command('undo')
 def undo():
-    undo_users()
     undo_boats()
+    undo_users()
 
 
 @seed_commands.command('boats')
