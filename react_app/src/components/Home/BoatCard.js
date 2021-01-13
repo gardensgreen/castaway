@@ -17,7 +17,7 @@ const CardImage = styled.div`
     border-radius: 3px;
     height: 200px;
     width: 100%;
-    background-image: url("https://external-content.duckduckgo.com/iu/?u=https%3A%2F%2Ftse3.mm.bing.net%2Fth%3Fid%3DOIP.Mr8cajK9fFcq7qq2Mye76QHaEo%26pid%3DApi&f=1");
+
     background-size: cover;
     background-position: center;
 `;
@@ -76,7 +76,9 @@ export default function BoatCard({ boat }) {
 
     return (
         <CardContainer>
-            <CardImage />
+            <CardImage
+                style={{ backgroundImage: `url(${boat.photos[0].mediaUrl})` }}
+            />
             <CardHeader>
                 {boat.name.length <= 20
                     ? boat.name
