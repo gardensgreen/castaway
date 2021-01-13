@@ -46,7 +46,11 @@ const InfoHolder = styled.div`
     margin: 10px 10px;
     border-top: 1px solid #c4c4c4;
 `;
-
+const PeopleSpan = styled.span`
+    font-size: 1rem;
+    font-weight: 700;
+    margin: 10px 10px;
+`;
 const PriceSpan = styled.span`
     font-size: 1rem;
     font-weight: 700;
@@ -74,11 +78,16 @@ export default function BoatCard({ boat }) {
         <CardContainer>
             <CardImage />
             <CardHeader>
-                {boat.summary.length <= 20
-                    ? boat.summary
-                    : boat.summary.slice(0, 20) + ".."}
+                {boat.name.length <= 20
+                    ? boat.name
+                    : boat.name.slice(0, 20) + ".."}
             </CardHeader>
+
             <InfoHolder>
+                <PeopleSpan>
+                    <AmenityIcon className="fas fa-users fa-1x"></AmenityIcon>
+                    {boat.totalOccupancy}
+                </PeopleSpan>
                 <FeaturesBar>
                     {amenities &&
                         amenities.map((a, idx) => {

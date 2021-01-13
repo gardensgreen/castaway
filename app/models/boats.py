@@ -45,6 +45,7 @@ class Boat(db.Model):
     def to_dict(self):
         return {
             "id": self.id,
+            "name": self.name,
             "boatType": self.boat_type,
             "totalOccupancy": self.total_occupancy,
             "totalBedrooms": self.total_bedrooms,
