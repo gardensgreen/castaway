@@ -70,7 +70,7 @@ def seed_boats():
     seed_boat17 = Boat(name="Seadoo 26", boat_type="Sport",
                        total_occupancy=8, total_bedrooms=0, total_bathrooms=0, length=26, address="4 Grove Isle Dr Miami", summary=" Seadoo 8 People", has_tv=False, has_kitchen=False, has_air_con=False, has_internet=False, has_heating=False, price=800, latitude=25.734980, longitude=-80.219861, owner_id=3,)
 
-    seed_boat18 = Boat(name="Catamaran 20", boat_type="Catamaran",
+    seed_boat18 = Boat(name="Catamaran 42", boat_type="Catamaran",
                        total_occupancy=20, total_bedrooms=0, total_bathrooms=2, length=42, address="4 Grove Isle Dr Miami", summary="Catamaran SailBoat 20 People", has_tv=False, has_kitchen=True, has_air_con=False, has_internet=False, has_heating=False, price=2000, latitude=25.735380, longitude=-80.220261, owner_id=3,)
 
     seed_boat19 = Boat(name="Azimut Atlantis 38", boat_type="Yacht",
