@@ -23,3 +23,8 @@ def undo():
 @seed_commands.command('boats')
 def seed_boats_cmd():
     seed_boats()
+
+
+@seed_commands.command('undo-boats')
+def seed_boats_cmd():
+    undo_boats()

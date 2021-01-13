@@ -4,7 +4,7 @@ import styled from "styled-components";
 const CardContainer = styled.div`
     display: flex;
     flex-direction: column;
-    width: 300px;
+    width: 45%;
     margin-right: 30px;
     margin-bottom: 30px;
     border-radius: 4px;
@@ -16,7 +16,7 @@ const CardContainer = styled.div`
 const CardImage = styled.div`
     border-radius: 3px;
     height: 200px;
-    width: 300px;
+    width: 100%;
     background-image: url("https://external-content.duckduckgo.com/iu/?u=https%3A%2F%2Ftse3.mm.bing.net%2Fth%3Fid%3DOIP.Mr8cajK9fFcq7qq2Mye76QHaEo%26pid%3DApi&f=1");
     background-size: cover;
     background-position: center;

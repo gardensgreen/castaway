@@ -47,5 +47,6 @@ class Boat(db.Model):
             "createdAt": self.created_at,
             "latitude": f"{self.latitude}",
             "longitude": f"{self.longitude}",
-            "ownerId": self.owner_id
+            "ownerId": self.owner_id,
+            "owner": self.owner.to_dict()
         }
