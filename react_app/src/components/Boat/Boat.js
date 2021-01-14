@@ -1,6 +1,7 @@
 import { useState, useEffect } from "react";
 import { useParams } from "react-router-dom";
 import { getBoat } from "../../services/boats";
+import BoatHeader from "./BoatHeader";
 
 export default function Boat() {
     const { id } = useParams();
@@ -13,5 +14,9 @@ export default function Boat() {
         })();
     }, [id]);
 
-    return <div></div>;
+    return (
+        <div>
+            <BoatHeader boat={boat}></BoatHeader>
+        </div>
+    );
 }
