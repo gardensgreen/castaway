@@ -1,4 +1,5 @@
 import React from "react";
+import { useHistory } from "react-router-dom";
 import styled from "styled-components";
 import Particle from "react-particles-js";
 
@@ -109,6 +110,8 @@ const Description = styled.p`
 `;
 
 export default function Hero() {
+    const history = useHistory();
+
     return (
         <>
             <HeroContainer>
@@ -122,7 +125,10 @@ export default function Hero() {
                     <HeroSubHeader className="animate__animated animate__fadeIn sub__header">
                         Find your adventure on a coast near you.
                     </HeroSubHeader>
-                    <ActionButton className="animate__animated animate__jackInTheBox">
+                    <ActionButton
+                        onClick={(e) => history.push("/home")}
+                        className="animate__animated animate__jackInTheBox"
+                    >
                         Get Started
                     </ActionButton>
                 </HeroContentContainer>

@@ -3,7 +3,7 @@ import GoogleMapReact from "google-map-react";
 import styled from "styled-components";
 
 const MapContainer = styled.div`
-    width: 100%;
+    width: 120%;
     height: 100vh;
     padding: 0px;
     margin: 0px;
