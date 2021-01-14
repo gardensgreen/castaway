@@ -55,6 +55,14 @@ export default function Boat() {
         }
     `;
 
+    const BoatPrice = styled.h1`
+        display: inline;
+        margin-right: 20px;
+        font-size: 1.2rem;
+        color: #00802b;
+        font-weight: 700;
+    `;
+
     useEffect(() => {
         (async () => {
             const fetchedBoat = await getBoat(id);
@@ -67,9 +75,11 @@ export default function Boat() {
             <Carousel imageUrl={boat && boat.photos[0].mediaUrl}></Carousel>
             <BoatHeaderContainer>
                 <BoatHeader boat={boat}></BoatHeader>
-                <ActionButton className="animate__animated animate__jackInTheBox">
-                    Reserve Now
-                </ActionButton>
+                <div>
+                    <ActionButton className="animate__animated animate__jackInTheBox">
+                        Reserve Now
+                    </ActionButton>
+                </div>
             </BoatHeaderContainer>
             <BoatMap boat={boat} />
         </div>

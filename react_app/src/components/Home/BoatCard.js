@@ -1,10 +1,11 @@
 import React, { useEffect, useState } from "react";
+import { Link } from "react-router-dom";
 import styled from "styled-components";
 
 const CardContainer = styled.div`
     display: flex;
     flex-direction: column;
-    width: 45%;
+    width: 90%;
     margin-right: 30px;
     margin-bottom: 30px;
     border-radius: 4px;
@@ -13,6 +14,11 @@ const CardContainer = styled.div`
     text-decoration: none;
 `;
 
+const BoatLink = styled(Link)`
+    text-decoration: none;
+    color: inherit;
+    width: 45%;
+`;
 const CardImage = styled.div`
     border-radius: 3px;
     height: 200px;
@@ -75,72 +81,76 @@ export default function BoatCard({ boat }) {
     }, []);
 
     return (
-        <CardContainer>
-            <CardImage
-                style={{ backgroundImage: `url(${boat.photos[0].mediaUrl})` }}
-            />
-            <CardHeader>
-                {boat.name.length <= 20
-                    ? boat.name
-                    : boat.name.slice(0, 20) + ".."}
-            </CardHeader>
+        <BoatLink to={`/boats/${boat.id}`}>
+            <CardContainer>
+                <CardImage
+                    style={{
+                        backgroundImage: `url(${boat.photos[0].mediaUrl})`,
+                    }}
+                />
+                <CardHeader>
+                    {boat.name.length <= 20
+                        ? boat.name
+                        : boat.name.slice(0, 20) + ".."}
+                </CardHeader>
 
-            <InfoHolder>
-                <PeopleSpan>
-                    <AmenityIcon className="fas fa-users fa-1x"></AmenityIcon>
-                    {boat.totalOccupancy}
-                </PeopleSpan>
-                <FeaturesBar>
-                    {amenities &&
-                        amenities.map((a, idx) => {
-                            switch (a) {
-                                case "hasTv":
-                                    return (
-                                        <AmenityIcon
-                                            key={idx}
-                                            className="fas fa-tv fa-1x"
-                                        ></AmenityIcon>
-                                    );
+                <InfoHolder>
+                    <PeopleSpan>
+                        <AmenityIcon className="fas fa-users fa-1x"></AmenityIcon>
+                        {boat.totalOccupancy}
+                    </PeopleSpan>
+                    <FeaturesBar>
+                        {amenities &&
+                            amenities.map((a, idx) => {
+                                switch (a) {
+                                    case "hasTv":
+                                        return (
+                                            <AmenityIcon
+                                                key={idx}
+                                                className="fas fa-tv fa-1x"
+                                            ></AmenityIcon>
+                                        );
 
-                                case "hasKitchen":
-                                    return (
-                                        <AmenityIcon
-                                            key={idx}
-                                            className="fas fa-sink fa-1x"
-                                        ></AmenityIcon>
-                                    );
+                                    case "hasKitchen":
+                                        return (
+                                            <AmenityIcon
+                                                key={idx}
+                                                className="fas fa-sink fa-1x"
+                                            ></AmenityIcon>
+                                        );
 
-                                case "hasAirConditioning":
-                                    return (
-                                        <AmenityIcon
-                                            key={idx}
-                                            className="fas fa-fan fa-1x"
-                                        ></AmenityIcon>
-                                    );
+                                    case "hasAirConditioning":
+                                        return (
+                                            <AmenityIcon
+                                                key={idx}
+                                                className="fas fa-fan fa-1x"
+                                            ></AmenityIcon>
+                                        );
 
-                                case "hasInternet":
-                                    return (
-                                        <AmenityIcon
-                                            key={idx}
-                                            className="fas fa-wifi fa-1x"
-                                        ></AmenityIcon>
-                                    );
+                                    case "hasInternet":
+                                        return (
+                                            <AmenityIcon
+                                                key={idx}
+                                                className="fas fa-wifi fa-1x"
+                                            ></AmenityIcon>
+                                        );
 
-                                case "hasHeating":
-                                    return (
-                                        <AmenityIcon
-                                            key={idx}
-                                            className="fas fa-fire fa-1x"
-                                        ></AmenityIcon>
-                                    );
+                                    case "hasHeating":
+                                        return (
+                                            <AmenityIcon
+                                                key={idx}
+                                                className="fas fa-fire fa-1x"
+                                            ></AmenityIcon>
+                                        );
 
-                                default:
-                                    return null;
-                            }
-                        })}
-                </FeaturesBar>
-                <PriceSpan>${boat.price}/day</PriceSpan>
-            </InfoHolder>
-        </CardContainer>
+                                    default:
+                                        return null;
+                                }
+                            })}
+                    </FeaturesBar>
+                    <PriceSpan>${boat.price}/day</PriceSpan>
+                </InfoHolder>
+            </CardContainer>
+        </BoatLink>
     );
 }
