@@ -43,6 +43,13 @@ const AmenityIcon = styled.i`
     justify-content: center;
     color: #888;
     margin-right: 16px;
+    color: #3f51b5;
+`;
+const PeopleSpan = styled.span`
+    font-size: 0.8rem;
+    font-weight: 700;
+    color: #222;
+    margin: 0 20px 0 -5px;
 `;
 
 const getAmenitiesList = (boat) => {
@@ -69,13 +76,17 @@ export default function BoatHeader({ boat }) {
                 <BoatTitle>{boat && boat.name.toUpperCase()}</BoatTitle>
                 <BoatAddress>{boat && boat.address.toUpperCase()}</BoatAddress>
                 <FeaturesBar>
+                    <AmenityIcon
+                        style={{ color: "#222" }}
+                        className="fas fa-users fa-1x"
+                    ></AmenityIcon>
+                    <PeopleSpan>{boat && boat.totalOccupancy}</PeopleSpan>
                     {amenities &&
                         amenities.map((a, idx) => {
                             switch (a) {
                                 case "hasTv":
                                     return (
                                         <AmenityIcon
-                                            style={{ color: "#FF99AA" }}
                                             key={idx}
                                             className="fas fa-tv fa-1.5x"
                                         ></AmenityIcon>
@@ -84,7 +95,6 @@ export default function BoatHeader({ boat }) {
                                 case "hasKitchen":
                                     return (
                                         <AmenityIcon
-                                            style={{ color: "#99FFCC" }}
                                             key={idx}
                                             className="fas fa-sink fa-1.5x"
                                         ></AmenityIcon>
@@ -93,7 +103,6 @@ export default function BoatHeader({ boat }) {
                                 case "hasAirConditioning":
                                     return (
                                         <AmenityIcon
-                                            style={{ color: "#99DDFF" }}
                                             key={idx}
                                             className="fas fa-fan fa-1.5x"
                                         ></AmenityIcon>
@@ -102,7 +111,6 @@ export default function BoatHeader({ boat }) {
                                 case "hasInternet":
                                     return (
                                         <AmenityIcon
-                                            style={{ color: "#D580FF" }}
                                             key={idx}
                                             className="fas fa-wifi fa-1.5x"
                                         ></AmenityIcon>
@@ -111,7 +119,6 @@ export default function BoatHeader({ boat }) {
                                 case "hasHeating":
                                     return (
                                         <AmenityIcon
-                                            style={{ color: "#FF9999" }}
                                             key={idx}
                                             className="fas fa-fire fa-1.5x"
                                         ></AmenityIcon>

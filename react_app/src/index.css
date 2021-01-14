@@ -2,6 +2,7 @@
 body {
     font-family: "Montserrat", sans-serif;
     background-color: #fafafa;
+    margin: 0;
 }
 
 .animate__animated.animate__tada {

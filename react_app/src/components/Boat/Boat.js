@@ -2,6 +2,7 @@ import { useState, useEffect } from "react";
 import { useParams } from "react-router-dom";
 import { getBoat } from "../../services/boats";
 import BoatHeader from "./BoatHeader";
+import Carousel from "./Carousel";
 
 export default function Boat() {
     const { id } = useParams();
@@ -16,6 +17,7 @@ export default function Boat() {
 
     return (
         <div>
+            <Carousel imageUrl={boat && boat.photos[0].mediaUrl}></Carousel>
             <BoatHeader boat={boat}></BoatHeader>
         </div>
     );
