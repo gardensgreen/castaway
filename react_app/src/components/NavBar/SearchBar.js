@@ -1,7 +1,10 @@
-import React from "react";
+import React, { useState } from "react";
 import styled from "styled-components";
-
 import SearchIcon from "@material-ui/icons/Search";
+import usePlacesAutocomplete, {
+    getGeocode,
+    getLatLng,
+} from "use-places-autocomplete";
 
 const SearchBarContainer = styled.div`
     display: flex;
@@ -45,15 +48,72 @@ const SearchButton = styled.button`
 `;
 
 export default function SearchBar() {
+    const {
+        ready,
+        value,
+        suggestions: { status, data },
+        setValue,
+        clearSuggestions,
+    } = usePlacesAutocomplete({
+        requestOptions: {
+            /* Define search scope here */
+        },
+        debounce: 300,
+    });
+
+    const handleInput = (e) => {
+        // Update the keyword of the input element
+        setValue(e.target.value);
+    };
+
+    const handleSelect = ({ description }) => () => {
+        // When user selects a place, we can replace the keyword without request data from API
+        // by setting the second parameter as "false"
+        setValue(description, false);
+        clearSuggestions();
+
+        // Get latitude and longitude via utility functions
+        getGeocode({ address: description })
+            .then((results) => getLatLng(results[0]))
+            .then(({ lat, lng }) => {
+                console.log("📍 Coordinates: ", { lat, lng });
+            })
+            .catch((error) => {
+                console.log("😱 Error: ", error);
+            });
+    };
+
+    const renderSuggestions = () =>
+        data.map((suggestion) => {
+            const {
+                id,
+                structured_formatting: { main_text, secondary_text },
+            } = suggestion;
+
+            return (
+                <li key={id} onClick={handleSelect(suggestion)}>
+                    <strong>{main_text}</strong> <small>{secondary_text}</small>
+                </li>
+            );
+        });
+
     return (
-        <SearchBarContainer>
-            <SearchInput placeholder="Search for anything..." />
-            <SearchButton>
-                <SearchIcon
-                    fontSize="small"
-                    style={{ color: "#FFF" }}
-                ></SearchIcon>
-            </SearchButton>
-        </SearchBarContainer>
+        <>
+            <SearchBarContainer>
+                <SearchInput
+                    placeholder="Search for anything..."
+                    value={value}
+                    onChange={handleInput}
+                    disabled={!ready}
+                />
+                <SearchButton>
+                    <SearchIcon
+                        fontSize="small"
+                        style={{ color: "#FFF" }}
+                    ></SearchIcon>
+                </SearchButton>
+            </SearchBarContainer>
+            {status === "OK" && <ul>{renderSuggestions()}</ul>}
+        </>
     );
 }
