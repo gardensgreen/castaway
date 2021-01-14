@@ -20,6 +20,7 @@ class User(db.Model, UserMixin):
     bio = db.Column(db.String(255), nullable=True)
     createdAt = db.Column(db.DateTime, default=datetime.now())
     boats = relationship("Boat", backref="boats")
+    reservations = relationship("Reservation", backref="reservations")
 
     @property
     def password(self):

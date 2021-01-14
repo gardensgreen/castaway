@@ -14,7 +14,7 @@ class Reservation(db.Model):
     user_id = db.Column(db.Integer, db.ForeignKey("users.id"))
     boat_id = db.Column(db.Integer, db.ForeignKey("boats.id"))
 
-    user = relationship("User", backref="reservations")
+    # user = relationship("User", backref="reservations")
     boat = relationship("Boat", backref="reservations")
 
     def to_dict(self):

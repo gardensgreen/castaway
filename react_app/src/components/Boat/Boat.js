@@ -4,6 +4,7 @@ import styled from "styled-components";
 
 import { getBoat } from "../../services/boats";
 import BoatHeader from "./BoatHeader";
+import BoatMap from "./BoatMap";
 import Carousel from "./Carousel";
 
 export default function Boat() {
@@ -70,6 +71,7 @@ export default function Boat() {
                     Reserve Now
                 </ActionButton>
             </BoatHeaderContainer>
+            <BoatMap boat={boat} />
         </div>
     );
 }
