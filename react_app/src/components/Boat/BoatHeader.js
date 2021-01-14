@@ -48,7 +48,7 @@ const AmenityIcon = styled.i`
 const PeopleSpan = styled.span`
     font-size: 0.8rem;
     font-weight: 700;
-    color: #222;
+    color: #111;
     margin: 0 20px 0 -5px;
 `;
 
