@@ -6,6 +6,7 @@ import NavBar from "./components/NavBar/NavBar";
 import ProtectedRoute from "./components/auth/ProtectedRoute";
 import { authenticate } from "./services/auth";
 import LandingPage from "./components/LandingPage/LandingPage";
+import Boat from "./components/Boat/Boat";
 import Home from "./components/Home/Home";
 const theme = createMuiTheme({
     typography: {
@@ -45,6 +46,9 @@ function App() {
                     </Route>
                     <Route path="/home" exact={true}>
                         <Home />
+                    </Route>
+                    <Route path="/boats/:id" exact={true}>
+                        <Boat />
                     </Route>
                 </Switch>
             </ThemeProvider>
