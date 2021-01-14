@@ -8,8 +8,7 @@ export default function Boat() {
 
     useEffect(() => {
         (async () => {
-            const fetchedBoat = await getBoat(5);
-            console.log(fetchedBoat);
+            const fetchedBoat = await getBoat(id);
             setBoat(fetchedBoat);
         })();
     }, [id]);
