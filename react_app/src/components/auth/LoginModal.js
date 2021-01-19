@@ -69,6 +69,11 @@ export default function LoginModal({
         }
     };
 
+    const handleDemoLogin = async (e) => {
+        const user = await login("demo@demo.com", "password");
+        setAuthenticated(true);
+    };
+
     const updateEmail = (e) => {
         setEmail(e.target.value);
     };
@@ -238,6 +243,15 @@ export default function LoginModal({
                             className={classes.submit}
                         >
                             Sign In
+                        </Button>
+                        <Button
+                            onClick={handleDemoLogin}
+                            fullWidth
+                            variant="contained"
+                            color="primary"
+                            className={classes.demo}
+                        >
+                            Sign In as Demo
                         </Button>
                     </ModalForm>
                 </ModalContainer>

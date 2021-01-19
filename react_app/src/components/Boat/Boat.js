@@ -72,7 +72,7 @@ export default function Boat() {
 
     return (
         <div>
-            <Carousel imageUrl={boat && boat.photos[0].mediaUrl}></Carousel>
+            <Carousel imageUrl={boat?.photos[0].mediaUrl}></Carousel>
             <BoatHeaderContainer>
                 <BoatHeader boat={boat}></BoatHeader>
                 <div>
