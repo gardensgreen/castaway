@@ -3,6 +3,7 @@ import { useParams } from "react-router-dom";
 import styled from "styled-components";
 
 import { getBoat } from "../../services/boats";
+import BoatDescription from "./BoatDescription";
 import BoatHeader from "./BoatHeader";
 import BoatHost from "./BoatHost";
 import BoatMap from "./BoatMap";
@@ -19,6 +20,12 @@ export default function Boat() {
     `;
 
     const HostContainer = styled.div`
+        display: flex;
+        margin-right: 100px;
+        justify-content: space-between;
+    `;
+
+    const SummaryContainer = styled.div`
         display: flex;
         margin-right: 100px;
         justify-content: space-between;
@@ -88,9 +95,13 @@ export default function Boat() {
                     </ActionButton>
                 </div>
             </BoatHeaderContainer>
+            <SummaryContainer>
+                <BoatDescription summary={boat?.summary}></BoatDescription>
+            </SummaryContainer>
             <HostContainer>
                 <BoatHost host={boat?.owner}></BoatHost>
             </HostContainer>
+
             <BoatMap boat={boat} />
         </div>
     );

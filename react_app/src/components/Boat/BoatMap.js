@@ -6,8 +6,22 @@ const Map = styled.div`
     width: 80%;
     height: 400px;
     padding: 0px;
-    margin: 40px;
+
     border: 1px solid transparent;
+`;
+
+const MapComponentContainer = styled.div`
+    display: flex;
+    align-items: flex-start;
+    padding: 30px 100px;
+`;
+
+const Header = styled.span`
+    font-size: 1rem;
+    color: #999;
+    font-weight: 700;
+    margin-right: 20px;
+    margin-top: 10px;
 `;
 
 const MapContainer = styled.div`
@@ -15,9 +29,9 @@ const MapContainer = styled.div`
     height: 400px;
     padding: 0px;
     display: flex;
-    justify-content: center;
+
     border: 1px solid transparent;
-    margin-top: 40px;
+
     margin-bott0m: 100px;
 `;
 
@@ -34,30 +48,33 @@ const PinContainer = styled.div`
 `;
 export default function BoatMap({ boat }) {
     return (
-        <MapContainer>
-            <Map>
-                {boat && boat.latitude && (
-                    <GoogleMapReact
-                        bootstrapURLKeys={{
-                            key: "AIzaSyAHVXofYnPcMNN-Xh3mCJXPc7CE_OU_Zqc",
-                        }}
-                        defaultCenter={{
-                            lat: parseFloat(
-                                boat.latitude.toString().slice(0, 12)
-                            ),
-                            lng: parseFloat(
-                                boat.longitude.toString().slice(0, 12)
-                            ),
-                        }}
-                        defaultZoom={13}
-                    >
-                        <PinContainer
-                            lat={boat && boat.latitude}
-                            lng={boat && boat.longitude}
-                        ></PinContainer>
-                    </GoogleMapReact>
-                )}
-            </Map>
-        </MapContainer>
+        <MapComponentContainer>
+            <Header>LOCATION</Header>
+            <MapContainer>
+                <Map>
+                    {boat && boat.latitude && (
+                        <GoogleMapReact
+                            bootstrapURLKeys={{
+                                key: "AIzaSyAHVXofYnPcMNN-Xh3mCJXPc7CE_OU_Zqc",
+                            }}
+                            defaultCenter={{
+                                lat: parseFloat(
+                                    boat.latitude.toString().slice(0, 12)
+                                ),
+                                lng: parseFloat(
+                                    boat.longitude.toString().slice(0, 12)
+                                ),
+                            }}
+                            defaultZoom={13}
+                        >
+                            <PinContainer
+                                lat={boat && boat.latitude}
+                                lng={boat && boat.longitude}
+                            ></PinContainer>
+                        </GoogleMapReact>
+                    )}
+                </Map>
+            </MapContainer>
+        </MapComponentContainer>
     );
 }

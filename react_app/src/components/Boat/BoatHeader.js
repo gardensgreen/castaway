@@ -53,7 +53,7 @@ const PeopleSpan = styled.span`
 `;
 
 const Summary = styled.span`
-    margin-top: 60px;
+    margin-top: 80px;
     width: 500px;
 `;
 
