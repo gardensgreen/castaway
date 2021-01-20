@@ -28,6 +28,7 @@ export default function Boat() {
     const SummaryContainer = styled.div`
         display: flex;
         margin-right: 100px;
+        margin-top: 20px;
         justify-content: space-between;
     `;
 
