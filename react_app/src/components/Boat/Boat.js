@@ -1,13 +1,14 @@
 import { useState, useEffect } from "react";
 import { useParams } from "react-router-dom";
 import styled from "styled-components";
-
+import LoginModal from "../auth/LoginModal";
 import { getBoat } from "../../services/boats";
 import BoatDescription from "./BoatDescription";
 import BoatHeader from "./BoatHeader";
 import BoatHost from "./BoatHost";
 import BoatMap from "./BoatMap";
 import Carousel from "./Carousel";
+import ReservationModal from "./ReservationModal";
 
 const BoatHeaderContainer = styled.div`
     display: flex;
@@ -66,9 +67,13 @@ const ActionButton = styled.button`
     }
 `;
 
-export default function Boat() {
+export default function Boat({ setAuthenticated, authenticated }) {
     const { id } = useParams();
+    const [anchorEl, setAnchorEl] = useState(null);
     const [boat, setBoat] = useState(null);
+    const [openReservationModal, setOpenReservationModal] = useState(false);
+    const [openLoginModal, setOpenLoginModal] = useState(false);
+    const open = Boolean(anchorEl);
 
     useEffect(() => {
         (async () => {
@@ -79,15 +84,43 @@ export default function Boat() {
         })();
     }, [id]);
 
+    const handleCloseReservationModal = () => setOpenReservationModal(false);
+
+    const handleCloseLoginModal = () => {
+        setOpenLoginModal(false);
+    };
+
+    const handleReserve = (e) => {
+        e.preventDefault();
+        if (!authenticated) {
+            console.log("hi");
+            setOpenLoginModal(true);
+        } else {
+            setOpenReservationModal(true);
+        }
+    };
+
     return (
         <div>
             <Carousel imageUrl={boat?.photos[0].mediaUrl}></Carousel>
             <BoatHeaderContainer>
                 <BoatHeader boat={boat}></BoatHeader>
                 <div>
-                    <ActionButton className="animate__animated animate__jackInTheBox">
+                    <ActionButton
+                        onClick={handleReserve}
+                        className="animate__animated animate__jackInTheBox"
+                    >
                         Reserve Now
                     </ActionButton>
+                    <LoginModal
+                        setAuthenticated={setAuthenticated}
+                        openModal={openLoginModal}
+                        handleClose={handleCloseLoginModal}
+                    />
+                    <ReservationModal
+                        openModal={openReservationModal}
+                        handleClose={handleCloseReservationModal}
+                    />
                 </div>
             </BoatHeaderContainer>
             <SummaryContainer>

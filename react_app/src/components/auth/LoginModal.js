@@ -53,6 +53,7 @@ export default function LoginModal({
         const user = await login(email, password);
         if (!user.errors) {
             setAuthenticated(true);
+            handleClose();
         } else {
             setErrors(user.errors);
             if (user.errors.fields && user.errors.fields.includes("email")) {
@@ -72,6 +73,7 @@ export default function LoginModal({
         const user = await login("demo@aa.com", "password");
         if (!user.errors) {
             setAuthenticated(true);
+            handleClose();
         } else {
             setErrors(user.errors);
             if (user.errors.fields && user.errors.fields.includes("email")) {

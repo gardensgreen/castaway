@@ -47,7 +47,10 @@ function App() {
                         <Home />
                     </Route>
                     <Route path="/boats/:id" exact={true}>
-                        <Boat />
+                        <Boat
+                            authenticated={authenticated}
+                            setAuthenticated={setAuthenticated}
+                        />
                     </Route>
                 </Switch>
             </ThemeProvider>
