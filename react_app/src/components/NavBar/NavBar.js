@@ -2,7 +2,6 @@ import React from "react";
 import { NavLink as NL } from "react-router-dom";
 // import LogoutButton from "../auth/LogoutButton";
 import styled from "styled-components";
-import InvertColorsIcon from "@material-ui/icons/InvertColors";
 import SearchBar from "./SearchBar";
 import UserMenu from "./UserMenu";
 import Logo from "./Logo";

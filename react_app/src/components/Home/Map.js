@@ -36,6 +36,7 @@ export default function Map({ boats }) {
                 {boats &&
                     boats.map((boat) => (
                         <PinContainer
+                            key={boat.id}
                             lat={boat.latitude}
                             lng={boat.longitude}
                         ></PinContainer>

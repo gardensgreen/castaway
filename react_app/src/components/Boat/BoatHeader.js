@@ -52,11 +52,6 @@ const PeopleSpan = styled.span`
     margin: 0 20px 0 -5px;
 `;
 
-const Summary = styled.span`
-    margin-top: 80px;
-    width: 500px;
-`;
-
 const getAmenitiesList = (boat) => {
     let al = [];
     if (boat) {

@@ -4,8 +4,7 @@ import Button from "@material-ui/core/Button";
 import TextField from "@material-ui/core/TextField";
 import FormControlLabel from "@material-ui/core/FormControlLabel";
 import Checkbox from "@material-ui/core/Checkbox";
-import Link from "@material-ui/core/Link";
-import Grid from "@material-ui/core/Grid";
+
 import Container from "@material-ui/core/Container";
 import IconButton from "@material-ui/core/IconButton";
 import InfoIcon from "@material-ui/icons/Info";
@@ -70,8 +69,22 @@ export default function LoginModal({
     };
 
     const handleDemoLogin = async (e) => {
-        const user = await login("demo@demo.com", "password");
-        setAuthenticated(true);
+        const user = await login("demo@aa.com", "password");
+        if (!user.errors) {
+            setAuthenticated(true);
+        } else {
+            setErrors(user.errors);
+            if (user.errors.fields && user.errors.fields.includes("email")) {
+                setEmailValidationError(true);
+            } else {
+                setEmailValidationError(false);
+            }
+            if (user.errors.fields && user.errors.fields.includes("password")) {
+                setPasswordValidationError(true);
+            } else {
+                setPasswordValidationError(false);
+            }
+        }
     };
 
     const updateEmail = (e) => {

@@ -1,4 +1,4 @@
-import { useState, useRef } from "react";
+import { useState } from "react";
 import styled from "styled-components";
 import Menu from "@material-ui/core/Menu";
 import MenuItem from "@material-ui/core/MenuItem";
@@ -11,9 +11,9 @@ import { makeStyles } from "@material-ui/core/styles";
 import { logout } from "../../services/auth";
 
 const useStyles = makeStyles({
-    root: {
-        width: 300,
-    },
+    // root: {
+    //     width: 300,
+    // },
     label: {
         textTransform: "capitalize",
     },

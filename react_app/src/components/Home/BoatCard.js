@@ -77,11 +77,10 @@ export default function BoatCard({ boat }) {
     useEffect(() => {
         const amenitiesList = getAmenitiesList(boat);
         setAmenities(amenitiesList);
-        console.log(amenities);
-    }, []);
+    }, [boat]);
 
     return (
-        <BoatLink to={`/boats/${boat.id}`}>
+        <BoatLink to={`/boats/${boat?.id}`}>
             <CardContainer>
                 <CardImage
                     style={{

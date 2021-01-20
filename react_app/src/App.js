@@ -3,7 +3,6 @@ import { BrowserRouter, Route, Switch } from "react-router-dom";
 import { createMuiTheme, ThemeProvider } from "@material-ui/core/styles";
 
 import NavBar from "./components/NavBar/NavBar";
-import ProtectedRoute from "./components/auth/ProtectedRoute";
 import { authenticate } from "./services/auth";
 import LandingPage from "./components/LandingPage/LandingPage";
 import Boat from "./components/Boat/Boat";
