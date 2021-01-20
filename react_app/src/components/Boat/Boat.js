@@ -72,7 +72,6 @@ export default function Boat() {
 
     useEffect(() => {
         (async () => {
-            console.log(id);
             if (id) {
                 const fetchedBoat = await getBoat(id);
                 setBoat(fetchedBoat);

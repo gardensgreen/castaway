@@ -1,7 +1,7 @@
 import React from "react";
 import styled from "styled-components";
 
-const Image = styled.img`
+const Image = styled.div`
     width: 100%;
     height: 600px;
     z-index: 3;
@@ -12,5 +12,6 @@ const Image = styled.img`
     padding: 0;
 `;
 export default function Carousel({ imageUrl }) {
-    return <Image src={imageUrl} />;
+    // TODO: Fix random get request sent
+    return <Image style={{ backgroundImage: `url(${imageUrl})` }} />;
 }
