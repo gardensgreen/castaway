@@ -52,6 +52,11 @@ const PeopleSpan = styled.span`
     margin: 0 20px 0 -5px;
 `;
 
+const Summary = styled.span`
+    margin-top: 60px;
+    width: 500px;
+`;
+
 const getAmenitiesList = (boat) => {
     let al = [];
     if (boat) {
@@ -129,6 +134,7 @@ export default function BoatHeader({ boat }) {
                             }
                         })}
                 </FeaturesBar>
+                {/* <Summary>{boat?.summary}</Summary> */}
             </BoatInfoContainer>
         </HeaderContainer>
     );

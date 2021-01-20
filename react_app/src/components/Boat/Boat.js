@@ -4,6 +4,7 @@ import styled from "styled-components";
 
 import { getBoat } from "../../services/boats";
 import BoatHeader from "./BoatHeader";
+import BoatHost from "./BoatHost";
 import BoatMap from "./BoatMap";
 import Carousel from "./Carousel";
 
@@ -12,6 +13,12 @@ export default function Boat() {
     const [boat, setBoat] = useState(null);
 
     const BoatHeaderContainer = styled.div`
+        display: flex;
+        margin-right: 100px;
+        justify-content: space-between;
+    `;
+
+    const HostContainer = styled.div`
         display: flex;
         margin-right: 100px;
         justify-content: space-between;
@@ -81,6 +88,9 @@ export default function Boat() {
                     </ActionButton>
                 </div>
             </BoatHeaderContainer>
+            <HostContainer>
+                <BoatHost host={boat?.owner}></BoatHost>
+            </HostContainer>
             <BoatMap boat={boat} />
         </div>
     );
