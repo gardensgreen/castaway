@@ -37,4 +37,12 @@ class User(db.Model, UserMixin):
         return {
             "id": self.id,
             "email": self.email,
+            "firstName": self.firstName,
+            "lastName": self.lastName,
+            "isHost": self.isHost,
+            "avatarUrl": self.avatarUrl,
+            "bio": self.bio,
+            "createdAt": self.createdAt,
+            "boats": [boat.to_dict_no_owner() for boat in self.boats],
+            "reservations": [reservation.to_dict() for reservation in self.reservations]
         }
