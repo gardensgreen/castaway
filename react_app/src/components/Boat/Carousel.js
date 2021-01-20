@@ -12,6 +12,11 @@ const Image = styled.div`
     padding: 0;
 `;
 export default function Carousel({ imageUrl }) {
-    // TODO: Fix random get request sent
-    return <Image style={{ backgroundImage: `url(${imageUrl})` }} />;
+    return (
+        <>
+            {imageUrl ? (
+                <Image style={{ backgroundImage: `url(${imageUrl})` }} />
+            ) : null}
+        </>
+    );
 }

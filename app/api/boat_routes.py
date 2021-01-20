@@ -3,6 +3,7 @@ from flask_login import current_user
 
 from ..models.db import db
 from ..models.boats import Boat
+from ..models.user import User
 from ..forms.create_boat import CreateBoatForm
 
 boat_routes = Blueprint('boats', __name__)
@@ -33,6 +34,16 @@ def get_boat(id):
         return jsonify(boat.to_dict())
     else:
         return ({"error": "error"})
+
+
+# @boat_routes.route("/<int:id>/reservations", methods=["POST"])
+# def get_boat(id):
+#     boat = Boat.query.get(id)
+#     user = User.query.get(current_user.get_id())
+#     if boat:
+#         return jsonify(boat.to_dict())
+#     else:
+#         return ({"error": "error"})
 
 
 @boat_routes.route("/", methods=["POST"])
