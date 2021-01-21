@@ -17,3 +17,19 @@ export const getBoat = async (boatId) => {
 
     return await response.json();
 };
+
+export const reserveBoat = async (boatId, startDate, endDate, total) => {
+    const response = await fetch(`/api/boats/${boatId}/reservations`, {
+        method: "POST",
+        headers: {
+            "Content-Type": "application/json",
+        },
+        body: JSON.stringify({
+            start_date: startDate,
+            end_date: endDate,
+            total,
+        }),
+    });
+
+    return await response.json();
+};
