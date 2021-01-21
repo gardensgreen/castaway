@@ -4,7 +4,9 @@ from flask_login import current_user
 from ..models.db import db
 from ..models.boats import Boat
 from ..models.user import User
+from ..models.reservation import Reservation
 from ..forms.create_boat import CreateBoatForm
+from ..forms.reservation_form import ReservationForm
 
 boat_routes = Blueprint('boats', __name__)
 
@@ -36,14 +38,19 @@ def get_boat(id):
         return ({"error": "error"})
 
 
-# @boat_routes.route("/<int:id>/reservations", methods=["POST"])
-# def get_boat(id):
-#     boat = Boat.query.get(id)
-#     user = User.query.get(current_user.get_id())
-#     if boat:
-#         return jsonify(boat.to_dict())
-#     else:
-#         return ({"error": "error"})
+@boat_routes.route("/<int:id>/reservations", methods=["POST"])
+def reserve(id):
+    boat = Boat.query.get(id)
+    form = ReservationForm()
+    form['csrf_token'].data = request.cookies['csrf_token']
+    if form.validate_on_submit():
+        reservation = Reservation(
+            start_date=form.data['start_date'], end_date=form.data["end_date"], price=boat.price, total=form.data['total'], user_id=current_user.get_id(), boat_id=id)
+        db.session.add(reservation)
+        user = User.query.get(id)
+        user.reservations.append(reservation)
+        db.session.commit()
+        return jsonify(reservation.to_dict())
 
 
 @boat_routes.route("/", methods=["POST"])
