@@ -5,22 +5,16 @@ def seed_media():
     seed_media1 = Media(
         media_url="https://external-content.duckduckgo.com/iu/?u=https%3A%2F%2Fpowerboating.com%2Fwp-content%2Fuploads%2F2020%2F02%2F34-6-Test-Yacht-CruisersYachts-38GLS.jpg&f=1&nofb=1", media_name="main", boat_id=1)
     seed_media2 = Media(
-        media_url="https://external-content.duckduckgo.com/iu/?u=https%3A%2F%2F97a16b0000ad8bcf3f6c-9b7cbdf5523aff60a3b1189bc5da9070.ssl.cf1.rackcdn.com%2Fcruisersyachts%2Fslider%2F66223%2Fslider-4.jpg&f=1&nofb=1", media_name="main", boat_id=1)
+        media_url="https://external-content.duckduckgo.com/iu/?u=https%3A%2F%2Fimgs.yachthub.com%2F2%2F3%2F6%2F6%2F9%2F3%2F0_4.jpg&f=1&nofb=1", media_name="main", boat_id=2)
     seed_media3 = Media(
-        media_url="https://external-content.duckduckgo.com/iu/?u=https%3A%2F%2Ftse2.mm.bing.net%2Fth%3Fid%3DOIP.Qw1EMifWO8ZvcPvHnlC9FgHaEK%26pid%3DApi&f=1", media_name="main", boat_id=2)
+        media_url="https://external-content.duckduckgo.com/iu/?u=https%3A%2F%2Fwww.leopardcatamarans.co.za%2Fsites%2Fdefault%2Ffiles%2Fboats%2FL45%2FLeopard45-webgallery2-012020.jpg&f=1&nofb=1", media_name="main", boat_id=3)
     seed_media4 = Media(
-        media_url="https://external-content.duckduckgo.com/iu/?u=https%3A%2F%2Ftse2.mm.bing.net%2Fth%3Fid%3DOIP.gjY645APoLo7gphLjuOkrQHaEK%26pid%3DApi&f=1", media_name="main", boat_id=2)
+        media_url="https://external-content.duckduckgo.com/iu/?u=https%3A%2F%2Fwww.bdoutdoors.com%2Fwp-content%2Fuploads%2F2020%2F03%2Fwhaler-1-2000x1200.jpg&f=1&nofb=1", media_name="main", boat_id=4)
     seed_media5 = Media(
-        media_url="https://external-content.duckduckgo.com/iu/?u=https%3A%2F%2Fwww.cozumel-boat-charters.com%2Fwebsites%2Fimages%2Fboats%2F38ft-luxury-catamaran-bda%2F38ft-luxury-catamaran-bda-pic-3.jpg&f=1&nofb=1", media_name="main", boat_id=3)
+        media_url="https://external-content.duckduckgo.com/iu/?u=https%3A%2F%2Fwww.powerandmotoryacht.com%2F.image%2Ft_share%2FMTUwMTAzMDY4Mjc0MTQwOTU0%2Fnordhavn-96.jpg&f=1&nofb=1", media_name="main", boat_id=5)
     seed_media6 = Media(
-        media_url="https://external-content.duckduckgo.com/iu/?u=https%3A%2F%2Fwww.isla-mujeres-boat-charters.com%2Fwebsites%2Fimages%2Fboats%2F38ft-cruising-catamaran-2%2F38ft-cruising-catamaran-2-pic-8.jpg&f=1&nofb=1", media_name="main", boat_id=3)
+        media_url="https://external-content.duckduckgo.com/iu/?u=https%3A%2F%2Fimages.yachtworld.com%2Fresize%2F1%2F2%2F51%2F7450251_20200513082101902_1_XLARGE.jpg%3Ff%3D%2F1%2F2%2F51%2F7450251_20200513082101902_1_XLARGE.jpg%26w%3D1400%26h%3D932%26t%3D1589387022000&f=1&nofb=1", media_name="main", boat_id=6)
     seed_media7 = Media(
-        media_url="https://external-content.duckduckgo.com/iu/?u=https%3A%2F%2Fcdn.denisonyachtsales.com%2Fimages%2Fapi-listings%2F1%2F49%2F18%2F6394918_20171009105127222_1_XLARGE.jpg&f=1&nofb=1", media_name="main", boat_id=4)
-    seed_media8 = Media(
-        media_url="https://external-content.duckduckgo.com/iu/?u=https%3A%2F%2Fi2.wp.com%2Fsouthernboating.com%2Fwp-content%2Fuploads%2F2017%2F10%2FSunseeker-95-Yacht.jpg%3Ffit%3D1024%252C672%26ssl%3D1&f=1&nofb=1", media_name="main", boat_id=5)
-    seed_media9 = Media(
-        media_url="https://external-content.duckduckgo.com/iu/?u=http%3A%2F%2Fimages.boats.com%2Fresize%2F1%2F53%2F28%2F6665328_0_300320181410_2.JPG&f=1&nofb=1", media_name="main", boat_id=6)
-    seed_media10 = Media(
         media_url="https://external-content.duckduckgo.com/iu/?u=https%3A%2F%2Fi.ytimg.com%2Fvi%2FqjyjmFTF6KE%2Fmaxresdefault.jpg&f=1&nofb=1", media_name="main", boat_id=7)
     seed_media11 = Media(
         media_url="https://external-content.duckduckgo.com/iu/?u=https%3A%2F%2Fimages.northropandjohnson.com%2Fapi%2F%3Fi%3Dwp-content%2Fuploads%2F2020%2F04%2F5ea8f1c1dec42b2eeb43b290e9b2d50c.jpg%3Fauto%3Dformat%252Cenhance%252Ccompress%26fm%3Djpg%26dl%3DSundance-10.jpg%26w%3D900%26ar%3D16%3A9%26fit%3Dcrop&f=1&nofb=1", media_name="main", boat_id=8)

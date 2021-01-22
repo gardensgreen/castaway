@@ -19,32 +19,31 @@ def seed_boats():
                       boat_type="Yacht",
                       total_occupancy=12, total_bedrooms=1, total_bathrooms=1, length=38, address="3501 Rickenbacker Cswy", summary="The 38 GLS’s innovative design features everything you love about the Cantius series but with triple Mercury Verados.", has_tv=True, has_kitchen=True, has_air_con=True, has_internet=True, has_heating=False, price=900, latitude=25.742861, longitude=-80.170609, owner_id=1,)
 
-    seed_boat2 = Boat(name="Seadoo 230 Challenger",
+    seed_boat2 = Boat(name="Regal 2800 Bowrider",
                       boat_type="Sport",
-                      total_occupancy=6, total_bedrooms=0, total_bathrooms=0, length=20, address="3501 Rickenbacker Cswy", summary=" Seadoo 6 People", has_tv=False, has_kitchen=False, has_air_con=False, has_internet=False, has_heating=False, price=500, latitude=25.742461, longitude=-80.170209, owner_id=1,)
+                      total_occupancy=8, total_bedrooms=0, total_bathrooms=1, length=28, address="3501 Rickenbacker Cswy", summary="Rich in comfort and amenities, the 2800 is the perfect combination of beauty and brawn. Experience the thrill of speed without sacrificing the cockpit comfort that brings everyone together for the perfect day out on the water.", has_tv=False, has_kitchen=False, has_air_con=False, has_internet=False, has_heating=False, price=500, latitude=25.742461, longitude=-80.170209, owner_id=1,)
 
-    seed_boat3 = Boat(name="Catamaran 38", boat_type="Catamaran",
-                      total_occupancy=8, total_bedrooms=3, total_bathrooms=2, length=38, address="3501 Rickenbacker Cswy", summary="Catamaran SailBoat 6-8 People", has_tv=True, has_kitchen=True, has_air_con=True, has_internet=False, has_heating=False, price=500, latitude=25.742061, longitude=-80.171209, owner_id=1,)
+    seed_boat3 = Boat(name="Leopard 45", boat_type="Catamaran",
+                      total_occupancy=10, total_bedrooms=3, total_bathrooms=2, length=45, address="3501 Rickenbacker Cswy", summary="Awarded Boat of the Year honors in 2017 and founded upon the ethos of continuous innovation and feedback from cruising clients, the Leopard 45 sailing catamaran represents astute value, elegant lines and satisfies blue water passion.", has_tv=True, has_kitchen=True, has_air_con=True, has_internet=False, has_heating=False, price=500, latitude=25.742061, longitude=-80.171209, owner_id=1,)
 
-    seed_boat4 = Boat(name="Boston Whaler 42", boat_type="Center Console",
-                      total_occupancy=8, total_bedrooms=1, total_bathrooms=1, length=42, address="3501 Rickenbacker Cswy", summary="Boston Whaler 6-8 People", has_tv=True, has_kitchen=True, has_air_con=True, has_internet=True, has_heating=True, price=700, latitude=25.741661, longitude=-80.170809, owner_id=1)
+    seed_boat4 = Boat(name="Boston Whaler 405 Conquest", boat_type="Center Console",
+                      total_occupancy=8, total_bedrooms=1, total_bathrooms=1, length=42, address="3501 Rickenbacker Cswy", summary="The 405 Conquest, aka the SUV of the Sea, is envisioned from the keel up as an adventure-ready cruiser, the 405 delivers incredible performance, versatility and ease of use. From the robust bow lounge area, to the ultra-convertible helm companion zone, to the inviting cabin with master and two guest sleeping quarters, the 405 brings sophistication and luxury to the Conquest series. ", has_tv=True, has_kitchen=True, has_air_con=True, has_internet=True, has_heating=True, price=700, latitude=25.741661, longitude=-80.170809, owner_id=1)
 
-    seed_boat5 = Boat(name="Yacht 95", boat_type="Yacht",
-                      total_occupancy=12, total_bedrooms=4, total_bathrooms=3, length=95, address="3501 Rickenbacker Cswy", summary=" Yacht 8-12 People", has_tv=True, has_kitchen=True, has_air_con=True, has_internet=True, has_heating=True, price=900, latitude=25.741261, longitude=-80.170409, owner_id=1,)
+    seed_boat5 = Boat(name="Nordhavn 96", boat_type="Yacht",
+                      total_occupancy=10, total_bedrooms=4, total_bathrooms=3, length=95, address="3501 Rickenbacker Cswy", summary="The Nordhavn 96 truly is the ideal boat for the yachtsman looking to step up his game. For one busy N86 owner looking to move up, it was the layout and roomy, separated crew quarters of the N96 – ideal for his full-time four-person crew – that cinched the deal over other similar-sized boats.", has_tv=True, has_kitchen=True, has_air_con=True, has_internet=True, has_heating=True, price=900, latitude=25.741261, longitude=-80.170409, owner_id=1,)
 
-    seed_boat6 = Boat(name="Boston Whaler 24", boat_type="Center Console",
-                      total_occupancy=6, total_bedrooms=0, total_bathrooms=1, length=24, address="801 Brickell Bay Dr", summary="Center Console 6 People", has_tv=False, has_kitchen=False, has_air_con=False, has_internet=False, has_heating=False, price=400, latitude=25.764760, longitude=-80.189010, owner_id=1,)
+    seed_boat6 = Boat(name="Boston Whaler 240 Vantage", boat_type="Center Console",
+                      total_occupancy=5, total_bedrooms=0, total_bathrooms=1, length=24, address="801 Brickell Bay Dr", summary="The 240 Vantage is a true “do-it-all” boat, delivering remarkable versatility and comfort. With an array of smart features for fishing, cruising, beaching, watersports and entertaining, this spacious dual console model is perfect for active families eager to enjoy everything the water has to offer.", has_tv=False, has_kitchen=False, has_air_con=False, has_internet=False, has_heating=False, price=400, latitude=25.764760, longitude=-80.189010, owner_id=1,)
 
-    seed_boat7 = Boat(name="Intrepid 42",
+    seed_boat7 = Boat(name="Intrepid 407 Panacea",
                       boat_type="Center Console",
-                      total_occupancy=12, total_bedrooms=1, total_bathrooms=1, length=42, address="801 Brickell Bay Dr", summary="Intrepid 10-12 People", has_tv=True, has_kitchen=True, has_air_con=True, has_internet=True, has_heating=False, price=650, latitude=25.764861, longitude=-80.189011, owner_id=1,)
+                      total_occupancy=8, total_bedrooms=1, total_bathrooms=1, length=42, address="801 Brickell Bay Dr", summary="The 407 Panacea satisfies every desire a boater can imagine. That happens when you see to every detail with unparalleled precision. It’s the ultimate day boat that’s also a stay boat without compromising fishability.", has_tv=False, has_kitchen=False, has_air_con=True, has_internet=False, has_heating=False, price=650, latitude=25.764861, longitude=-80.189011, owner_id=1,)
 
-    seed_boat8 = Boat(name="Sundance 95",
-                      boat_type="Yacht",
-                      total_occupancy=12, total_bedrooms=5, total_bathrooms=4, length=95, address="801 Brickell Bay Dr", summary="Sundance Yacht 10-15 People with 1 waverunner", has_tv=True, has_kitchen=True, has_air_con=True, has_internet=True, has_heating=True, price=2800, latitude=25.765962, longitude=-80.189001, owner_id=1,)
+    seed_boat8 = Boat(name="Sea Ray 650 Sundancer", boat_type="Yacht",
+                      total_occupancy=12, total_bedrooms=4, total_bathrooms=3, length=65, address="801 Brickell Bay Dr", summary="This Gorgeous L650 Sundancer is loaded with optional equipment and Captain maintained.  Low hours on her C18 Caterpillar's at 388 hours.  Hydraulic bow and stern thrusters with inboard joy stick docking system makes her very easy to maneuver around the docks.", has_tv=True, has_kitchen=True, has_air_con=True, has_internet=True, has_heating=True, price=2800, latitude=25.765962, longitude=-80.189001, owner_id=1,)
 
-    seed_boat9 = Boat(name="Catamaran 32", boat_type="Catamaran",
-                      total_occupancy=7, total_bedrooms=1, total_bathrooms=1, length=32, address="801 Brickell Bay Dr", summary="Catamaran 6-8 People", has_tv=False, has_kitchen=True, has_air_con=False, has_internet=False, has_heating=False, price=550, latitude=25.767062, longitude=-80.189020, owner_id=1)
+    seed_boat9 = Boat(name="Lagoon 380", boat_type="Catamaran",
+                      total_occupancy=7, total_bedrooms=1, total_bathrooms=1, length=38, address="801 Brickell Bay Dr", summary="Clean and nice!", has_tv=False, has_kitchen=True, has_air_con=False, has_internet=False, has_heating=False, price=550, latitude=25.767062, longitude=-80.189020, owner_id=1)
 
     seed_boat10 = Boat(name="Boston Whaler 30", boat_type="Center Console",
                        total_occupancy=8, total_bedrooms=1, total_bathrooms=1, length=30, address="801 Brickell Bay Dr", summary="Center Console 6 People", has_tv=False, has_kitchen=True, has_air_con=False, has_internet=False, has_heating=False, price=2500, latitude=25.76195, longitude=-80.189000, owner_id=1,)
