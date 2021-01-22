@@ -1,9 +1,9 @@
 import { useState, useEffect } from "react";
 import { Modal, Button, Container } from "@material-ui/core";
-import {
-    MuiPickersUtilsProvider,
-    KeyboardDatePicker,
-} from "@material-ui/pickers";
+// import {
+//     MuiPickersUtilsProvider,
+//     KeyboardDatePicker,
+// } from "@material-ui/pickers";
 
 import { reserveBoat } from "../../services/boats";
 
@@ -20,7 +20,11 @@ export default function ReservationModal({ boatId, openModal, handleClose }) {
         setErrors({});
     }, [openModal]);
 
-    const onReserve = async (e) => {};
+    const onReserve = async (e) => {
+        e.preventDefault();
+        const reservation = await reserveBoat(boatId, startDate, endDate);
+        // if (!)
+    };
 
     return <div></div>;
 }

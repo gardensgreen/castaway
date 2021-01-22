@@ -2,7 +2,7 @@ from flask import Blueprint, jsonify, request
 from flask_login import current_user
 
 from ..models.db import db
-from ..models.boats import Boat
+from ..models.boat import Boat
 from ..models.user import User
 from ..models.reservation import Reservation
 from ..forms.create_boat import CreateBoatForm
