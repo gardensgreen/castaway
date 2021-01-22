@@ -52,15 +52,15 @@ export const ModalForm = styled.form`
 
 export const useStyles = makeStyles((theme) => ({
     submit: {
-        margin: theme.spacing(3, 0, 2),
+        margin: theme.spacing(3, 0, 1),
         paddingTop: 10,
         paddingBottom: 10,
-        textTransform: "lowercase",
+        textTransform: "none",
     },
     demo: {
-        margin: theme.spacing(0, 0, 0),
+        margin: theme.spacing(1, 0, 3),
         paddingTop: 10,
         paddingBottom: 10,
-        textTransform: "lowercase",
+        textTransform: "none",
     },
 }));

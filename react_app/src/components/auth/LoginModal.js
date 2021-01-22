@@ -257,16 +257,16 @@ export default function LoginModal({
                             color="primary"
                             className={classes.submit}
                         >
-                            Sign In
+                            Login
                         </Button>
                         <Button
                             onClick={handleDemoLogin}
                             fullWidth
                             variant="contained"
-                            color="primary"
+                            color="secondary"
                             className={classes.demo}
                         >
-                            Sign In as Demo
+                            Demo Login
                         </Button>
                     </ModalForm>
                 </ModalContainer>

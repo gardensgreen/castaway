@@ -1,6 +1,8 @@
 import React, { useState, useEffect } from "react";
 import { BrowserRouter, Route, Switch } from "react-router-dom";
 import { createMuiTheme, ThemeProvider } from "@material-ui/core/styles";
+import blue from "@material-ui/core/colors/blue";
+import indigo from "@material-ui/core/colors/indigo";
 
 import NavBar from "./components/NavBar/NavBar";
 import { authenticate } from "./services/auth";
@@ -11,6 +13,14 @@ const theme = createMuiTheme({
     typography: {
         fontFamily: "Montserrat, sans-serif",
         fontSize: 14,
+    },
+    palette: {
+        primary: {
+            main: indigo[500],
+        },
+        secondary: {
+            main: blue[500],
+        },
     },
 });
 

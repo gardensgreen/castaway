@@ -1,9 +1,9 @@
 import { useState, useEffect } from "react";
 import { Modal, Button, Container } from "@material-ui/core";
-import {
-    MuiPickersUtilsProvider,
-    KeyboardDatePicker,
-} from "@material-ui/pickers";
+// import {
+//     MuiPickersUtilsProvider,
+//     KeyboardDatePicker,
+// } from "@material-ui/pickers";
 
 import MomentUtils from "@date-io/moment";
 import moment from "moment";
@@ -61,6 +61,7 @@ export default function ReservationModal({
         setEndDateValidationError(false);
         setErrors({});
     }, [openModal]);
+
 
     useEffect(() => {
         if (startDate && endDate) {
@@ -218,6 +219,7 @@ export default function ReservationModal({
             </Container>
         </ModalBody>
     );
+
 
     return (
         <Modal
