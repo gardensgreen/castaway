@@ -51,6 +51,8 @@ def reserve(id):
         user.reservations.append(reservation)
         db.session.commit()
         return jsonify(reservation.to_dict())
+    else:
+        return jsonify({'errors': validation_errors_to_error_messages(form.errors)}), 401
 
 
 @boat_routes.route("/", methods=["POST"])

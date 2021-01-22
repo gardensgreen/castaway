@@ -20,7 +20,16 @@ export default function ReservationModal({ boatId, openModal, handleClose }) {
         setErrors({});
     }, [openModal]);
 
-    const onReserve = async (e) => {};
+    const onReserve = async (e) => {
+        e.preventDefault();
+        const reservation = await reserveBoat(boatId, startDate, endDate);
+        if (!reservation.errors) {
+            //TODO: What to do when reservation is successful
+        } else {
+            setErrors(reservation.errors);
+            if (user.errors.)
+        }
+    };
 
     return <div></div>;
 }
