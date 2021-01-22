@@ -9,6 +9,7 @@ import BoatHost from "./BoatHost";
 import BoatMap from "./BoatMap";
 import Carousel from "./Carousel";
 import ReservationModal from "./ReservationModal";
+import LoadingDots from "../Loader/LoadingDots";
 
 const BoatHeaderContainer = styled.div`
     display: flex;
@@ -93,7 +94,6 @@ export default function Boat({ setAuthenticated, authenticated }) {
     const handleReserve = (e) => {
         e.preventDefault();
         if (!authenticated) {
-            console.log("hi");
             setOpenLoginModal(true);
         } else {
             setOpenReservationModal(true);
@@ -101,36 +101,47 @@ export default function Boat({ setAuthenticated, authenticated }) {
     };
 
     return (
-        <div>
-            <Carousel imageUrl={boat?.photos[0].mediaUrl}></Carousel>
-            <BoatHeaderContainer>
-                <BoatHeader boat={boat}></BoatHeader>
+        <>
+            {boat ? (
                 <div>
-                    <ActionButton
-                        onClick={handleReserve}
-                        className="animate__animated animate__jackInTheBox"
-                    >
-                        Reserve Now
-                    </ActionButton>
-                    <LoginModal
-                        setAuthenticated={setAuthenticated}
-                        openModal={openLoginModal}
-                        handleClose={handleCloseLoginModal}
-                    />
-                    <ReservationModal
-                        openModal={openReservationModal}
-                        handleClose={handleCloseReservationModal}
-                    />
-                </div>
-            </BoatHeaderContainer>
-            <SummaryContainer>
-                <BoatDescription summary={boat?.summary}></BoatDescription>
-            </SummaryContainer>
-            <HostContainer>
-                <BoatHost host={boat?.owner}></BoatHost>
-            </HostContainer>
+                    <Carousel imageUrl={boat?.photos[0].mediaUrl}></Carousel>
+                    <BoatHeaderContainer>
+                        <BoatHeader boat={boat}></BoatHeader>
+                        <div>
+                            <ActionButton
+                                onClick={handleReserve}
+                                className="animate__animated animate__jackInTheBox"
+                            >
+                                Reserve Now
+                            </ActionButton>
+                            <LoginModal
+                                setAuthenticated={setAuthenticated}
+                                openModal={openLoginModal}
+                                handleClose={handleCloseLoginModal}
+                            />
+                            <ReservationModal
+                                boatPrice={boat?.price}
+                                boatName={boat?.name}
+                                boatId={boat?.id}
+                                openModal={openReservationModal}
+                                handleClose={handleCloseReservationModal}
+                            />
+                        </div>
+                    </BoatHeaderContainer>
+                    <SummaryContainer>
+                        <BoatDescription
+                            summary={boat?.summary}
+                        ></BoatDescription>
+                    </SummaryContainer>
+                    <HostContainer>
+                        <BoatHost host={boat?.owner}></BoatHost>
+                    </HostContainer>
 
-            <BoatMap boat={boat} />
-        </div>
+                    <BoatMap boat={boat} />
+                </div>
+            ) : (
+                <LoadingDots></LoadingDots>
+            )}
+        </>
     );
 }

@@ -1,6 +1,7 @@
 import React, { useEffect, useState } from "react";
 import styled from "styled-components";
 import { getAllBoats } from "../../services/boats";
+import LoadingDots from "../Loader/LoadingDots";
 import BoatCard from "./BoatCard";
 import Map from "./Map";
 
@@ -33,12 +34,20 @@ export default function Home() {
     }, []);
 
     return (
-        <HomeContainer>
-            <BoatList>
-                {boats &&
-                    boats.map((boat) => <BoatCard key={boat.id} boat={boat} />)}
-            </BoatList>
-            <Map boats={boats} />
-        </HomeContainer>
+        <>
+            {boats ? (
+                <HomeContainer>
+                    <BoatList>
+                        {boats &&
+                            boats.map((boat) => (
+                                <BoatCard key={boat.id} boat={boat} />
+                            ))}
+                    </BoatList>
+                    <Map boats={boats} />
+                </HomeContainer>
+            ) : (
+                <LoadingDots></LoadingDots>
+            )}
+        </>
     );
 }
