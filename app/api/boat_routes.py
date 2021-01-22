@@ -43,6 +43,7 @@ def reserve(id):
     boat = Boat.query.get(id)
     form = ReservationForm()
     form['csrf_token'].data = request.cookies['csrf_token']
+    print(form.data['start_date'])
     if form.validate_on_submit():
         reservation = Reservation(
             start_date=form.data['start_date'], end_date=form.data["end_date"], price=boat.price, total=form.data['total'], user_id=current_user.get_id(), boat_id=id)

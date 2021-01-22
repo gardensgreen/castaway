@@ -93,7 +93,6 @@ export default function Boat({ setAuthenticated, authenticated }) {
     const handleReserve = (e) => {
         e.preventDefault();
         if (!authenticated) {
-            console.log("hi");
             setOpenLoginModal(true);
         } else {
             setOpenReservationModal(true);
@@ -118,6 +117,9 @@ export default function Boat({ setAuthenticated, authenticated }) {
                         handleClose={handleCloseLoginModal}
                     />
                     <ReservationModal
+                        boatPrice={boat?.price}
+                        boatName={boat?.name}
+                        boatId={boat?.id}
                         openModal={openReservationModal}
                         handleClose={handleCloseReservationModal}
                     />

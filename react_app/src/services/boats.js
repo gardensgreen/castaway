@@ -19,6 +19,7 @@ export const getBoat = async (boatId) => {
 };
 
 export const reserveBoat = async (boatId, startDate, endDate, total) => {
+    console.log(startDate);
     const response = await fetch(`/api/boats/${boatId}/reservations`, {
         method: "POST",
         headers: {
