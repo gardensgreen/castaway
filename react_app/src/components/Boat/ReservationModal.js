@@ -69,11 +69,7 @@ export default function ReservationModal({
 
             setTotal(
                 (end.diff(start, "days") +
-                    (end.diff(start, "days") === 0
-                        ? 1
-                        : end.diff(start, "days") === 1
-                        ? 1
-                        : 2)) *
+                    (end.diff(start, "days") === 0 ? 1 : 0)) *
                     boatPrice
             );
         }
@@ -91,6 +87,7 @@ export default function ReservationModal({
         console.log(reservation);
         if (!reservation.errors) {
             //TODO: What to do when reservation is successful
+            handleClose();
         } else {
             setErrors(reservation.errors);
             if (reservation.errors?.fields.includes("start_date")) {
