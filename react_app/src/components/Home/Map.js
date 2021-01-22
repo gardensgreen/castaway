@@ -1,6 +1,7 @@
 import React from "react";
 import GoogleMapReact from "google-map-react";
 import styled from "styled-components";
+import { useHistory } from "react-router-dom";
 
 const MapContainer = styled.div`
     width: 120%;
@@ -24,6 +25,7 @@ const PinContainer = styled.div`
 `;
 
 export default function Map({ boats }) {
+    const history = useHistory();
     return (
         <MapContainer>
             <GoogleMapReact
@@ -36,6 +38,7 @@ export default function Map({ boats }) {
                 {boats &&
                     boats.map((boat) => (
                         <PinContainer
+                            onClick={(e) => history.push(`/boats/${boat.id}`)}
                             key={boat.id}
                             lat={boat.latitude}
                             lng={boat.longitude}

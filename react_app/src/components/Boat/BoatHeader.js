@@ -32,9 +32,36 @@ const BoatAddress = styled.span`
     font-weight: 700;
 `;
 
+const BoatType = styled.div`
+    background-image: linear-gradient(
+        to right,
+        #3f51b5,
+        #4481eb,
+        #04befe,
+        #3f86ed
+    );
+    width: 120px;
+    font-size: 12px;
+    font-weight: 600;
+    height: 25px;
+    text-align: center;
+    padding-top: 10px;
+    padding-bottom: 0px;
+    color: #fff;
+    box-shadow: 0 4px 15px 0 rgba(65, 132, 234, 0.75);
+
+    border: none;
+    background-size: 300% 100%;
+    border-radius: 10px;
+
+    font-weight: 700;
+    margin-right: 20px;
+`;
+
 const FeaturesBar = styled.div`
     display: flex;
     flex-flow: row wrap;
+    align-items: center;
 
     margin-top: 10px;
 `;
@@ -75,7 +102,9 @@ export default function BoatHeader({ boat }) {
             <BoatInfoContainer>
                 <BoatTitle>{boat && boat.name.toUpperCase()}</BoatTitle>
                 <BoatAddress>{boat && boat.address.toUpperCase()}</BoatAddress>
+
                 <FeaturesBar>
+                    <BoatType>{boat?.boatType.toUpperCase()}</BoatType>
                     <AmenityIcon
                         style={{ color: "#222" }}
                         className="fas fa-users fa-1x"

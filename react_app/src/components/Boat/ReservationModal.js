@@ -63,32 +63,15 @@ export default function ReservationModal({
     }, [openModal]);
 
     useEffect(() => {
-        let start = moment(startDate, "MM/DD/YYY");
-        if (start.diff(moment(), "days") < 0) {
-            setErrors({
-                fields: ["start_date"],
-                messages: ["Start date must be a future date."],
-            });
-        }
-    }, [startDate]);
-
-    useEffect(() => {
         if (startDate && endDate) {
             let start = moment(startDate, "MM/DD/YYY");
             let end = moment(endDate, "MM/DD/YYYY");
 
-            if (end.diff(start, "days") < 0) {
-                setErrors({
-                    fields: ["end_date"],
-                    messages: ["End date must be after start date"],
-                });
-            } else {
-                setTotal(
-                    (end.diff(start, "days") +
-                        (end.diff(start, "days") === 0 ? 1 : 0)) *
-                        boatPrice
-                );
-            }
+            setTotal(
+                (end.diff(start, "days") +
+                    (end.diff(start, "days") === 0 ? 1 : 0)) *
+                    boatPrice
+            );
         }
     }, [startDate, endDate, boatPrice]);
 
