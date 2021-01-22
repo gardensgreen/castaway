@@ -45,38 +45,29 @@ def seed_boats():
     seed_boat9 = Boat(name="Lagoon 380", boat_type="Catamaran",
                       total_occupancy=7, total_bedrooms=1, total_bathrooms=1, length=38, address="801 Brickell Bay Dr", summary="Clean and nice!", has_tv=False, has_kitchen=True, has_air_con=False, has_internet=False, has_heating=False, price=550, latitude=25.767062, longitude=-80.189020, owner_id=1)
 
-    seed_boat10 = Boat(name="Boston Whaler 30", boat_type="Center Console",
-                       total_occupancy=8, total_bedrooms=1, total_bathrooms=1, length=30, address="801 Brickell Bay Dr", summary="Center Console 6 People", has_tv=False, has_kitchen=True, has_air_con=False, has_internet=False, has_heating=False, price=2500, latitude=25.76195, longitude=-80.189000, owner_id=1,)
+    seed_boat10 = Boat(name="Boston Whaler 325 Conquest", boat_type="Center Console",
+                       total_occupancy=8, total_bedrooms=1, total_bathrooms=1, length=32, address="801 Brickell Bay Dr", summary="Fish, cruise, never have to choose. With the 325 Conquest, “split personality” takes on a whole new meaning. This adventurous boat is so much more than a cabin cruiser: Designed for maximum versatility, the 325 offers purposeful amenities for all your favorite activities.", has_tv=False, has_kitchen=True, has_air_con=False, has_internet=False, has_heating=False, price=2500, latitude=25.76195, longitude=-80.189000, owner_id=1,)
 
-    seed_boat11 = Boat(name="Catamaran 38", boat_type="Catamaran",
-                       total_occupancy=8, total_bedrooms=3, total_bathrooms=2, length=38, address="3400 Pan American Dr Miami", summary="Catamaran SailBoat 6-8 People", has_tv=True, has_kitchen=True, has_air_con=True, has_internet=False, has_heating=False, price=500, latitude=25.727022, longitude=-80.235449, owner_id=1,)
+    seed_boat11 = Boat(name="Nautitech 40 Open Catamaran", boat_type="Catamaran",
+                       total_occupancy=8, total_bedrooms=3, total_bathrooms=2, length=40, address="3400 Pan American Dr Miami", summary="Most of the catamarans in the market perform well when reaching, but struggle to keep pace upwind. Not the case with the performance design of the Bavaria Open 40, that can safely and easily sail upwind.For her length, she has an impressively tall rig with a generous, modern fully battened square-top mainsail.", has_tv=True, has_kitchen=True, has_air_con=True, has_internet=False, has_heating=False, price=500, latitude=25.727022, longitude=-80.235449, owner_id=1,)
 
-    seed_boat12 = Boat(name="Cruising Yacht 52", boat_type="Yacht",
-                       total_occupancy=10, total_bedrooms=1, total_bathrooms=2, length=52, address="3400 Pan American Dr Miami", summary="Cruising Yacht 8-10 People", has_tv=True, has_kitchen=True, has_air_con=True, has_internet=True, has_heating=True, price=700, latitude=25.727423, longitude=-80.235851, owner_id=1,)
+    seed_boat12 = Boat(name="Sunseeker Manhattan", boat_type="Yacht",
+                       total_occupancy=10, total_bedrooms=1, total_bathrooms=2, length=52, address="3400 Pan American Dr Miami", summary="The entire layout of this boat from the bridge to staterooms will not disappoint as living space and storage is abundant throughout.", has_tv=True, has_kitchen=True, has_air_con=True, has_internet=True, has_heating=True, price=700, latitude=25.727423, longitude=-80.235851, owner_id=1,)
 
-    seed_boat13 = Boat(name="Ferretti 100", boat_type="Yacht",
-                       total_occupancy=12, total_bedrooms=4, total_bathrooms=3, length=100, address="3400 Pan American Dr Miami", summary="Ferretti  Yacht 12-15 People", has_tv=True, has_kitchen=True, has_air_con=True, has_internet=True, has_heating=True, price=900, latitude=25.727823, longitude=-80.236251, owner_id=1,)
+    seed_boat13 = Boat(name="Ferretti Yachts Navetta", boat_type="Yacht",
+                       total_occupancy=12, total_bedrooms=4, total_bathrooms=3, length=100, address="3400 Pan American Dr Miami", summary="The decor is contemporary and elegant featuring extensive upgrades from the standard spec encompassing the rich Italian style this builder is known for. The interior finish is a tasteful pickled Oak wood in combination with bleached Oak, teak flooring and tailored leather.", has_tv=True, has_kitchen=True, has_air_con=True, has_internet=True, has_heating=True, price=900, latitude=25.727823, longitude=-80.236251, owner_id=1,)
 
-    seed_boat14 = Boat(name="Contender 34", boat_type="Center Console",
-                       total_occupancy=12, total_bedrooms=0, total_bathrooms=1, length=34, address="3400 Pan American Dr Miami", summary="Contender Center Console 6 People", has_tv=False, has_kitchen=False, has_air_con=False, has_internet=False, has_heating=False, price=400, latitude=25.726622, longitude=-80.235050, owner_id=1,)
+    seed_boat14 = Boat(name="Contender 35 ST", boat_type="Center Console",
+                       total_occupancy=12, total_bedrooms=0, total_bathrooms=1, length=35, address="3400 Pan American Dr Miami", summary="Contender has always been well known for producing some of the best performing center console fishing boats on the water, and the 35ST, goes beyond those expectations. The innovative dual step design provides dramatic performance increases not only in speed, but also in fuel efficiency, and handling. ", has_tv=False, has_kitchen=False, has_air_con=False, has_internet=False, has_heating=False, price=400, latitude=25.726622, longitude=-80.235050, owner_id=1,)
 
-    seed_boat15 = Boat(name="Sailboat 34", boat_type="Sailboat",
-                       total_occupancy=6, total_bedrooms=1, total_bathrooms=1, length=34, address="3400 Pan American Dr Miami", summary="Sail through the Coast 6 People", has_tv=True, has_kitchen=True, has_air_con=True, has_internet=True, has_heating=False, price=650, latitude=25.726222, longitude=-80.234650, owner_id=1,)
+    seed_boat15 = Boat(name="Jeanneau 43 DS", boat_type="Sailboat",
+                       total_occupancy=6, total_bedrooms=1, total_bathrooms=1, length=34, address="3400 Pan American Dr Miami", summary="The Jeanneau Sun Odyssey 43 DS is designed with families in mind. An L-shaped galley and U-shaped dinette, each to starboard, provide ample room for guests and those tending to them, as do two separate heads. Standing headroom in the cabin ranges from 6 feet 2 inches to 6 feet 11 inches.", has_tv=True, has_kitchen=True, has_air_con=True, has_internet=True, has_heating=False, price=650, latitude=25.726222, longitude=-80.234650, owner_id=1,)
 
-    seed_boat16 = Boat(name="Intrepid 30", boat_type="Center Console",
-                       total_occupancy=8, total_bedrooms=0, total_bathrooms=0, length=30, address="4 Grove Isle Dr Miami", summary="Intrepid Center Console 8 People", has_tv=False, has_kitchen=False, has_air_con=False, has_internet=False, has_heating=False, price=450, latitude=25.734580, longitude=-80.219460, owner_id=1,)
+    seed_boat16 = Boat(name="Intrepid 375 Nomad SE", boat_type="Center Console",
+                       total_occupancy=8, total_bedrooms=0, total_bathrooms=0, length=37, address="4 Grove Isle Dr Miami", summary="The 375 Nomad brings the best of Intrepid boats aboard one amazing center console. It has all the features of the 345 Nomad but more.", has_tv=False, has_kitchen=False, has_air_con=False, has_internet=False, has_heating=False, price=450, latitude=25.734580, longitude=-80.219460, owner_id=1,)
 
-    seed_boat17 = Boat(name="Seadoo 26", boat_type="Sport",
-                       total_occupancy=8, total_bedrooms=0, total_bathrooms=0, length=26, address="4 Grove Isle Dr Miami", summary=" Seadoo 8 People", has_tv=False, has_kitchen=False, has_air_con=False, has_internet=False, has_heating=False, price=800, latitude=25.734980, longitude=-80.219861, owner_id=1,)
-
-    seed_boat18 = Boat(name="Catamaran 42", boat_type="Catamaran",
-                       total_occupancy=20, total_bedrooms=0, total_bathrooms=2, length=42, address="4 Grove Isle Dr Miami", summary="Catamaran SailBoat 20 People", has_tv=False, has_kitchen=True, has_air_con=False, has_internet=False, has_heating=False, price=2000, latitude=25.735380, longitude=-80.220261, owner_id=1,)
-
-    seed_boat19 = Boat(name="Azimut Atlantis 38", boat_type="Yacht",
-                       total_occupancy=8, total_bedrooms=2, total_bathrooms=2, length=38, address="4 Grove Isle Dr Miami", summary="Azimut Atlantis 10-12 People", has_tv=True, has_kitchen=True, has_air_con=True, has_internet=True, has_heating=False, price=1000, latitude=25.734181, longitude=-80.219061, owner_id=1,)
-
-    seed_boat20 = Boat(name="Azimut 100", boat_type="Yacht",
-                       total_occupancy=12, total_bedrooms=5, total_bathrooms=6, length=100, address="4 Grove Isle Dr Miami", summary="Azimut  Yacht 20 People", has_tv=True, has_kitchen=True, has_air_con=True, has_internet=True, has_heating=True, price=2200, latitude=25.733782, longitude=-80.218661, owner_id=1,)
+    seed_boat17 = Boat(name="Stingray 235 LR", boat_type="Sport",
+                       total_occupancy=4, total_bedrooms=0, total_bathrooms=0, length=18, address="4 Grove Isle Dr Miami", summary=" The wide, sport deck design creates a roomy interior, lending way to a convenient side-entry walkway and a head compartment large enough to double as a changing room. For watersports enthusiasts, a large swim platform features built-in drink holders, a fiberglass storage compartment, transom mount trim and tilt, and an optional transom stereo remote.", has_tv=False, has_kitchen=False, has_air_con=False, has_internet=False, has_heating=False, price=800, latitude=25.734980, longitude=-80.219861, owner_id=1,)
 
     db.session.add(seed_boat1)
     db.session.add(seed_boat2)
@@ -95,9 +86,6 @@ def seed_boats():
     db.session.add(seed_boat15)
     db.session.add(seed_boat16)
     db.session.add(seed_boat17)
-    db.session.add(seed_boat18)
-    db.session.add(seed_boat19)
-    db.session.add(seed_boat20)
     db.session.commit()
 
 
