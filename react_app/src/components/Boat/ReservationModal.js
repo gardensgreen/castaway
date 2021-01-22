@@ -63,42 +63,76 @@ export default function ReservationModal({
     }, [openModal]);
 
     useEffect(() => {
+        let start = moment(startDate, "MM/DD/YYY");
+        if (start.diff(moment(), "days") < 0) {
+            setErrors({
+                fields: ["start_date"],
+                messages: ["Start date must be a future date."],
+            });
+        }
+    }, [startDate]);
+
+    useEffect(() => {
         if (startDate && endDate) {
             let start = moment(startDate, "MM/DD/YYY");
             let end = moment(endDate, "MM/DD/YYYY");
 
-            setTotal(
-                (end.diff(start, "days") +
-                    (end.diff(start, "days") === 0 ? 1 : 0)) *
-                    boatPrice
-            );
+            if (end.diff(start, "days") < 0) {
+                setErrors({
+                    fields: ["end_date"],
+                    messages: ["End date must be after start date"],
+                });
+            } else {
+                setTotal(
+                    (end.diff(start, "days") +
+                        (end.diff(start, "days") === 0 ? 1 : 0)) *
+                        boatPrice
+                );
+            }
         }
     }, [startDate, endDate, boatPrice]);
 
     const onReserve = async (e) => {
         e.preventDefault();
 
-        const reservation = await reserveBoat(
-            boatId,
-            startDate.format("YYYY-MM-DD"),
-            endDate.format("YYYY-MM-DD"),
-            total
-        );
-        console.log(reservation);
-        if (!reservation.errors) {
-            //TODO: What to do when reservation is successful
-            handleClose();
+        let start = moment(startDate, "MM/DD/YYY");
+        let end = moment(endDate, "MM/DD/YYYY");
+
+        if (start.diff(moment(), "days") < 0) {
+            setErrors({
+                fields: ["start_date"],
+                messages: ["Start date must be a future date."],
+            });
+            setStartDateValidationError(true);
+        } else if (end.diff(start, "days") < 0) {
+            setErrors({
+                fields: ["end_date"],
+                messages: ["End date must be after start date"],
+            });
+            setEndDateValidationError(true);
         } else {
-            setErrors(reservation.errors);
-            if (reservation.errors?.fields.includes("start_date")) {
-                setStartDateValidationError(true);
+            const reservation = await reserveBoat(
+                boatId,
+                startDate.format("YYYY-MM-DD"),
+                endDate.format("YYYY-MM-DD"),
+                total
+            );
+            console.log(reservation);
+            if (!reservation.errors) {
+                //TODO: What to do when reservation is successful
+                handleClose();
             } else {
-                setStartDateValidationError(false);
-            }
-            if (reservation.errors?.fields.includes("end_date")) {
-                setEndDateValidationError(true);
-            } else {
-                setEndDateValidationError(false);
+                setErrors(reservation.errors);
+                if (reservation.errors?.fields.includes("start_date")) {
+                    setStartDateValidationError(true);
+                } else {
+                    setStartDateValidationError(false);
+                }
+                if (reservation.errors?.fields.includes("end_date")) {
+                    setEndDateValidationError(true);
+                } else {
+                    setEndDateValidationError(false);
+                }
             }
         }
     };

@@ -31,7 +31,7 @@ export const Error = styled.div`
 
 export const ErrorMessage = styled.span`
     margin-left: 10px;
-    color: #f50057;
+    color: #2196f3;
     font-size: 0.85rem;
 `;
 export const ModalHeader = styled.span`
