@@ -32,30 +32,67 @@ const BoatAddress = styled.span`
     font-weight: 700;
 `;
 
+const BoatDetailsContainer = styled.div`
+    display: flex;
+`;
 const BoatType = styled.div`
     background-image: linear-gradient(
         to right,
-        #3f51b5,
-        #4481eb,
+        #3f86ed,
         #04befe,
-        #3f86ed
+        #4481eb,
+        #3f51b5
     );
     width: 120px;
     font-size: 12px;
+
     font-weight: 600;
     height: 25px;
     text-align: center;
     padding-top: 10px;
     padding-bottom: 0px;
     color: #fff;
-    box-shadow: 0 4px 15px 0 rgba(65, 132, 234, 0.75);
 
+    margin-top: 15px;
+    margin-bottom: 15px;
     border: none;
     background-size: 300% 100%;
     border-radius: 10px;
 
     font-weight: 700;
-    margin-right: 20px;
+    margin-right: 10px;
+`;
+
+const BoatDetail = styled.div`
+    background-image: linear-gradient(
+        to right,
+        #3f86ed,
+        #04befe,
+        #4481eb,
+        #3f51b5
+    );
+    width: 120px;
+    font-size: 12px;
+
+    font-weight: 600;
+    height: 25px;
+    text-align: left;
+    padding-top: 10px;
+    padding-bottom: 0px;
+    color: #fff;
+
+    margin-top: 15px;
+    margin-bottom: 15px;
+    border: none;
+    background-size: 300% 100%;
+    border-radius: 10px;
+
+    font-weight: 700;
+    margin-right: 10px;
+`;
+
+const BoatDetailLabel = styled.span`
+    margin-left: 15px;
 `;
 
 const FeaturesBar = styled.div`
@@ -102,9 +139,27 @@ export default function BoatHeader({ boat }) {
             <BoatInfoContainer>
                 <BoatTitle>{boat && boat.name.toUpperCase()}</BoatTitle>
                 <BoatAddress>{boat && boat.address.toUpperCase()}</BoatAddress>
-
+                <BoatDetailsContainer>
+                    <BoatType>{boat?.boatType}</BoatType>
+                    <BoatDetail>
+                        <i class="boat-detail-icon fas fa-ruler-combined"></i>
+                        <BoatDetailLabel>{boat?.length} ft</BoatDetailLabel>
+                    </BoatDetail>
+                    <BoatDetail>
+                        <i class="boat-detail-icon fas fa-bed"></i>
+                        <BoatDetailLabel>
+                            {boat?.totalBedrooms} bed
+                        </BoatDetailLabel>
+                    </BoatDetail>
+                    <BoatDetail>
+                        {" "}
+                        <i class="boat-detail-icon fas fa-toilet"></i>
+                        <BoatDetailLabel>
+                            {boat?.totalBathrooms} bath
+                        </BoatDetailLabel>
+                    </BoatDetail>
+                </BoatDetailsContainer>
                 <FeaturesBar>
-                    <BoatType>{boat?.boatType.toUpperCase()}</BoatType>
                     <AmenityIcon
                         style={{ color: "#222" }}
                         className="fas fa-users fa-1x"

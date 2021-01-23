@@ -1,22 +1,20 @@
 import React from "react";
 import styled from "styled-components";
 
-const Image = styled.div`
-    width: 100%;
-    height: 600px;
-    z-index: 3;
-    background-position: center;
-    background-size: cover;
-    margin: 0;
-    margin-top: -20px;
-    padding: 0;
+const CarouselContainer = styled.div`
+    display: flex;
+    align-items: center;
 `;
-export default function Carousel({ imageUrl }) {
-    return (
-        <>
-            {imageUrl ? (
-                <Image style={{ backgroundImage: `url(${imageUrl})` }} />
-            ) : null}
-        </>
-    );
+
+const CarouselImage = styled.div`
+    border-radius: 3px;
+    height: 200px;
+    width: 100%;
+
+    background-size: cover;
+    background-position: center;
+`;
+
+export default function Carousel() {
+    return <div></div>;
 }

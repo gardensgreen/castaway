@@ -7,7 +7,7 @@ import BoatDescription from "./BoatDescription";
 import BoatHeader from "./BoatHeader";
 import BoatHost from "./BoatHost";
 import BoatMap from "./BoatMap";
-import Carousel from "./Carousel";
+import BoatHero from "./BoatHero";
 import ReservationModal from "./ReservationModal";
 import LoadingDots from "../Loader/LoadingDots";
 
@@ -104,7 +104,7 @@ export default function Boat({ setAuthenticated, authenticated }) {
         <>
             {boat ? (
                 <div>
-                    <Carousel imageUrl={boat?.photos[0].mediaUrl}></Carousel>
+                    <BoatHero imageUrl={boat?.photos[0].mediaUrl}></BoatHero>
                     <BoatHeaderContainer>
                         <BoatHeader boat={boat}></BoatHeader>
                         <div>

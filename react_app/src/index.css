@@ -9,6 +9,10 @@ body {
     --animate-delay: 5s;
     --animate-duration: 30s;
 }
+.boat-detail-icon {
+    margin-right: 0px;
+    margin-left: 25px;
+}
 
 .main__header {
     --animate-duration: 2s;
