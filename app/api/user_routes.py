@@ -3,6 +3,7 @@ from flask_login import current_user
 
 from ..models.db import db
 from ..models.user import User
+from ..models.reservation import Reservation
 
 user_routes = Blueprint('users', __name__)
 
@@ -14,3 +15,9 @@ def get_user(id):
         return jsonify(user.to_dict())
     else:
         return ({"error": "error"})
+
+
+@user_routes.route("/<int:id>/reservations")
+def get_reservations_for_user(id):
+    reservations = Reservation.query.filter_by(user_id=id).all()
+    return jsonify([reservation.to_dict() for reservation in reservations])
