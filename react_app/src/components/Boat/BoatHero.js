@@ -3,12 +3,12 @@ import styled from "styled-components";
 
 const Image = styled.div`
     width: 100%;
-    height: 600px;
+    height: 910px;
     z-index: 3;
     background-position: center;
     background-size: cover;
     margin: 0;
-    margin-top: -20px;
+    margin-top: 155px;
     padding: 0;
 `;
 export default function BoatHero({ imageUrl }) {

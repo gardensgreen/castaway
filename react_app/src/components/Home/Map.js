@@ -1,15 +1,20 @@
-import React from "react";
+import React, { useState, useEffect } from "react";
 import GoogleMapReact from "google-map-react";
 import styled from "styled-components";
 import { useHistory } from "react-router-dom";
+import { useSearchLocation } from "../../SearchContext";
 
 const MapContainer = styled.div`
-    width: 120%;
+    width: 40%;
     height: 100vh;
     padding: 0px;
     margin: 0px;
     border: 1px solid transparent;
     border-radius: 4px;
+    right: 0;
+    top: 20;
+    z-index: 1;
+    position: fixed;
 `;
 
 const PinContainer = styled.div`
@@ -25,6 +30,14 @@ const PinContainer = styled.div`
 `;
 
 export default function Map({ boats }) {
+    const searchLocation = useSearchLocation();
+
+    const [defaultCenter, setDefaultCenter] = useState(searchLocation);
+
+    useEffect(() => {
+        setDefaultCenter(searchLocation);
+    }, [searchLocation]);
+
     const history = useHistory();
     return (
         <MapContainer>
@@ -32,7 +45,7 @@ export default function Map({ boats }) {
                 bootstrapURLKeys={{
                     key: "AIzaSyAHVXofYnPcMNN-Xh3mCJXPc7CE_OU_Zqc",
                 }}
-                defaultCenter={{ lat: 25.7481408, lng: -80.19366 }}
+                center={defaultCenter}
                 defaultZoom={13}
             >
                 {boats &&

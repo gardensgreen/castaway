@@ -56,7 +56,7 @@ const ActionButton = styled.button`
         #3f86ed
     );
     box-shadow: 0 4px 15px 0 rgba(65, 132, 234, 0.75);
-
+    z-index: -1;
     &:hover {
         background-position: 100% 0;
         moz-transition: all 0.4s ease-in-out;

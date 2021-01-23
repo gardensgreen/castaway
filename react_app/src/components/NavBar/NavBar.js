@@ -1,5 +1,5 @@
-import React from "react";
-import { NavLink as NL } from "react-router-dom";
+import React, { useEffect, useState } from "react";
+import { NavLink as NL, useHistory } from "react-router-dom";
 // import LogoutButton from "../auth/LogoutButton";
 import styled from "styled-components";
 import SearchBar from "./SearchBar";
@@ -12,6 +12,15 @@ const Nav = styled.nav`
     justify-content: space-between;
     padding: 40px 40px;
     margin-bottom: 20px;
+    width: 100vw;
+    background-color: ${(props) =>
+        props.name === "/" ? "transparent" : "#FAFAFA"};
+
+    z-index: 5;
+    position: fixed;
+    top: 0;
+    left: 0;
+    right: 0;
 `;
 
 const NavLink = styled(NL)`
@@ -27,13 +36,30 @@ const Div = styled.div`
 `;
 
 const NavBar = ({ authenticated, setAuthenticated }) => {
+    const history = useHistory();
+    const [forceRender, setForceRender] = useState(false);
+
+    useEffect(() => {
+        console.log(history.location.pathname);
+
+        setForceRender((prev) => !prev);
+    }, [history.location.pathname]);
+
+    const handleLandingNav = () => {
+        setForceRender(!forceRender);
+    };
     return (
-        <Nav>
+        <Nav name={window.location.pathname}>
             <Div>
-                <NavLink to="/" exact={true} activeClassName="active">
+                <NavLink
+                    onClick={handleLandingNav}
+                    to="/"
+                    exact={true}
+                    activeClassName="active"
+                >
                     <Logo></Logo>
                 </NavLink>
-                <SearchBar />
+                <SearchBar setForceRender={setForceRender} />
                 <UserMenu
                     authenticated={authenticated}
                     setAuthenticated={setAuthenticated}

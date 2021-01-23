@@ -5,6 +5,8 @@ import usePlacesAutocomplete, {
     getGeocode,
     getLatLng,
 } from "use-places-autocomplete";
+import { useSearchLocationUpdate, useSearchUpdate } from "../../SearchContext";
+import { useHistory } from "react-router-dom";
 
 const SearchBarContainer = styled.div`
     display: flex;
@@ -21,6 +23,7 @@ const SearchInput = styled.input`
     padding-left: 8px;
     background: transparent;
     border: 1px solid transparent;
+    width: 300px;
     cursor: pointer;
     display: flex;
     border-radius: 10px;
@@ -47,7 +50,8 @@ const SearchButton = styled.button`
     }
 `;
 
-export default function SearchBar() {
+export default function SearchBar({ setForceRender }) {
+    const history = useHistory();
     const {
         ready,
         value,
@@ -61,6 +65,9 @@ export default function SearchBar() {
         debounce: 300,
     });
 
+    const updateSearchTerm = useSearchUpdate();
+    const updateSearchLocation = useSearchLocationUpdate();
+
     const handleInput = (e) => {
         // Update the keyword of the input element
         setValue(e.target.value);
@@ -70,13 +77,16 @@ export default function SearchBar() {
         // When user selects a place, we can replace the keyword without request data from API
         // by setting the second parameter as "false"
         setValue(description, false);
+        updateSearchTerm(description);
         clearSuggestions();
+        history.push("/home");
+        setForceRender((prevValue) => !prevValue);
 
         // Get latitude and longitude via utility functions
         getGeocode({ address: description })
             .then((results) => getLatLng(results[0]))
             .then(({ lat, lng }) => {
-                console.log("📍 Coordinates: ", { lat, lng });
+                updateSearchLocation({ lat, lng });
             })
             .catch((error) => {
                 console.log("😱 Error: ", error);
@@ -101,7 +111,7 @@ export default function SearchBar() {
         <>
             <SearchBarContainer>
                 <SearchInput
-                    placeholder="Search for anything..."
+                    placeholder="Try 'Miami, FL, USA'"
                     value={value}
                     onChange={handleInput}
                     disabled={!ready}

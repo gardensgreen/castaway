@@ -11,6 +11,7 @@ const DotWrapper = styled.div`
     display: flex;
 
     justify-content: center;
+    padding-top: 30vh;
     width: 100vw;
     height: 100vh;
     margin-top: 200px;

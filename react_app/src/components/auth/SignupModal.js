@@ -50,6 +50,7 @@ export default function SignupModal({
             const user = await signup(email, password);
             if (!user.errors) {
                 setAuthenticated(true);
+                handleClose();
             } else {
                 setErrors(user.errors);
                 if (

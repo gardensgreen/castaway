@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useState } from "react";
 import { useHistory } from "react-router-dom";
 import styled from "styled-components";
 import Particle from "react-particles-js";
@@ -25,7 +25,7 @@ const HeroBackground = styled.div`
 const HeroImage = styled.img`
     width: 55%;
     height: 55%;
-    margin-left: -5%;
+    margin-left: 10%;
     margin-right: 10%;
     margin-bottom: 20px;
 `;
@@ -36,6 +36,7 @@ const HeroContainer = styled.div`
     padding-left: 10%;
     padding-right: 10%;
     max-width: 100%;
+    margin-top: 225px;
     z-index: -2;
 `;
 
@@ -109,7 +110,7 @@ const Description = styled.p`
     color: #666;
 `;
 
-export default function Hero() {
+export default function Hero( ) {
     const history = useHistory();
 
     return (
@@ -131,6 +132,11 @@ export default function Hero() {
                     >
                         Get Started
                     </ActionButton>
+                    {/* <SignupModal
+                        setAuthenticated={setAuthenticated}
+                        openModal={openSignupModal}
+                        handleClose={handleCloseSignupModal}
+                    /> */}
                 </HeroContentContainer>
                 <HeroImage
                     className="animate__animated animate__tada animate_infinite"

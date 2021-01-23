@@ -1,11 +1,10 @@
-import React from "react";
+import React, { useEffect, useState } from "react";
 import styled from "styled-components";
 
 const CarouselContainer = styled.div`
     display: flex;
-    align-items: center;
-    margin-left: 100px;
-    margin-right: 180px;
+    align-items: flex-start;
+    padding: 30px 100px;
 `;
 
 const CarouselImageContainer = styled.div`
@@ -27,17 +26,25 @@ const Header = styled.span`
     color: #999;
     font-weight: 700;
     margin-right: 20px;
-    margin-top: 10px;
-    margin-bottom: 130px;
+
+    margin-top: 30px;
 `;
 export default function Carousel({ photos }) {
+    const [media, setMedia] = useState([]);
+
+    useEffect(() => {
+        if (photos) {
+            console.log(photos);
+            setMedia(photos.slice(1));
+        }
+    }, []);
     return (
         <>
-            {photos ? (
+            {media.length > 1 ? (
                 <CarouselContainer>
                     <Header>MEDIA</Header>
-                    {photos &&
-                        photos.slice(1).map((photo) => (
+                    {media &&
+                        media.map((photo) => (
                             <CarouselImageContainer>
                                 <CarouselImage
                                     style={{

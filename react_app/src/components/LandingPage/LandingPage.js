@@ -2,10 +2,10 @@
 import React from "react";
 import Hero from "./Hero";
 
-export default function LandingPage() {
+export default function LandingPage({ setAuthenticated }) {
     return (
         <div style={{ overflowY: "hidden", overflowX: "hidden" }}>
-            <Hero />
+            <Hero setAuthenticated={setAuthenticated} />
             <div className="footer__container">
                 <a
                     href="https://github.com/gardensgreen/"

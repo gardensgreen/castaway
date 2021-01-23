@@ -9,6 +9,7 @@ import { authenticate } from "./services/auth";
 import LandingPage from "./components/LandingPage/LandingPage";
 import Boat from "./components/Boat/Boat";
 import Home from "./components/Home/Home";
+import { SearchProvider } from "./SearchContext";
 const theme = createMuiTheme({
     typography: {
         fontFamily: "Montserrat, sans-serif",
@@ -27,7 +28,6 @@ const theme = createMuiTheme({
 function App() {
     const [authenticated, setAuthenticated] = useState(false);
     const [loaded, setLoaded] = useState(false);
-
     useEffect(() => {
         (async () => {
             const user = await authenticate();
@@ -45,24 +45,40 @@ function App() {
     return (
         <BrowserRouter>
             <ThemeProvider theme={theme}>
-                <NavBar
-                    authenticated={authenticated}
-                    setAuthenticated={setAuthenticated}
-                />
-                <Switch>
-                    <Route path="/" exact={true} authenticated={authenticated}>
-                        <LandingPage></LandingPage>
-                    </Route>
-                    <Route path="/home" exact={true}>
-                        <Home />
-                    </Route>
-                    <Route path="/boats/:id">
-                        <Boat
+                <SearchProvider>
+                    <Switch>
+                        <Route
+                            path="/"
+                            exact={true}
                             authenticated={authenticated}
-                            setAuthenticated={setAuthenticated}
-                        />
-                    </Route>
-                </Switch>
+                        >
+                            <NavBar
+                                authenticated={authenticated}
+                                setAuthenticated={setAuthenticated}
+                            />
+                            <LandingPage
+                                setAuthenticated={setAuthenticated}
+                            ></LandingPage>
+                        </Route>
+                        <Route path="/home" exact={true}>
+                            <NavBar
+                                authenticated={authenticated}
+                                setAuthenticated={setAuthenticated}
+                            />
+                            <Home />
+                        </Route>
+                        <Route path="/boats/:id">
+                            <NavBar
+                                authenticated={authenticated}
+                                setAuthenticated={setAuthenticated}
+                            />
+                            <Boat
+                                authenticated={authenticated}
+                                setAuthenticated={setAuthenticated}
+                            />
+                        </Route>
+                    </Switch>
+                </SearchProvider>
             </ThemeProvider>
         </BrowserRouter>
     );
