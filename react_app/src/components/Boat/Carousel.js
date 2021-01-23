@@ -4,7 +4,7 @@ import styled from "styled-components";
 const CarouselContainer = styled.div`
     display: flex;
     align-items: center;
-    margin-left: 180px;
+    margin-left: 100px;
     margin-right: 180px;
 `;
 
@@ -28,12 +28,14 @@ const Header = styled.span`
     font-weight: 700;
     margin-right: 20px;
     margin-top: 10px;
+    margin-bottom: 130px;
 `;
 export default function Carousel({ photos }) {
     return (
         <>
-            {photos[2] ? (
+            {photos ? (
                 <CarouselContainer>
+                    <Header>MEDIA</Header>
                     {photos &&
                         photos.slice(1).map((photo) => (
                             <CarouselImageContainer>

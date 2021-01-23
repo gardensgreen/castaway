@@ -21,7 +21,7 @@ const Header = styled.span`
     color: #999;
     font-weight: 700;
     margin-right: 20px;
-    margin-top: 10px;
+    margin-top: 20px;
 `;
 
 const MapContainer = styled.div`
