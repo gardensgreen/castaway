@@ -4,6 +4,12 @@ from app.models import db, Media
 def seed_media():
     seed_media1 = Media(
         media_url="https://powerboating.com/wp-content/uploads/2020/02/34-6-Test-Yacht-CruisersYachts-38GLS.jpg", media_name="main", boat_id=1)
+    seed_media1_2 = Media(
+        media_url="https://97a16b0000ad8bcf3f6c-9b7cbdf5523aff60a3b1189bc5da9070.ssl.cf1.rackcdn.com/cruisersyachts/slider/66223/slider-4.jpg", media_name="", boat_id=1)
+    seed_media1_3 = Media(
+        media_url="https://media.inventory.level5marketing.com/dist/app_images/2021-Cruisers_Yachts-38_Gls_Ob-22096-4981270-R797973-20200610033501316.jpg", media_name="", boat_id=1)
+    seed_media1_4 = Media(
+        media_url="https://vnext.scdn4.secure.raxcdn.com/assets/cruisersyachts/images/models/38gls/gallery/03.jpg", media_name="", boat_id=1)
     seed_media2 = Media(
         media_url="https://images.boats.com/resize/1/53/23/6335323_0_311219691600_1.JPG", media_name="main", boat_id=2)
     seed_media3 = Media(

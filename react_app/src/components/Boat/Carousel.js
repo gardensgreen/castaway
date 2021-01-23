@@ -15,6 +15,6 @@ const CarouselImage = styled.div`
     background-position: center;
 `;
 
-export default function Carousel() {
+export default function Carousel({ photos }) {
     return <div></div>;
 }
