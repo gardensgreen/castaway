@@ -10,6 +10,8 @@ import moment from "moment";
 import InfoIcon from "@material-ui/icons/Info";
 import { reserveBoat } from "../../services/boats";
 import styled from "styled-components";
+import { ToastContainer, toast } from "react-toastify";
+import "react-toastify/dist/ReactToastify.css";
 
 import {
     ModalBody,
@@ -21,6 +23,7 @@ import {
     Error,
     ErrorMessage,
 } from "../auth/AuthStyles";
+import { useHistory } from "react-router-dom";
 
 const PriceContainer = styled.div`
     font-weight: 700;
@@ -44,6 +47,7 @@ export default function ReservationModal({
     handleClose,
     boatPrice,
 }) {
+    const history = useHistory();
     const [errors, setErrors] = useState({});
     const [startDate, setStartDate] = useState(null);
     const [startDateValidationError, setStartDateValidationError] = useState(
@@ -103,6 +107,7 @@ export default function ReservationModal({
             console.log(reservation);
             if (!reservation.errors) {
                 //TODO: What to do when reservation is successful
+                notify();
                 handleClose();
             } else {
                 setErrors(reservation.errors);
@@ -125,6 +130,9 @@ export default function ReservationModal({
     };
     const updateEndDate = (e) => {
         setEndDate(e);
+    };
+    const notify = (boatName) => {
+        toast.info(`You've successfully reserved the ${boatName}`);
     };
 
     const classes = useStyles();
