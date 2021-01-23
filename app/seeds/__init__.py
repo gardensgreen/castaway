@@ -36,6 +36,6 @@ def seed_media_cmd():
     seed_media()
 
 
-@seed_commands.command('undo-boats')
+@seed_commands.command('undo-media')
 def seed_media_cmd():
     undo_media()

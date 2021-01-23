@@ -46,6 +46,8 @@ const BoatType = styled.div`
     height: 25px;
     text-align: center;
     padding-top: 10px;
+    padding-right: 10px;
+    padding-left: 10px;
     padding-bottom: 0px;
     color: #fff;
     box-shadow: 0 4px 15px 0 rgba(65, 132, 234, 0.75);
