@@ -44,6 +44,9 @@ def seed_media():
         media_url="https://www.lemerryclub.com/wp-content/uploads/2019/02/235lr_running3_Low.jpg", media_name="main", boat_id=17)
 
     db.session.add(seed_media1)
+    db.session.add(seed_media1_2)
+    db.session.add(seed_media1_3)
+    db.session.add(seed_media1_4)
     db.session.add(seed_media2)
     db.session.add(seed_media3)
     db.session.add(seed_media4)
