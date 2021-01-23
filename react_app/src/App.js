@@ -56,7 +56,7 @@ function App() {
                     <Route path="/home" exact={true}>
                         <Home />
                     </Route>
-                    <Route path="/boats/:id" exact={true}>
+                    <Route path="/boats/:id">
                         <Boat
                             authenticated={authenticated}
                             setAuthenticated={setAuthenticated}

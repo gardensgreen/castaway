@@ -1,6 +1,7 @@
 import { useState, useEffect } from "react";
 import { useParams } from "react-router-dom";
 import styled from "styled-components";
+import { ToastContainer, toast } from "react-toastify";
 import LoginModal from "../auth/LoginModal";
 import { getBoat } from "../../services/boats";
 import BoatDescription from "./BoatDescription";
@@ -10,6 +11,7 @@ import BoatMap from "./BoatMap";
 import BoatHero from "./BoatHero";
 import ReservationModal from "./ReservationModal";
 import LoadingDots from "../Loader/LoadingDots";
+import Carousel from "./Carousel";
 
 const BoatHeaderContainer = styled.div`
     display: flex;
@@ -74,6 +76,7 @@ export default function Boat({ setAuthenticated, authenticated }) {
     const [boat, setBoat] = useState(null);
     const [openReservationModal, setOpenReservationModal] = useState(false);
     const [openLoginModal, setOpenLoginModal] = useState(false);
+    const [pathName, setPathName] = useState(window.location.pathname);
     const open = Boolean(anchorEl);
 
     useEffect(() => {
@@ -84,6 +87,10 @@ export default function Boat({ setAuthenticated, authenticated }) {
             }
         })();
     }, [id]);
+
+    useEffect(() => {
+        return setPathName(window.location.pathname);
+    }, []);
 
     const handleCloseReservationModal = () => setOpenReservationModal(false);
 
@@ -128,6 +135,7 @@ export default function Boat({ setAuthenticated, authenticated }) {
                             />
                         </div>
                     </BoatHeaderContainer>
+                    <Carousel photos={boat?.photos}></Carousel>
                     <SummaryContainer>
                         <BoatDescription
                             summary={boat?.summary}
@@ -136,7 +144,7 @@ export default function Boat({ setAuthenticated, authenticated }) {
                     <HostContainer>
                         <BoatHost host={boat?.owner}></BoatHost>
                     </HostContainer>
-
+                    <ToastContainer />
                     <BoatMap boat={boat} />
                 </div>
             ) : (
