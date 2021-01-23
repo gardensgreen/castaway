@@ -1,7 +1,7 @@
 """empty message
 
 Revision ID: eb5db7e188d1
-Revises: 
+Revises:
 Create Date: 2021-01-22 19:28:23.159849
 
 """
@@ -40,7 +40,7 @@ def upgrade():
     sa.Column('total_bathrooms', sa.Integer(), nullable=False),
     sa.Column('length', sa.Integer(), nullable=False),
     sa.Column('address', sa.String(length=255), nullable=False),
-    sa.Column('summary', sa.String(length=255), nullable=False),
+    sa.Column('summary', sa.String(length=1000), nullable=False),
     sa.Column('has_tv', sa.Boolean(), nullable=False),
     sa.Column('has_kitchen', sa.Boolean(), nullable=False),
     sa.Column('has_air_con', sa.Boolean(), nullable=False),

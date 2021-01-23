@@ -27,7 +27,7 @@ class Boat(db.Model):
     total_bathrooms = db.Column(db.Integer, nullable=False)
     length = db.Column(db.Integer, nullable=False)
     address = db.Column(db.String(255), nullable=False)
-    summary = db.Column(db.String(255), nullable=False)
+    summary = db.Column(db.String(1000), nullable=False)
     has_tv = db.Column(db.Boolean, nullable=False, default=False)
     has_kitchen = db.Column(db.Boolean, nullable=False, default=False)
     has_air_con = db.Column(db.Boolean, nullable=False, default=False)
