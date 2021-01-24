@@ -27,7 +27,7 @@ export default function LandingPage({ setAuthenticated }) {
                     <i className="fab fa-github fa-2x"></i>
                 </a>
                 <a
-                    href="#https://angel.co/u/daniel-tillero"
+                    href="https://angel.co/u/daniel-tillero"
                     className="footer-link"
                 >
                     Angelist
