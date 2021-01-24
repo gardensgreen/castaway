@@ -2,9 +2,10 @@ import React, { useEffect, useState } from "react";
 import { useParams } from "react-router-dom";
 import { getTrips } from "../../services/users";
 import styled from "styled-components";
+import ReservationCard from "./ReservationCard";
 
 export default function Trips({}) {
-    const userId = useParams();
+    const { userId } = useParams();
     const [reservations, setReservations] = useState([]);
 
     useEffect(() => {
@@ -12,7 +13,7 @@ export default function Trips({}) {
             let fetchedReservations = await getTrips(userId);
             setReservations(fetchedReservations);
         })();
-    });
+    }, []);
 
     const ReservationsPageContainer = styled.div`
         margin-top: 205px;
@@ -43,7 +44,16 @@ export default function Trips({}) {
             <ReservationsPageSubHeader>
                 You have upcoming trips. Manage and view your bookings here.
             </ReservationsPageSubHeader>
-            <ReservationsContainer></ReservationsContainer>
+            <ReservationsContainer>
+                {reservations
+                    ? reservations.map((reservation) => (
+                          <ReservationCard
+                              key={reservation.id}
+                              reservation={reservation}
+                          ></ReservationCard>
+                      ))
+                    : null}
+            </ReservationsContainer>
         </ReservationsPageContainer>
     );
 }
