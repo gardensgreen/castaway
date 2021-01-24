@@ -10,6 +10,7 @@ import LandingPage from "./components/LandingPage/LandingPage";
 import Boat from "./components/Boat/Boat";
 import Home from "./components/Home/Home";
 import { SearchProvider } from "./SearchContext";
+import Trips from "./components/Trips/Trips";
 const theme = createMuiTheme({
     typography: {
         fontFamily: "Montserrat, sans-serif",
@@ -26,6 +27,7 @@ const theme = createMuiTheme({
 });
 
 function App() {
+    const [user, setUser] = useState(null);
     const [authenticated, setAuthenticated] = useState(false);
     const [loaded, setLoaded] = useState(false);
     useEffect(() => {
@@ -33,6 +35,7 @@ function App() {
             const user = await authenticate();
             if (!user.errors) {
                 setAuthenticated(true);
+                setUser(user);
             }
             setLoaded(true);
         })();
@@ -53,6 +56,7 @@ function App() {
                             authenticated={authenticated}
                         >
                             <NavBar
+                                user={user}
                                 authenticated={authenticated}
                                 setAuthenticated={setAuthenticated}
                             />
@@ -62,6 +66,7 @@ function App() {
                         </Route>
                         <Route path="/home" exact={true}>
                             <NavBar
+                                user={user}
                                 authenticated={authenticated}
                                 setAuthenticated={setAuthenticated}
                             />
@@ -69,6 +74,7 @@ function App() {
                         </Route>
                         <Route path="/boats/:id">
                             <NavBar
+                                user={user}
                                 authenticated={authenticated}
                                 setAuthenticated={setAuthenticated}
                             />
@@ -76,6 +82,15 @@ function App() {
                                 authenticated={authenticated}
                                 setAuthenticated={setAuthenticated}
                             />
+                        </Route>
+
+                        <Route path="/users/:userId/reservations">
+                            <NavBar
+                                user={user}
+                                authenticated={authenticated}
+                                setAuthenticated={setAuthenticated}
+                            />
+                            <Trips />
                         </Route>
                     </Switch>
                 </SearchProvider>

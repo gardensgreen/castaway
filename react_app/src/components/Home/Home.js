@@ -28,13 +28,13 @@ const BoatList = styled.ul`
 const NoBoatsTitle = styled.h1`
     font-size: 1.5em;
     font-weight: 700;
-    margin-left: 175px;
+    margin-left: 100px;
 `;
 
 const NoBoatsSubTitle = styled.h2`
     font-size: 1em;
     font-weight: 500;
-    margin-left: 175px;
+    margin-left: 100px;
 `;
 export default function Home() {
     const searchTerm = useSearch();

@@ -94,3 +94,29 @@ class Boat(db.Model):
             "ownerId": self.owner_id,
             "photos": [photo.to_dict() for photo in self.photos],
         }
+
+    def to_dict_no_photos(self):
+        return {
+            "id": self.id,
+            "name": self.name,
+            "boatType": self.boat_type,
+            "totalOccupancy": self.total_occupancy,
+            "totalBedrooms": self.total_bedrooms,
+            "totalBathrooms": self.total_bathrooms,
+            "length": self.length,
+            "address": self.address,
+            "summary": self.summary,
+            "amenities": {
+                "hasTv": self.has_tv,
+                "hasKitchen": self.has_kitchen,
+                "hasAirConditioning": self.has_air_con,
+                "hasInternet": self.has_internet,
+                "hasHeating": self.has_heating,
+            },
+            "price": self.price,
+            "createdAt": self.created_at,
+            "latitude": f"{self.latitude}",
+            "longitude": f"{self.longitude}",
+            "ownerId": self.owner_id,
+
+        }

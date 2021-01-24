@@ -9,6 +9,7 @@ import LoginModal from "../auth/LoginModal";
 import SignupModal from "../auth/SignupModal";
 import { makeStyles } from "@material-ui/core/styles";
 import { logout } from "../../services/auth";
+import { useHistory } from "react-router-dom";
 
 const useStyles = makeStyles({
     // root: {
@@ -83,7 +84,8 @@ const UserMenuContainerAuth = styled.div`
     box-shadow: 0px 0px 0px 3px rgba(63, 81, 181, 0.5);
 `;
 
-export default function UserMenu({ authenticated, setAuthenticated }) {
+export default function UserMenu({ authenticated, setAuthenticated, user }) {
+    const history = useHistory();
     const [anchorEl, setAnchorEl] = useState(null);
     const [openLoginModal, setOpenLoginModal] = useState(false);
     const [openSignupModal, setOpenSignupModal] = useState(false);
@@ -215,6 +217,13 @@ export default function UserMenu({ authenticated, setAuthenticated }) {
                 onClose={handleClose}
                 TransitionComponent={Fade}
             >
+                <UserMenuPopUpItem
+                    onClick={(e) =>
+                        history.push(`/users/${user.id}/reservations`)
+                    }
+                >
+                    Trips
+                </UserMenuPopUpItem>
                 <UserMenuPopUpItem onClick={onLogout}>Logout</UserMenuPopUpItem>
             </UserMenuPopUp>
         </>

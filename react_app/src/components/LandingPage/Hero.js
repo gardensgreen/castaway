@@ -25,7 +25,7 @@ const HeroBackground = styled.div`
 const HeroImage = styled.img`
     width: 55%;
     height: 55%;
-    margin-left: 0%;
+    margin-left: -5%;
     margin-right: 10%;
     margin-bottom: 20px;
 `;
@@ -36,7 +36,7 @@ const HeroContainer = styled.div`
     padding-left: 10%;
     padding-right: 10%;
     max-width: 100%;
-    margin-top: 225px;
+    margin-top: 175px;
     z-index: -2;
 `;
 
