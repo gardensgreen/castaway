@@ -106,7 +106,7 @@ export default function ReservationModal({
             );
             if (!reservation.errors) {
                 //TODO: What to do when reservation is successful
-                notify();
+                notify(reservation.boat.name);
                 handleClose();
             } else {
                 setErrors(reservation.errors);

@@ -27,6 +27,7 @@ const theme = createMuiTheme({
 });
 
 function App() {
+    const [user, setUser] = useState(null);
     const [authenticated, setAuthenticated] = useState(false);
     const [loaded, setLoaded] = useState(false);
     useEffect(() => {
@@ -34,6 +35,7 @@ function App() {
             const user = await authenticate();
             if (!user.errors) {
                 setAuthenticated(true);
+                setUser(user);
             }
             setLoaded(true);
         })();
@@ -54,6 +56,7 @@ function App() {
                             authenticated={authenticated}
                         >
                             <NavBar
+                                user={user}
                                 authenticated={authenticated}
                                 setAuthenticated={setAuthenticated}
                             />
@@ -63,6 +66,7 @@ function App() {
                         </Route>
                         <Route path="/home" exact={true}>
                             <NavBar
+                                user={user}
                                 authenticated={authenticated}
                                 setAuthenticated={setAuthenticated}
                             />
@@ -70,6 +74,7 @@ function App() {
                         </Route>
                         <Route path="/boats/:id">
                             <NavBar
+                                user={user}
                                 authenticated={authenticated}
                                 setAuthenticated={setAuthenticated}
                             />
@@ -81,6 +86,7 @@ function App() {
 
                         <Route path="/users/:userId/reservations">
                             <NavBar
+                                user={user}
                                 authenticated={authenticated}
                                 setAuthenticated={setAuthenticated}
                             />

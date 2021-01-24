@@ -3,6 +3,7 @@ import styled from "styled-components";
 import moment from "moment";
 import MomentUtils from "@date-io/moment";
 import { Link } from "react-router-dom";
+import { deleteReservation } from "../../services/reservations";
 
 const ReservationCardContainer = styled.div`
     display: flex;
@@ -122,6 +123,13 @@ const BoatPrice = styled.span`
 `;
 
 export default function ReservationCard({ reservation }) {
+    const handleCancelRes = async (e) => {
+        e.preventDefault();
+        let deletedBoat = await deleteReservation(reservation.id);
+        if (!deletedBoat.error) {
+            window.location.reload();
+        }
+    };
     return (
         <ReservationCardContainer>
             <ReservationCardInfoContainer>
@@ -157,7 +165,7 @@ export default function ReservationCard({ reservation }) {
                     </BoatCard>
                 </ClickArea>
             </ReservationCardInfoContainer>
-            <ActionButton>Cancel Trip</ActionButton>
+            <ActionButton onClick={handleCancelRes}>Cancel Trip</ActionButton>
         </ReservationCardContainer>
     );
 }

@@ -35,7 +35,7 @@ const Div = styled.div`
     width: 100%;
 `;
 
-const NavBar = ({ authenticated, setAuthenticated }) => {
+const NavBar = ({ authenticated, setAuthenticated, user }) => {
     const history = useHistory();
     const [forceRender, setForceRender] = useState(false);
 
@@ -59,6 +59,7 @@ const NavBar = ({ authenticated, setAuthenticated }) => {
                 </NavLink>
                 <SearchBar setForceRender={setForceRender} />
                 <UserMenu
+                    user={user}
                     authenticated={authenticated}
                     setAuthenticated={setAuthenticated}
                 />

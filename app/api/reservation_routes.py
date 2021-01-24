@@ -9,8 +9,8 @@ reservation_routes = Blueprint('reservations', __name__)
 def delete_reservation(id):
     reservation = Reservation.query.get(id)
     if (reservation):
-        db.session.remove(reservation)
+        db.session.delete(reservation)
         db.session.commit()
-        return jsonify(reservation.to_dict())
+        return jsonify({"success": "success"})
     else:
         return jsonify({"error": "error"})

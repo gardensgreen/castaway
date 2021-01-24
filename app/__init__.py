@@ -11,6 +11,7 @@ from .seeds import seed_commands
 from .api.auth_routes import auth_routes
 from .api.boat_routes import boat_routes
 from .api.user_routes import user_routes
+from .api.reservation_routes import reservation_routes
 
 app = Flask(__name__)
 
@@ -18,6 +19,7 @@ app.config.from_object(Config)
 app.register_blueprint(auth_routes, url_prefix='/api/auth')
 app.register_blueprint(boat_routes, url_prefix='/api/boats')
 app.register_blueprint(user_routes, url_prefix='/api/users')
+app.register_blueprint(reservation_routes, url_prefix='/api/reservations')
 db.init_app(app)
 Migrate(app, db)
 app.cli.add_command(seed_commands)
