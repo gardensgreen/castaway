@@ -104,7 +104,6 @@ export default function ReservationModal({
                 endDate.format("YYYY-MM-DD"),
                 total
             );
-            console.log(reservation);
             if (!reservation.errors) {
                 //TODO: What to do when reservation is successful
                 notify();

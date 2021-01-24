@@ -40,8 +40,6 @@ const NavBar = ({ authenticated, setAuthenticated }) => {
     const [forceRender, setForceRender] = useState(false);
 
     useEffect(() => {
-        console.log(history.location.pathname);
-
         setForceRender((prev) => !prev);
     }, [history.location.pathname]);
 

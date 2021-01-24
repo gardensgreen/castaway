@@ -34,7 +34,6 @@ export default function Carousel({ photos }) {
 
     useEffect(() => {
         if (photos) {
-            console.log(photos);
             setMedia(photos.slice(1));
         }
     }, []);
