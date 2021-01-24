@@ -54,6 +54,7 @@ export default function LoginModal({
         if (!user.errors) {
             setAuthenticated(true);
             handleClose();
+            window.location.reload();
         } else {
             setErrors(user.errors);
             if (user.errors.fields && user.errors.fields.includes("email")) {
@@ -74,6 +75,7 @@ export default function LoginModal({
         if (!user.errors) {
             setAuthenticated(true);
             handleClose();
+            window.location.reload();
         } else {
             setErrors(user.errors);
             if (user.errors.fields && user.errors.fields.includes("email")) {

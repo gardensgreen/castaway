@@ -51,6 +51,7 @@ export default function SignupModal({
             if (!user.errors) {
                 setAuthenticated(true);
                 handleClose();
+                window.location.reload();
             } else {
                 setErrors(user.errors);
                 if (
