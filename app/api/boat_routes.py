@@ -48,7 +48,7 @@ def reserve(id):
         reservation = Reservation(
             start_date=form.data['start_date'], end_date=form.data["end_date"], price=boat.price, total=form.data['total'], user_id=current_user.get_id(), boat_id=id)
         db.session.add(reservation)
-        user = User.query.get(id)
+        user = User.query.get(current_user.get_id())
         user.reservations.append(reservation)
         db.session.commit()
         return jsonify(reservation.to_dict())

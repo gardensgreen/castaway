@@ -79,6 +79,7 @@ function App() {
                                 setAuthenticated={setAuthenticated}
                             />
                             <Boat
+                                user={user}
                                 authenticated={authenticated}
                                 setAuthenticated={setAuthenticated}
                             />

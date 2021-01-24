@@ -70,7 +70,7 @@ const ActionButton = styled.button`
     }
 `;
 
-export default function Boat({ setAuthenticated, authenticated }) {
+export default function Boat({ user, setAuthenticated, authenticated }) {
     const { id } = useParams();
     const [anchorEl, setAnchorEl] = useState(null);
     const [boat, setBoat] = useState(null);
@@ -128,6 +128,7 @@ export default function Boat({ setAuthenticated, authenticated }) {
                                 handleClose={handleCloseLoginModal}
                             />
                             <ReservationModal
+                                userId={user?.id}
                                 boatPrice={boat?.price}
                                 boatName={boat?.name}
                                 boatId={boat?.id}
