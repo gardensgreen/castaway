@@ -25,7 +25,7 @@ const HeroBackground = styled.div`
 const HeroImage = styled.img`
     width: 55%;
     height: 55%;
-    margin-left: 10%;
+    margin-left: 0%;
     margin-right: 10%;
     margin-bottom: 20px;
 `;
@@ -110,7 +110,7 @@ const Description = styled.p`
     color: #666;
 `;
 
-export default function Hero( ) {
+export default function Hero() {
     const history = useHistory();
 
     return (
