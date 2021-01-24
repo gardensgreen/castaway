@@ -26,5 +26,6 @@ class Reservation(db.Model):
             "total": self.total,
             "createdAt": self.created_at,
             "userId": self.user_id,
-            "boatId": self.boat_id
+            "boatId": self.boat_id,
+            "boat": self.boat.to_dict_no_photos()
         }
