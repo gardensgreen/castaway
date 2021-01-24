@@ -31,7 +31,11 @@ export default function Trips({}) {
         color: #666;
     `;
 
-    const ReservationsContainer = styled.div``;
+    const ReservationsContainer = styled.div`
+        display: flex;
+        flex-direction: column;
+        margin-top: 20px;
+    `;
 
     return (
         <ReservationsPageContainer>
@@ -39,6 +43,7 @@ export default function Trips({}) {
             <ReservationsPageSubHeader>
                 You have upcoming trips. Manage and view your bookings here.
             </ReservationsPageSubHeader>
+            <ReservationsContainer></ReservationsContainer>
         </ReservationsPageContainer>
     );
 }
