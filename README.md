@@ -1,6 +1,38 @@
-# Sailbnb
+<img src="./readme_images/CastawayLogo.png" width="300">
+<br/>
+Castaway is a simple yet powerful boat rental platform that allows users to find boat listings near them to rent for a certain number of days. It leverages Google's Locational Services and APIs to power search and maps.
 
-Airbnb inspired Boat Renting Site
+## Demo
+
+Here is a working live demo: [Demo](https://castaway-app.herokuapp.com/)
+
+## Dependencies
+
+#### Backend
+
+-   Flask
+-   SQLAlchemy
+-   WTForms
+-   Flask Login
+-   Flask JWT
+-   Werkzeug
+-   Psycopg2
+
+#### Frontend
+
+-   React
+-   Material UI
+-   Styled Components
+-   Moment
+-   Google Maps React
+-   Use Places Autocomplete
+-   React Particles
+-   React Spring
+-   HTTP Proxy Middleware
+
+## Application Architecture
+
+Castaway's backend was built using Flask for Python. The server has a RESTful API layer for all CRUD actions. It is connected to a PostgreSQl database which leverages the SQLAlchemy ORM for information retrieval and data manipulation.
 
 ### MVP
 
@@ -18,17 +50,6 @@ Airbnb inspired Boat Renting Site
 ### Database Schema
 
 <img src="./readme_images/database_schema.png"/>
-
-### Technologies being used
-
--   Flask
--   SQLAlchemy
--   Flask WTF
--   React
--   Redux
--   JWT
--   Bcrypt
--   Bootstrap
 
 ### Routes
 
