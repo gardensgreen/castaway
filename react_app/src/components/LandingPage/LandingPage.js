@@ -3,6 +3,7 @@ import React from "react";
 import Hero from "./Hero";
 
 export default function LandingPage({ setAuthenticated }) {
+    window.document.title = "Castaway | Landing";
     return (
         <div style={{ overflowY: "hidden", overflowX: "hidden" }}>
             <Hero setAuthenticated={setAuthenticated} />

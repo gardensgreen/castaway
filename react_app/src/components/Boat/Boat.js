@@ -79,6 +79,7 @@ export default function Boat({ setAuthenticated, authenticated }) {
     const [pathName, setPathName] = useState(window.location.pathname);
     const open = Boolean(anchorEl);
 
+    window.document.title = "Castaway | Boat Listing";
     useEffect(() => {
         (async () => {
             if (id) {

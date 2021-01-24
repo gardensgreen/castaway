@@ -47,6 +47,8 @@ export default function Home() {
         })();
     }, []);
 
+    window.document.title = "Castaway | Boat Rentals";
+
     return (
         <>
             {searchTerm === "Miami, FL, USA" ? (
