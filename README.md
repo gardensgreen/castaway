@@ -32,7 +32,7 @@ Here is a working live demo: [Demo](https://castaway-app.herokuapp.com/)
 
 ## Application Architecture
 
-Castaway's backend was built using Flask for Python. The server has a RESTful API layer for all CRUD actions. It is connected to a PostgreSQl database which leverages the SQLAlchemy ORM for information retrieval and data manipulation.
+Castaway's backend was built using Flask for Python. The server has a RESTful API layer for all CRUD actions. It is connected to a PostgreSQL database which leverages the SQLAlchemy ORM for information retrieval and data manipulation. The frontend was built using React and Hooks, and uses built-in context for client storage and global state management. All ougoing client requests are proxied to Flask server.
 
 ## Features
 
