@@ -4,6 +4,7 @@ from flask_login import UserMixin
 from sqlalchemy.orm import relationship
 from werkzeug.security import generate_password_hash, check_password_hash
 
+from .like import Like
 from .reservation import Reservation
 
 
@@ -21,6 +22,8 @@ class User(db.Model, UserMixin):
     createdAt = db.Column(db.DateTime, default=datetime.now())
     boats = relationship("Boat", backref="boats")
     reservations = relationship("Reservation", backref="reservations")
+    liked_boats = relationship("Boat", secondary=Like,
+                               back_populates="likingUsers")
 
     @property
     def password(self):
@@ -44,5 +47,6 @@ class User(db.Model, UserMixin):
             "bio": self.bio,
             "createdAt": self.createdAt,
             "boats": [boat.to_dict_no_owner() for boat in self.boats],
-            "reservations": [reservation.to_dict() for reservation in self.reservations]
+            "reservations": [reservation.to_dict() for reservation in self.reservations],
+            "likedBoats": [boat.to_dict_no_owner() for boat in liked_boats]
         }
