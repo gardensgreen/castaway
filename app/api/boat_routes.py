@@ -83,3 +83,19 @@ def create_boat():
         return jsonify(boat.to_dict())
     else:
         return jsonify({'errors': validation_errors_to_error_messages(form.errors)}), 401
+
+
+@boat_routes.route('/<int:id>/likes', methods=["POST"])
+def likePost(id):
+    boat = Boat.query.get(id)
+
+    user = User.query.get(request.json["userId"])
+    likingUserIds = {u.id: True for u in boat.liking_users}
+    if user.id not in likingUserIds:
+        boat.liking_users.append(user)
+        db.session.commit()
+        return jsonify(boat.to_dict())
+    else:
+        boat.liking_users.remove(user)
+        db.session.commit()
+        return jsonify(boat.to_dict())
