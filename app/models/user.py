@@ -4,6 +4,7 @@ from flask_login import UserMixin
 from sqlalchemy.orm import relationship
 from werkzeug.security import generate_password_hash, check_password_hash
 
+from .like import Like
 from .reservation import Reservation
 
 
@@ -21,6 +22,8 @@ class User(db.Model, UserMixin):
     createdAt = db.Column(db.DateTime, default=datetime.now())
     boats = relationship("Boat", backref="boats")
     reservations = relationship("Reservation", backref="reservations")
+    liked_boats = relationship("Boat", secondary=Like,
+                               back_populates="liking_users")
 
     @property
     def password(self):
@@ -43,6 +46,52 @@ class User(db.Model, UserMixin):
             "avatarUrl": self.avatarUrl,
             "bio": self.bio,
             "createdAt": self.createdAt,
+            "boats": [boat.id for boat in self.boats],
+            "reservations": [reservation.id for reservation in self.reservations],
+            "likedBoats": [boat.id for boat in self.liked_boats]
+        }
+
+    def to_dict_boats(self):
+        return {
+            "id": self.id,
+            "email": self.email,
+            "firstName": self.firstName,
+            "lastName": self.lastName,
+            "isHost": self.isHost,
+            "avatarUrl": self.avatarUrl,
+            "bio": self.bio,
+            "createdAt": self.createdAt,
             "boats": [boat.to_dict_no_owner() for boat in self.boats],
-            "reservations": [reservation.to_dict() for reservation in self.reservations]
+            "reservations": [reservation.id for reservation in self.reservations],
+            "likedBoats": [boat.id for boat in self.liked_boats]
+        }
+
+    def to_dict_reservations(self):
+        return {
+            "id": self.id,
+            "email": self.email,
+            "firstName": self.firstName,
+            "lastName": self.lastName,
+            "isHost": self.isHost,
+            "avatarUrl": self.avatarUrl,
+            "bio": self.bio,
+            "createdAt": self.createdAt,
+            "boats": [boat.id for boat in self.boats],
+            "reservations": [reservation.to_dict() for reservation in self.reservations],
+            "likedBoats": [boat.id for boat in self.liked_boats]
+        }
+
+    def to_dict_likes(self):
+        return {
+            "id": self.id,
+            "email": self.email,
+            "firstName": self.firstName,
+            "lastName": self.lastName,
+            "isHost": self.isHost,
+            "avatarUrl": self.avatarUrl,
+            "bio": self.bio,
+            "createdAt": self.createdAt,
+            "boats": [boat.id for boat in self.boats],
+            "reservations": [reservation.id for reservation in self.reservations],
+            "likedBoats": [boat.to_dict() for boat in self.liked_boats]
         }

@@ -18,6 +18,17 @@ export const getBoat = async (boatId) => {
     return await response.json();
 };
 
+export const likeBoat = async (boatId) => {
+    const response = await fetch(`/api/boats/${boatId}/likes`, {
+        headers: {
+            "Content-Type": "application/json",
+        },
+        method: "POST",
+    });
+
+    return await response.json();
+};
+
 export const reserveBoat = async (boatId, startDate, endDate, total) => {
     const response = await fetch(`/api/boats/${boatId}/reservations`, {
         method: "POST",

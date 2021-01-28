@@ -1,6 +1,7 @@
 from .db import db
 from sqlalchemy.orm import relationship
 from datetime import datetime
+from .like import Like
 
 
 """
@@ -41,6 +42,8 @@ class Boat(db.Model):
 
     photos = relationship("Media", backref="media")
     owner = relationship("User")
+    liking_users = relationship(
+        "User", secondary=Like, back_populates="liked_boats")
 
     def to_dict(self):
         return {
@@ -67,6 +70,8 @@ class Boat(db.Model):
             "ownerId": self.owner_id,
             "owner": self.owner.to_dict(),
             "photos": [photo.to_dict() for photo in self.photos],
+            "likingUsers": [user.id for user in self.liking_users],
+            "likes": len(self.liking_users)
         }
 
     def to_dict_no_owner(self):

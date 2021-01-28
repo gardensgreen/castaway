@@ -21,3 +21,10 @@ def get_user(id):
 def get_reservations_for_user(id):
     reservations = Reservation.query.filter_by(user_id=id).all()
     return jsonify([reservation.to_dict() for reservation in reservations])
+
+
+@user_routes.route("/<int:id>/likes")
+def get_likes_for_user(id):
+    user = User.query.get(id)
+    if user:
+        return jsonify([boat for boat in user.to_dict_likes()["likedBoats"]])

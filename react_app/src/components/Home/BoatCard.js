@@ -1,6 +1,7 @@
 import React, { useEffect, useState } from "react";
 import { Link } from "react-router-dom";
 import styled from "styled-components";
+import { likeBoat } from "../../services/boats";
 
 const CardContainer = styled.div`
     display: flex;
@@ -33,11 +34,18 @@ const FeaturesBar = styled.div`
     margin: 10px 10px;
 `;
 
+const CardHeaderContainer = styled.div`
+    display: flex;
+    justify-content: space-between;
+    width: 95%;
+    height: 100%;
+    align-items: center;
+    margin-top: 10px;
+`;
 const CardHeader = styled.span`
     font-size: 1.2em;
     font-weight: 700;
     margin: 0px 20px;
-    margin-top: 10px;
 `;
 
 const AmenityIcon = styled.i`
@@ -73,30 +81,48 @@ const getAmenitiesList = (boat) => {
 
 export default function BoatCard({ boat }) {
     const [amenities, setAmenities] = useState([]);
+    const [boaty, setBoaty] = useState(boat);
+
+    const handleLike = async (e) => {
+        e.stopPropagation();
+        e.preventDefault();
+        let like = await likeBoat(boat.id);
+        setBoaty(like);
+    };
 
     useEffect(() => {
-        const amenitiesList = getAmenitiesList(boat);
+        const amenitiesList = getAmenitiesList(boaty);
         setAmenities(amenitiesList);
-    }, [boat]);
+    }, [boaty]);
 
     return (
-        <BoatLink to={`/boats/${boat?.id}`}>
+        <BoatLink to={`/boats/${boaty?.id}`}>
             <CardContainer>
                 <CardImage
                     style={{
-                        backgroundImage: `url(${boat.photos[0].mediaUrl})`,
+                        backgroundImage: `url(${boaty.photos[0].mediaUrl})`,
                     }}
                 />
-                <CardHeader>
-                    {boat.name.length <= 20
-                        ? boat.name
-                        : boat.name.slice(0, 20) + ".."}
-                </CardHeader>
+                <CardHeaderContainer>
+                    <CardHeader>
+                        {boaty.name.length <= 20
+                            ? boaty.name
+                            : boaty.name.slice(0, 20) + ".."}
+                    </CardHeader>
+                    <PeopleSpan>
+                        <i
+                            onClick={handleLike}
+                            className="fas fa-heart fa-1x"
+                            style={{ marginRight: "10px", fill: "#FAFAFA" }}
+                        ></i>
+                        {boaty.likes}
+                    </PeopleSpan>
+                </CardHeaderContainer>
 
                 <InfoHolder>
                     <PeopleSpan>
                         <AmenityIcon className="fas fa-users fa-1x"></AmenityIcon>
-                        {boat.totalOccupancy}
+                        {boaty.totalOccupancy}
                     </PeopleSpan>
                     <FeaturesBar>
                         {amenities &&
@@ -147,7 +173,7 @@ export default function BoatCard({ boat }) {
                                 }
                             })}
                     </FeaturesBar>
-                    <PriceSpan>${boat.price}/day</PriceSpan>
+                    <PriceSpan>${boaty.price}/day</PriceSpan>
                 </InfoHolder>
             </CardContainer>
         </BoatLink>

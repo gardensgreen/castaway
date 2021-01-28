@@ -224,6 +224,11 @@ export default function UserMenu({ authenticated, setAuthenticated, user }) {
                 >
                     Trips
                 </UserMenuPopUpItem>
+                <UserMenuPopUpItem
+                    onClick={(e) => history.push(`/users/${user.id}/likes`)}
+                >
+                    Likes
+                </UserMenuPopUpItem>
                 <UserMenuPopUpItem onClick={onLogout}>Logout</UserMenuPopUpItem>
             </UserMenuPopUp>
         </>
