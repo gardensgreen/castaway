@@ -11,6 +11,7 @@ import Boat from "./components/Boat/Boat";
 import Home from "./components/Home/Home";
 import { SearchProvider } from "./SearchContext";
 import Trips from "./components/Trips/Trips";
+import Likes from "./components/Likes/Likes";
 const theme = createMuiTheme({
     typography: {
         fontFamily: "Montserrat, sans-serif",
@@ -85,13 +86,21 @@ function App() {
                             />
                         </Route>
 
-                        <Route path="/users/:userId/reservations">
+                        <Route path="/users/:userId/reservations" exact={true}>
                             <NavBar
                                 user={user}
                                 authenticated={authenticated}
                                 setAuthenticated={setAuthenticated}
                             />
                             <Trips />
+                        </Route>
+                        <Route path="/users/:userId/likes">
+                            <NavBar
+                                user={user}
+                                authenticated={authenticated}
+                                setAuthenticated={setAuthenticated}
+                            />
+                            <Likes />
                         </Route>
                     </Switch>
                 </SearchProvider>
