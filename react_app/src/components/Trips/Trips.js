@@ -16,8 +16,8 @@ export default function Trips({}) {
     }, []);
 
     const ReservationsPageContainer = styled.div`
-        margin-top: 205px;
-        margin-left: 150px;
+        margin-top: 195px;
+        margin-left: 305px;
     `;
 
     const ReservationsPageHeader = styled.h1`

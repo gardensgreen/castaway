@@ -71,7 +71,7 @@ function App() {
                                 authenticated={authenticated}
                                 setAuthenticated={setAuthenticated}
                             />
-                            <Home />
+                            <Home user={user} />
                         </Route>
                         <Route path="/boats/:id">
                             <NavBar

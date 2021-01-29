@@ -79,20 +79,23 @@ const getAmenitiesList = (boat) => {
     return al;
 };
 
-export default function BoatCard({ boat }) {
+export default function BoatCard({ boat, user }) {
     const [amenities, setAmenities] = useState([]);
     const [boaty, setBoaty] = useState(boat);
+    const [liked, setLiked] = useState(false);
 
     const handleLike = async (e) => {
         e.stopPropagation();
         e.preventDefault();
         let like = await likeBoat(boat.id);
+        setLiked(!liked);
         setBoaty(like);
     };
 
     useEffect(() => {
         const amenitiesList = getAmenitiesList(boaty);
         setAmenities(amenitiesList);
+        setLiked(boaty.likingUsers.includes(user.id));
     }, [boaty]);
 
     return (
@@ -110,11 +113,37 @@ export default function BoatCard({ boat }) {
                             : boaty.name.slice(0, 20) + ".."}
                     </CardHeader>
                     <PeopleSpan>
-                        <i
-                            onClick={handleLike}
-                            className="fas fa-heart fa-1x"
-                            style={{ marginRight: "10px", fill: "#FAFAFA" }}
-                        ></i>
+                        {user ? (
+                            boat && liked ? (
+                                <i
+                                    onClick={handleLike}
+                                    className="fas fa-heart fa-1x"
+                                    style={{
+                                        marginRight: "10px",
+                                        color: "#3f51fb",
+                                    }}
+                                ></i>
+                            ) : (
+                                <i
+                                    onClick={handleLike}
+                                    className="fas fa-heart fa-1x"
+                                    style={{
+                                        marginRight: "10px",
+                                        color: "black",
+                                    }}
+                                ></i>
+                            )
+                        ) : (
+                            <i
+                                onClick={handleLike}
+                                className="fas fa-heart fa-1x"
+                                style={{
+                                    marginRight: "10px",
+                                    color: "black",
+                                }}
+                            ></i>
+                        )}
+
                         {boaty.likes}
                     </PeopleSpan>
                 </CardHeaderContainer>

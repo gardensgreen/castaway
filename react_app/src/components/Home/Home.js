@@ -36,7 +36,7 @@ const NoBoatsSubTitle = styled.h2`
     font-weight: 500;
     margin-left: 100px;
 `;
-export default function Home() {
+export default function Home({ user }) {
     const searchTerm = useSearch();
     const [boats, setBoats] = useState();
     useEffect(() => {
@@ -58,7 +58,11 @@ export default function Home() {
                             <BoatList>
                                 {boats &&
                                     boats.map((boat) => (
-                                        <BoatCard key={boat.id} boat={boat} />
+                                        <BoatCard
+                                            key={boat.id}
+                                            boat={boat}
+                                            user={user}
+                                        />
                                     ))}
                             </BoatList>
                             <Map boats={boats} />
