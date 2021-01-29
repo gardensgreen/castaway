@@ -42,12 +42,15 @@ Castaway's backend was built using Flask for Python. The server has a RESTful AP
 -   Boat Listings with Map
 -   Reservations
 -   Location Search
+-   Likes
 
-### Bonus Features
+### Future Features
 
+-   Host Dashboard
 -   Reviews
+-   Availability check for reservations
+-   Boat Retrieval Algorithm
 -   Messaging
--   User/Host Profiles
 
 ## Database Schema
 
