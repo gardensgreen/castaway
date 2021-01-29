@@ -97,7 +97,7 @@ class Boat(db.Model):
             "latitude": f"{self.latitude}",
             "longitude": f"{self.longitude}",
             "ownerId": self.owner_id,
-            "likingUsers": self.liking_users,
+            # "likingUsers": self.liking_users,
             "photos": [photo.to_dict() for photo in self.photos],
         }
 
